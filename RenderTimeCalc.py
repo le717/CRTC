@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3
+
 # ##### BEGIN GPL LICENSE BLOCK #####
 #
 # This program is free software; you can redistribute it and/or
@@ -32,10 +34,8 @@ creator = "le717 and rioforce"
 
 # ASCII Blender logo. Displayed upon app exit.
 
-logo = '''                                   
-                                   
-                                   
-                 ::                
+logo = '''
+
                 ;ii:               
                 ;iiii;.            
                  ;iiiii            
@@ -66,16 +66,16 @@ logo = '''
                                    '''
 
 def preload():
-    '''Python 3.3 version check'''
-    # You need to have at least Python 3.3 to run this program.
-    if sys.version_info < (3,3):
-        print("You need to download Python 3.3 or greater to run {0} {1}.".format(app, majver))
+    '''Python 3.2 version check'''
+    # You need to have at least Python 3.2 to run this program.
+    if sys.version_info < (3,2):
+        print("You need to download Python 3.2 or greater to run {0} {1}.".format(app, majver))
          # Don't open browser immediately
         time.sleep(2)
         webbrowser.open("http://python.org/download", new=2, autoraise=True) # Open in new tab, raise browser window (if possible)
         # It automatically closes after this
         time.sleep(5) 
-    # If you are running Python 3.3     
+    # If you are running Python 3.2     
     else:
         main()
 
