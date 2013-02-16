@@ -182,7 +182,7 @@ def tilevideorender(tileseconds):
     # Catch any non-numerical input     
     except ValueError:
         print("That is an invalid input. Please try again.\n")
-        tilevideorender(tileminutes)
+        tilevideorender(tileseconds)
 
 def layerrender():
     '''Calculates Image Render Time (Using Progessive Refine)'''
