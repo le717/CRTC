@@ -68,7 +68,7 @@ logo = '''
 def preload():
     '''Python 3.3 version check'''
     # You need to have at least Python 3.3 to run this program.
-    if sys.version_info < (3,4):
+    if sys.version_info < (3,3):
         print("You need to download Python 3.3 or greater to run {0} {1}.".format(app, majver))
          # Don't open browser immediately
         time.sleep(2)
@@ -84,11 +84,16 @@ def main():
     print() # Blank space helps keep it all nice and neat
     print("{0}\nCopyright 2013 {1}".format(app, creator))
     print('''\nPlease make a selection:\n
+[p] Render Using Progressive Refine
 [t] Render Using Tiles
 [q] Quit''')
     menuopt = input("\n> ")
     while True:
-        if menuopt.lower() == "t":
+        if menuopt.lower() == "p":
+            print("prorefrender()")
+            #prorefrender()
+            raise SystemExit
+        elif menuopt.lower() == "t":
             tilerender()
         elif menuopt.lower() == "q":
             print(logo)
@@ -149,10 +154,10 @@ def tilerender():
     if video.lower() != "y": # No, I am not
         main()
     else: 
-        videorender(minutes) # Yes, I am
+        tilevideorender(minutes) # Yes, I am
             
 
-def videorender(minutes):
+def tilevideorender(minutes):
     '''Calculates Animation Render Time (Using Tiles)'''
     try:
         time.sleep(0.2) # Sleep for a tiny bit so the text doesn't "jump" at you (and same everywhere else)
@@ -173,8 +178,13 @@ def videorender(minutes):
     # Catch any non-numeral input     
     except ValueError:
         print("That is an invalid input. Please try again.\n")
-        videorender(minutes)  
-    
+        videorender(minutes)
+
+#def prorefrender():
+    #try:
+        #layernum = int(input("How many layers are in your render? "))
+        #layerrendertime = float(input("How longs does a single layer take to render (in seconds)? "))
+        
 if __name__ == "__main__":
     preload()
 # Display complete app info if imported as a module    

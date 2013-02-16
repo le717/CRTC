@@ -13,7 +13,7 @@ born. Using my knowledge of Python 3 and his Blender skills, we created this sma
 How It Works
 ------------
 
-Currently, it only supports the Cycles Engine and rendering with tiles. Support for Progressive Refinement and Blender Engine is planned if possible. 
+Currently, it supports the Cycles Engine with Tiles and the Progressive Refine method. Blender Engine support is planned if possible. 
 
 You simply need to input the number of tiles it takes to render your image, and how long it takes to render a single tile. This info can easily be found
 in the Render Window. **Render Time Calculator** will then calculate an approximate render time. If you are rendering an animation (AKA video or "multi-frame" 
