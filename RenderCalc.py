@@ -84,17 +84,17 @@ def main():
     print() # Blank space helps keep it all nice and neat
     print("{0}\nCopyright 2013 {1}".format(app, creator))
     print('''\nPlease make a selection:\n
-[p] Render Using Progressive Refine
 [t] Render Using Tiles
+[p] Render Using Progressive Refine
 [q] Quit''')
     menuopt = input("\n> ")
     while True:
-        if menuopt.lower() == "p":
+        if menuopt.lower() == "t":
+            tilerender()
+        elif menuopt.lower() == "p":
             print("prorefrender()")
             #prorefrender()
-            raise SystemExit
-        elif menuopt.lower() == "t":
-            tilerender()
+            raise SystemExit    
         elif menuopt.lower() == "q":
             print(logo)
             raise SystemExit
@@ -131,21 +131,21 @@ def tilerender():
         numtiles = int(input("\nHow many tiles are in your render? "))
         tilerendertime = float(input("How long does a single tile take to render (in seconds)? "))
         # Mathamatical functions
-        seconds = (numtiles * tilerendertime)
-        global minutes
-        minutes = (seconds / 60)
-        hours = (seconds / 3600)
+        tileseconds = (numtiles * tilerendertime)
+        global tileminutes
+        tileminutes = (tileseconds / 60)
+        tilehours = (tileseconds / 3600)
         # It will take over an hour
-        if seconds >= 3600.0:
-            print("\nIt will take approximately {0} hours to render your image.\n".format(round(hours, 2)))
+        if tileseconds >= 3600.0:
+            print("\nIt will take approximately {0} hours to render your image.\n".format(round(tilehours, 2)))
         # It will take over a minute but less than an hour
-        elif seconds >= 60.0 and seconds < 3599.9:
+        elif tileseconds >= 60.0 and tileseconds < 3599.9:
             time.sleep(0.2)
-            print("\nIt will take approximately {0} minutes to render your image.\n".format(round(minutes, 2)))
+            print("\nIt will take approximately {0} minutes to render your image.\n".format(round(tileminutes, 2)))
         #It will take only seconds    
         else:
             time.sleep(0.2)
-            print("\nIt will take approximately {0} seconds to render your image.\n".format(round(seconds, 2)))
+            print("\nIt will take approximately {0} seconds to render your image.\n".format(round(tileseconds, 2)))
     # Catch any non-numerical input        
     except ValueError:
         print("That is an invalid input. Please try again.\n")
@@ -154,36 +154,38 @@ def tilerender():
     if video.lower() != "y": # No, I am not
         main()
     else: 
-        tilevideorender(minutes) # Yes, I am
+        tilevideorender(tileminutes) # Yes, I am
             
 
-def tilevideorender(minutes):
+def tilevideorender(tileminutes):
     '''Calculates Animation Render Time (Using Tiles)'''
     try:
         time.sleep(0.2) # Sleep for a tiny bit so the text doesn't "jump" at you (and same everywhere else)
-        framenumber = int(input("\nHow many frames are in your animation? "))
+        tileframenumber = int(input("\nHow many frames are in your animation? "))
         # More mathamatical functions 
-        videominutes = (minutes * framenumber)
-        videohours = (videominutes / 60)
+        tilevideominutes = (tileminutes * tileframenumber)
+        tilevideohours = (tilevideominutes / 60)
         # It will take over an hour
-        if videominutes >= 60.0:
+        if tilevideominutes >= 60.0:
             time.sleep(0.2)
-            print("\nIt will take approximately {0} hours to render your animation.\n".format(round(videohours, 2)))
+            print("\nIt will take approximately {0} hours to render your animation.\n".format(round(tilevideohours, 2)))
         # It will take only minutes    
         else:
             time.sleep(0.2)
-            print("\nIt will take approximately {0} minutes to render your animation.\n".format(round(videominutes, 2)))
+            print("\nIt will take approximately {0} minutes to render your animation.\n".format(round(tilevideominutes, 2)))
         time.sleep(0.6)
         main()
     # Catch any non-numeral input     
     except ValueError:
         print("That is an invalid input. Please try again.\n")
-        videorender(minutes)
+        videorender(tileminutes)
 
-#def prorefrender():
-    #try:
-        #layernum = int(input("How many layers are in your render? "))
-        #layerrendertime = float(input("How longs does a single layer take to render (in seconds)? "))
+def prorefrender():
+    try:
+        layernum = int(input("How many layers are in your render? "))
+        layerrendertime = float(input("How longs does a single layer take to render (in seconds)? "))
+        # Mathamatical functionss
+        
         
 if __name__ == "__main__":
     preload()
