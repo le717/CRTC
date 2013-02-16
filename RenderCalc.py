@@ -92,9 +92,9 @@ def main():
         if menuopt.lower() == "t":
             tilerender()
         elif menuopt.lower() == "p":
-            print("prorefrender()")
-            #prorefrender()
-            raise SystemExit    
+            print("layerrender()")
+            layerrender()
+            #raise SystemExit    
         elif menuopt.lower() == "q":
             print(logo)
             raise SystemExit
@@ -137,6 +137,7 @@ def tilerender():
         tilehours = (tileseconds / 3600)
         # It will take over an hour
         if tileseconds >= 3600.0:
+            time.sleep(0.2)
             print("\nIt will take approximately {0} hours to render your image.\n".format(round(tilehours, 2)))
         # It will take over a minute but less than an hour
         elif tileseconds >= 60.0 and tileseconds < 3599.9:
@@ -150,8 +151,8 @@ def tilerender():
     except ValueError:
         print("That is an invalid input. Please try again.\n")
         tilerender()
-    video = input("Are you rendering an animation? ") # AKA video or "multi-frame" animation
-    if video.lower() != "y": # No, I am not
+    tilevideo = input("Are you rendering an animation? ") # AKA video or "multi-frame" animation
+    if tilevideo.lower() != "y": # No, I am not
         main()
     else: 
         tilevideorender(tileminutes) # Yes, I am
@@ -180,11 +181,34 @@ def tilevideorender(tileminutes):
         print("That is an invalid input. Please try again.\n")
         videorender(tileminutes)
 
-def prorefrender():
+def layerrender():
     try:
         layernum = int(input("How many layers are in your render? "))
         layerrendertime = float(input("How longs does a single layer take to render (in seconds)? "))
         # Mathamatical functionss
+        layerseconds = (layernum * layerrendertime)
+        global layerminutes
+        layerminutes = (layerseconds / 60)
+        layerhours = (layerseconds / 3600)
+        if layerseconds >= 3600.0:
+            time.sleep(0.2)
+            print("\nIt will take approximately {0} hours to render your image.\n".format(round(layerhours, 2)))
+        elif layerseconds >= 60.0 and layerseconds < 3599.9:
+            time.sleep(0.2)
+            print("\nIt will take approximately {0} minutes to render your image.\n".format(round(layerminutes, 2)))
+        else:
+            time.sleep(0.2)
+            print("\nIt will take approximately {0} seconds to render your image.\n".format(round(layerseconds, 2)))
+    except ValueError:
+        print("That is an invalid input. Please try again.\n")
+        layerrender()
+    layervideo = input("Are you rendering an animation? ") # AKA video or "multi-frame" animation
+    if layervideo.lower() != "y": # No, I am not
+        main()
+    else: 
+        #layervideorender(layerminutes) # Yes, I am
+        raise SystemExit
+            
         
         
 if __name__ == "__main__":
