@@ -153,6 +153,7 @@ def tilerender():
         tilerender()
     tilevideo = input("Are you rendering an animation? ") # AKA video or "multi-frame" animation
     if tilevideo.lower() != "y": # No, I am not
+        time.sleep(0.2)
         main()
     else: 
         tilevideorender(tileminutes) # Yes, I am
@@ -176,16 +177,19 @@ def tilevideorender(tileminutes):
             print("\nIt will take approximately {0} minutes to render your animation.\n".format(round(tilevideominutes, 2)))
         time.sleep(0.6)
         main()
-    # Catch any non-numeral input     
+    # Catch any non-numerical input     
     except ValueError:
         print("That is an invalid input. Please try again.\n")
-        videorender(tileminutes)
+        tilevideorender(tileminutes)
 
 def layerrender():
+    '''Calculates Image Render Time (Using Progessive Refine)'''
+    '''Progressive Refine Image and Animation render is just the Tile render code adapted to
+support the Progressive Refine method. Therefore, I've omitted the comments'''
     try:
         layernum = int(input("How many layers are in your render? "))
         layerrendertime = float(input("How longs does a single layer take to render (in seconds)? "))
-        # Mathamatical functionss
+        # Even more Mathamatical functions
         layerseconds = (layernum * layerrendertime)
         global layerminutes
         layerminutes = (layerseconds / 60)
@@ -202,13 +206,31 @@ def layerrender():
     except ValueError:
         print("That is an invalid input. Please try again.\n")
         layerrender()
-    layervideo = input("Are you rendering an animation? ") # AKA video or "multi-frame" animation
-    if layervideo.lower() != "y": # No, I am not
+    layervideo = input("Are you rendering an animation? ")          
+    if layervideo.lower() != "y": 
         main()
     else: 
-        #layervideorender(layerminutes) # Yes, I am
-        raise SystemExit
-            
+        layervideorender(layerminutes)
+        
+def layervideorender(layerminutes):
+    '''Calculates Animation Render Time (Using Progessive Refine)'''
+    try:
+        time.sleep(0.2)
+        layerframenumber = int(input("\nHow many frames are in your animation? "))
+        # Math is FUN!
+        layervideominutes = (layerminutes * layerframenumber)
+        layervideohours = (layervideominutes / 60)
+        if layervideominutes >= 60.0:
+            time.sleep(0.2)
+            print("\nIt will take approximately {0} hours to render your animation.\n".format(round(layervideohours, 2)))
+        else:
+            time.sleep(0.2)
+            print("\nIt will take approximately {0} minutes to render your animation.\n".format(round(layervideominutes, 2)))
+        time.sleep(0.6)
+        main()
+    except ValueError:
+        print("That is an invalid input. Please try again.\n")
+        layervideorender(layerminutes)            
         
         
 if __name__ == "__main__":
