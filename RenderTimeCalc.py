@@ -95,6 +95,7 @@ def main():
             layerrender()   
         elif menuopt.lower() == "q":
             print(logo)
+            time.sleep(2)
             raise SystemExit
         else:
             main()
@@ -188,8 +189,8 @@ def layerrender():
     '''Progressive Refine Image and Animation render is just the Tile render code adapted to
 support the Progressive Refine method. Therefore, I've omitted the comments'''
     try:
-        layernum = int(input("How many layers are in your render? "))
-        layerrendertime = float(input("How longs does a single layer take to render (in seconds)? "))
+        layernum = int(input("\nHow many layers are in your render? "))
+        layerrendertime = float(input("How long does a single layer take to render (in seconds)? "))
         # Even more Mathamatical functions
         global layerseconds
         layerseconds = (layernum * layerrendertime)
