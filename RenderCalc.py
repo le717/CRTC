@@ -17,17 +17,17 @@
 # ##### END GPL LICENSE BLOCK #####
 
 
-# Cycles Render Calculator V1.0 Beta 1
+# Cycles Render Time Calculator V1.0 Beta 2
 # Copyright 2013 le717
 # http://triangle717.wordpress.com
 # and rioforce
 # http://rioforce.wordpress.com
 
-import sys, time
+import sys, time, webbrowser
 
-app = "Cycles Render Calculator"
+app = "Cycles Render Time Calculator"
 majver = "Version 1.0"
-minver = "Beta 1"
+minver = "Beta 2"
 creator = "le717 and rioforce"
 
 # ASCII Blender logo. Displayed upon app exit.
@@ -67,12 +67,16 @@ logo = '''
 
 def preload():
     '''Python 3.3 version check'''
-    if sys.version_info < (3,3): # You need to have at least Python 3.3 to run this program.
+    # You need to have at least Python 3.3 to run this program.
+    if sys.version_info < (3,4):
         print("You need to download Python 3.3 or greater to run {0} {1}.".format(app, majver))
-        time.sleep(2) # Don't open browser immediately
+         # Don't open browser immediately
+        time.sleep(2)
         webbrowser.open("http://python.org/download", new=2, autoraise=True) # Open in new tab, raise browser window (if possible)
-        time.sleep(5) # It automatically closes after this
-    else: # If you are running Python 3.3
+        # It automatically closes after this
+        time.sleep(5) 
+    # If you are running Python 3.3     
+    else:
         main()
 
 def main():
@@ -120,20 +124,25 @@ def tilerender():
     '''Calculates Image Render Time (Using Tiles)'''
     try:
         numtiles = int(input("\nHow many tiles are in your render? "))
-        tilerendertime = int(input("How long does a single tile take to render (in seconds)? "))
+        tilerendertime = float(input("How long does a single tile take to render (in seconds)? "))
         # Mathamatical functions
         seconds = (numtiles * tilerendertime)
         global minutes
         minutes = (seconds / 60)
-        hours = (minutes / 60)
-        if seconds >= 60.0: # It will take over a minute
+        hours = (seconds / 3600)
+        # It will take over an hour
+        if seconds >= 3600.0:
+            print("\nIt will take approximately {0} hours to render your image.\n".format(round(hours, 2)))
+        # It will take over a minute but less than an hour
+        elif seconds >= 60.0 and seconds < 3599.9:
             time.sleep(0.2)
             print("\nIt will take approximately {0} minutes to render your image.\n".format(round(minutes, 2)))
-        else: #It will take only a few seconds
+        #It will take only seconds    
+        else:
             time.sleep(0.2)
             print("\nIt will take approximately {0} seconds to render your image.\n".format(round(seconds, 2)))
-            # TODO: Possibly add an hour slot. Not currently available due to odd bug
-    except ValueError: # Catch any non-numeral input
+    # Catch any non-numerical input        
+    except ValueError:
         print("That is an invalid input. Please try again.\n")
         tilerender()
     video = input("Are you rendering an animation? ") # AKA video or "multi-frame" animation
@@ -151,20 +160,24 @@ def videorender(minutes):
         # More mathamatical functions 
         videominutes = (minutes * framenumber)
         videohours = (videominutes / 60)
-        if videominutes >= 60.0: # It will take over an hour
+        # It will take over an hour
+        if videominutes >= 60.0:
             time.sleep(0.2)
             print("\nIt will take approximately {0} hours to render your animation.\n".format(round(videohours, 2)))
-        else: # It will take only minutes
+        # It will take only minutes    
+        else:
             time.sleep(0.2)
             print("\nIt will take approximately {0} minutes to render your animation.\n".format(round(videominutes, 2)))
         time.sleep(0.6)
         main()
-    except ValueError: # Catch any non-numeral input
+    # Catch any non-numeral input     
+    except ValueError:
         print("That is an invalid input. Please try again.\n")
         videorender(minutes)  
     
 if __name__ == "__main__":
     preload()
-else: # Display app info if imported
+# Display complete app info if imported as a module    
+else: 
     print("{0} {1} {2}\nCopyright 2013 {3}".format(app, majver, minver, creator))
     
