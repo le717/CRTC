@@ -14,7 +14,7 @@ How It Works
 ------------
 
 **Cycles Render Time Calculator** supports both the Tile and Progressive Refine render methods for both still images and animations, as well as a general 
-animation render (render engine neutral). Blender Internal is not supported, and if it were, it would not have Cycles in the name.
+animation render (render engine neutral). Blender Render is not supported, and if it were, it would not have Cycles in the name.
 
 For tile render, simply enter the number of tiles it takes to render your image, and how long it takes (in seconds) to render a single tile (milliseconds 
 are supported). This info can easily be found in the Render Window. **Cycles Render Time Calculator** will then calculate an approximate render time. If you 
