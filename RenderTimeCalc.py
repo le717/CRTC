@@ -19,7 +19,7 @@
 # ##### END GPL LICENSE BLOCK #####
 
 
-# Cycles Render Time Calculator V1.0 Beta 2
+# Cycles Render Time Calculator V1.1 Stable
 # Copyright 2013 le717
 # http://triangle717.wordpress.com
 # and rioforce
@@ -28,42 +28,9 @@
 import sys, time, webbrowser
 
 app = "Cycles Render Time Calculator"
-majver = "Version 1.0"
-minver = "Beta 2"
+majver = "Version 1.1"
+minver = "Stable"
 creator = "le717 and rioforce"
-
-# ASCII Blender logo. Displayed upon app exit.
-
-logo = '''
-
-                ;ii:               
-                ;iiii;.            
-                 ;iiiii            
-                  ;iiii;           
-                   iiiiii.         
-     .:,;;;;;i;;;;;;;itiii,        
-     ;ttiiiiiiiiititiiiiiii;.      
-     tiiiiiiiiiii;iiiiiiiiiti.     
-     .;,,,,,,iitiiiii,:;ititii:    
-          ..,tiiiii.    .:tiiii,   
-           .tiiti;.   .   ;ttiti:  
-          :iiiii;.  ,tfi.  ,iiit;  
-        .tittiti   EDDDDDE  :ttit  
-       :iitiiit;  tGDEDDDD. .;iii. 
-      ,titiiiit,  GEDDDDDDt  ,tit: 
-    .tiitttitit, .DDEDDEDDj  :iti, 
-  .:iitti;;iitt,  fDDEDDEE,  ,tti, 
-  ,ttitit..tttii  :DDDEDDE  .itti: 
- .jitttt; .ttitt   DEEDEEL  :ttti: 
-:ttiti:    ;ttti;.   .:    ;tittt  
-,tttt.     :ttttti.       itttttt  
-:ttt;       tttittt.    .,tiittti  
-            :jtittttttttttitttt;   
-             ,jtiititttttttttt;    
-              :ttttttttttttitj     
-               .tttttttttttji:     
-                  .;iiii;,.        
-                                   '''
 
 def preload():
     '''Python 3.2 version check'''
@@ -84,6 +51,7 @@ def main():
     print() # Blank space helps keep it all nice and neat
     print("{0}\nCopyright 2013 {1}".format(app, creator))
     print('''\nPlease make a selection:\n
+[a] Animation Render
 [t] Render Using Tiles
 [p] Render Using Progressive Refine
 [q] Quit''')
@@ -91,38 +59,47 @@ def main():
     while True:
         if menuopt.lower() == "t":
             tilerender()
+        elif menuopt.lower() == "a":
+            videorender()
         elif menuopt.lower() == "p":
-            layerrender()   
+            layerrender()
         elif menuopt.lower() == "q":
-            print(logo)
+            print("\nGoodbye!")
             time.sleep(2)
             raise SystemExit
         else:
             main()
 
-# Unused code. Might be repurposed later.
-
-##def sizerender():
-##    try:
-##        tilewdt = int(input("Please enter your tile width: "))
-##        tilehgt = int(input("Please enter your tile height: "))
-##        imagewdt = int(input("Please enter the width of your image: "))
-##        imagehgt = int(input("Please enter the height of your image: "))
-##        print("You are rendering a {0}x{1} image using {2}x{3} tiles.".format(imagewdt, imagehgt, tilewdt, tilehgt))
-##        confirmsizes = input("\nIs this correct?" + r"(y\N)" + "\n> ")
-##        if confirmsizes.lower() != "y":
-##            sizerender()
-##        else:
-##            tilerendertime = int(input("Please enter (using seconds) how long it takes a single tile to render using the above values: "))
-##            numtiles = (imagewdt / tilewdt) + (imagehgt / tilehgt)
-##            print("\nThere will be approximately {0} tiles.".format(round(numtiles, 2)))
-##            secrendertime = (tilerendertime * numtiles)
-##            minrendertime = (secrendertime / 60)
-##            print("It will take approximately {0} minutes to render your image.\n".format(round(minrendertime, 2)))            
-##            main()
-##    except ValueError:
-##        print("That is an invalid input. Please try again.\n")
-##        sizerender()
+def videorender():
+    '''Generic Animation Render Time'''
+    try:
+        videoframes = int(input("\nHow many frames are in your animation? "))
+        videoframetime = float(input("How long does a single frame take to render (in seconds)? "))
+        # Calculate the seconds, minutes, and hours
+        videoseconds = (videoframes * videoframetime)
+        videominutes = (videoseconds / 60)
+        videohours = (videoseconds / 3600)
+        # It will take over an hour to render
+        if videoseconds >= 3600.0:
+            time.sleep(0.2)
+            print("\nIt will take approximately {0} hours to render your animation.\n".format(round(videohours, 2)))
+            time.sleep(1)
+            main()
+        # It will take over a minute but less than an hour to render
+        elif videoseconds >= 60.0 and videoseconds < 3599.9:
+            time.sleep(0.2)
+            print("\nIt will take approximately {0} minutes to render your animation.\n".format(round(videominutes, 2)))
+            time.sleep(1)
+            main()
+        #It will take only seconds to render  
+        else:
+            time.sleep(0.2)
+            print("\nIt will take approximately {0} seconds to render your animation.\n".format(round(videoseconds, 2)))
+            time.sleep(1)
+            main()
+    except ValueError:
+        print("That is an invalid input. Please try again.\n")
+        videorender()
 
 def tilerender():
     '''Calculates Image Render Time (Using Tiles)'''
@@ -153,7 +130,7 @@ def tilerender():
     print("Are you rendering an animation? " + r"(y\N)") # AKA video or "multi-frame" animation
     tilevideo = input("\n> ")
     if tilevideo.lower() != "y": # No, I am not
-        time.sleep(0.2)
+        time.sleep(1)
         main()
     else: 
         tilevideorender(tileseconds) # Yes, I am
@@ -170,14 +147,16 @@ def tilevideorender(tileseconds):
         tilevideohours = (tilevideoseconds / 3600)
         # It will take over an hour
         if tilevideoseconds >= 3600.0:
+            time.sleep(0.2)
             print("\nIt will take approximately {0} hours to render your animation.\n".format(round(tilevideohours, 2)))
         # It will take over a minute but less than an hour 
         elif tilevideoseconds >= 60.0 and tilevideoseconds < 3599.9:
+            time.sleep(0.2)
             print("\nIt will take approximately {0} minutes to render your animation.\n".format(round(tilevideominutes, 2)))
         else:   
             time.sleep(0.2)
             print("\nIt will take approximately {0} seconds to render your animation.\n".format(round(tilevideoseconds, 2)))
-        time.sleep(0.6)
+        time.sleep(1)
         main()
     # Catch any non-numerical input     
     except ValueError:
@@ -187,7 +166,7 @@ def tilevideorender(tileseconds):
 def layerrender():
     '''Calculates Image Render Time (Using Progessive Refine)'''
     '''Progressive Refine Image and Animation render is just the Tile render code adapted to
-support the Progressive Refine method. Therefore, I've omitted the comments'''
+support the Progressive Refine method. Therefore, I've omitted the comments.'''
     try:
         layernum = int(input("\nHow many samples are in your render? "))
         layerrendertime = float(input("How long does a single sample take to render (in seconds)? "))
@@ -210,7 +189,8 @@ support the Progressive Refine method. Therefore, I've omitted the comments'''
         layerrender()
     print("Are you rendering an animation? " + r"(y\N)")
     layervideo = input("\n> ")
-    if layervideo.lower() != "y": 
+    if layervideo.lower() != "y":
+        time.sleep(1)
         main()
     else: 
         layervideorender(layerseconds)
@@ -225,6 +205,7 @@ def layervideorender(layerseconds):
         layervideominutes = (layervideoseconds / 60)
         layervideohours = (layervideoseconds / 3600)
         if layervideoseconds >= 3600.0:
+            time.sleep(0.2)
             print("\nIt will take approximately {0} hours to render your animation.\n".format(round(layervideohours, 2)))
         elif layervideoseconds >= 60.0 and layervideoseconds < 3599.9:
             time.sleep(0.2)
@@ -232,7 +213,7 @@ def layervideorender(layerseconds):
         else:
             time.sleep(0.2)
             print("\nIt will take approximately {0} seconds to render your animation.\n".format(round(layervideoseconds, 2)))
-        time.sleep(0.6)
+        time.sleep(1)
         main()
     except ValueError:
         print("That is an invalid input. Please try again.\n")
@@ -242,6 +223,7 @@ def layervideorender(layerseconds):
 if __name__ == "__main__":
     preload()
 # Display complete app info if imported as a module    
-else: 
+else:
+    print()
     print("{0} {1} {2}\nCopyright 2013 {3}".format(app, majver, minver, creator))
     
