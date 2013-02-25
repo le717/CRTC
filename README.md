@@ -33,6 +33,13 @@ the final render times will be different than the stated time. For example, it c
 
 Releases
 --------
+**Cycles Render Time Calculator** has had the following releases:
+
+* [Version 1.1 Stable - February 25, 2013](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.1Stable)
+* [Version 1.0 Beta 2 - February 16, 2013](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.0b2)
+
+Builds
+------
 
 * While **Cycles Render Time Calculator** is written in Python 3.3, it runs perfectly on Python 3.2. You will need to have a complete installation of Python 
 `>=` 3.2 to run the Python script directly. Any version of Python `<=` 3.1 (including 2.7) is not tested or supported, and a version check will prevent it from 
