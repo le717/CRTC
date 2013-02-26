@@ -1,7 +1,7 @@
 Cycles Render Time Calculator
 =============================
 
-This is the readme to **Cycles Render Time Calculator**, a [Python 3](http://www.python.org) application written by [le717](http://triangle717.wordpress.com) and [rioforce](rioforce.wordpress.com) to calculate render times in [Blender] (http://www.blender.org) when using the Cycles Engine.
+This is the readme to **Cycles Render Time Calculator**, a [Python](http://www.python.org) application written by [le717](http://triangle717.wordpress.com) and [rioforce](rioforce.wordpress.com) to calculate render times in [Blender] (http://www.blender.org) when using the Cycles Engine.
 
 Why Was This Created
 --------------------
@@ -35,17 +35,16 @@ Releases
 --------
 **Cycles Render Time Calculator** has had the following releases:
 
-* [Version 1.1 Stable - February 25, 2013](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.1Stable)
+* [Version 1.1/1.2 Stable - February 26, 2013](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.1Stable) [**](#builds)
 * [Version 1.0 Beta 2 - February 16, 2013](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.0b2)
 
 Builds
 ------
+* While **Cycles Render Time Calculator** was originally written in Python 3.3, as of version 1.2, it runs on both Python 2 and 3. It has successfully be 
+tested on Python 3.3.0 and 2.7.3 with no errors. No other versions have been tested. Further more, only *CyclesRenderTimeCalculator.py * has been upgraded to 
+1.2. The OS-specific builds are version 1.1, written with Python 3.3.0.
 
-* While **Cycles Render Time Calculator** is written in Python 3.3, it runs perfectly on Python 3.2. You will need to have a complete installation of Python 
-`>=` 3.2 to run the Python script directly. Any version of Python `<=` 3.1 (including 2.7) is not tested or supported, and a version check will prevent it from 
-running on unsupported versions.
-
-* Releases will be compiled into Windows x86, x64 EXEs and Mac OS X application using [cx_freeze](http://cx-freeze.sourceforge.net). 
+* Releases are compiled into Windows x86, x64 EXEs and Mac OS X application using [cx_freeze](http://cx-freeze.sourceforge.net). 
 
 * Windows build has been sucessfully tested on x64 Windows 7 and 8. However, Vista (and possibly XP) should be supported.
 
@@ -57,13 +56,13 @@ tested.
 If you get the following error while running **Cycles Render Time Calculator**, on Linux:
 
 ```
-/usr/local/bin/python3: bad interpreter: No such file or directory
+/usr/local/bin/python: bad interpreter: No such file or directory
 ```
 
-Check if your Python 3 installation is located there or not. If it is not, look for it under
+Check if your Python installation is located there or not. If it is not, look for it under
 
 ```
-/usr/bin/python3
+/usr/bin/python
 ```
 
 If it is located there, you'll need edit the script to use the new location.
@@ -73,4 +72,4 @@ Credit
 ------
 
 ***Cycles Render Time Calculator* and all components are copyright 2013 le717 and rioforce, and released under the [GNU General Public License Version 3](
-http://www.gnu.org/licenses/gpl.html). Special thanks to JrMasterModelBuilder for Mac OS X build.**
+http://www.gnu.org/licenses/gpl.html). Special thanks to JrMasterModelBuilder for the Mac OS X build.**
