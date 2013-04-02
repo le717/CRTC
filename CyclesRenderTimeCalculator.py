@@ -1,36 +1,35 @@
 #!/usr/local/bin/python
+"""
+    This file is part of Cycles Render Time Calculator.
 
-# ##### BEGIN GPL LICENSE BLOCK #####
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 3
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software Foundation,
-# Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
-#
-# ##### END GPL LICENSE BLOCK #####
+    Cycles Render Time Calculator -  calculate how long your Blender Cycles engine renders will take.
+    Copyright 2013 Triangle717 & rioforce <http://triangle717.wordpress.com>
 
+    Cycles Render Time Calculator is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-# Cycles Render Time Calculator V1.1 Stable
-# Copyright 2013 le717
+    Cycles Render Time Calculator is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Cycles Render Time Calculator  If not, see <http://www.gnu.org/licenses/>.
+"""
+# Cycles Render Time Calculator V1.2 Stable
+# Copyright 2013 Triangle717 & rioforce
 # http://triangle717.wordpress.com
 # and rioforce
 # http://rioforce.wordpress.com
 
-import sys, time
+import sys, os, time
 
 app = "Cycles Render Time Calculator"
 majver = "Version 1.2"
 minver = "Stable"
-creator = "le717 and rioforce"
+creator = "Triangle717 and rioforce"
 
 def main():
     '''Menu Layout'''
@@ -207,6 +206,7 @@ def layervideorender(layerseconds):
 
 
 if __name__ == "__main__":
+    os.system("title {0} {1} {2}".format(app, majver, minver))
     if sys.version_info >= (3,0):
         # Use Python 3 input
         get_input = input
@@ -215,8 +215,4 @@ if __name__ == "__main__":
         # Use Python 2 input
         get_input = raw_input
         main()
-# Display complete app info if imported as a module
-else:
-    sys.stdout.write()
-    sys.stdout.write("{0} {1} {2}\nCopyright 2013 {3}".format(app, majver, minver, creator))
 
