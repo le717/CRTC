@@ -3,7 +3,7 @@
     This file is part of Cycles Render Time Calculator.
 
     Cycles Render Time Calculator -  calculate how long your Blender Cycles engine renders will take.
-    Copyright 2013 Triangle717 & rioforce <http://triangle717.wordpress.com>
+    Created 2013 Triangle717 & rioforce <http://triangle717.wordpress.com>
 
     Cycles Render Time Calculator is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,9 +19,8 @@
     along with Cycles Render Time Calculator  If not, see <http://www.gnu.org/licenses/>.
 """
 # Cycles Render Time Calculator V1.2 Stable
-# Copyright 2013 Triangle717 & rioforce
+# Created 2013 Triangle717 & rioforce
 # http://triangle717.wordpress.com
-# and rioforce
 # http://rioforce.wordpress.com
 
 import sys, os, time
@@ -34,7 +33,7 @@ creator = "Triangle717 and rioforce"
 def main():
     '''Menu Layout'''
     sys.stdout.write("\n") # Blank space helps keep it all nice and neat
-    sys.stdout.write("{0}\nCopyright 2013 {1}".format(app, creator))
+    sys.stdout.write("{0}\nCreated 2013 {1}".format(app, creator))
     sys.stdout.write('''\nPlease make a selection:\n
 [a] Animation Render
 [t] Render Using Tiles
@@ -49,9 +48,10 @@ def main():
         elif menuopt.lower() == "p":
             layerrender()
         elif menuopt.lower() == "q":
-            sys.stdout.write("\nGoodbye!")
+            sys.stdout.write("\nGoodbye!\n")
             time.sleep(2)
             raise SystemExit
+        # Undefined input
         else:
             main()
 
@@ -113,7 +113,7 @@ def tilerender():
         sys.stdout.write("That is an invalid input. Please try again.\n")
         tilerender()
     sys.stdout.write("Are you rendering an animation? " + r"(y\N)") # AKA video or "multi-frame" animation
-    tilevideo = get_input("\n> ")
+    tilevideo = get_input("\n\n> ")
     if tilevideo.lower() != "y": # No, I am not
         time.sleep(1)
         main()
@@ -173,7 +173,7 @@ support the Progressive Refine method. Therefore, I've omitted the comments.'''
         sys.stdout.write("That is an invalid input. Please try again.\n")
         layerrender()
     sys.stdout.write("Are you rendering an animation? " + r"(y\N)")
-    layervideo = get_input("\n> ")
+    layervideo = get_input("\n\n> ")
     if layervideo.lower() != "y":
         time.sleep(1)
         main()
