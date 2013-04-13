@@ -92,7 +92,6 @@ def tilerender():
         numtiles = int(get_input("\nHow many tiles are in your render? "))
         tilerendertime = float(get_input("How long does a single tile take to render (in seconds)? "))
         # Mathamatical functions
-        global tileseconds
         tileseconds = (numtiles * tilerendertime)
         tileminutes = (tileseconds / 60)
         tilehours = (tileseconds / 3600)
@@ -156,7 +155,6 @@ support the Progressive Refine method. Therefore, I've omitted the comments.'''
         layernum = int(get_input("\nHow many samples are in your render? "))
         layerrendertime = float(get_input("How long does a single sample take to render (in seconds)? "))
         # Even more Mathamatical functions
-        global layerseconds
         layerseconds = (layernum * layerrendertime)
         layerminutes = (layerseconds / 60)
         layerhours = (layerseconds / 3600)
