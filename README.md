@@ -33,15 +33,23 @@ the final render times will be different than the stated time. For example, it c
 
 Releases
 --------
-**Cycles Render Time Calculator** has had the following releases:
 
-* [Version 1.1/1.2 Stable - February 26, 2013](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.1Stable) [**](#builds)
-* [Version 1.0 Beta 2 - February 16, 2013](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.0b2)
+* Version 1.1/1.2 Stable - February 26, 2013
+
+> [Source Code](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.1Stable) [**](#builds)
+
+> [Direct Download]()
+
+* Version 1.0 Beta 2 - February 16, 2013
+
+> [Source Code](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.0b2)
+
+> [Direct Download]()
 
 Builds
 ------
 * While **Cycles Render Time Calculator** was originally written in Python 3.3, as of version 1.2, it runs on both Python 2 and 3. It has successfully be 
-tested on Python 3.3.0 and 2.7.3 with no errors. No other versions have been tested. Further more, only *CyclesRenderTimeCalculator.py * has been upgraded to 
+tested on Python 3.3.0 and 2.7.4 with no errors. No other versions have been tested. Further more, only *CyclesRenderTimeCalculator.py * has been upgraded to 
 1.2. The OS-specific builds are version 1.1, written with Python 3.3.0.
 
 * Releases are compiled into Windows x86, x64 EXEs and Mac OS X application using [cx_freeze](http://cx-freeze.sourceforge.net). 
@@ -71,5 +79,5 @@ If it is located there, you'll need edit the script to use the new location.
 Credit
 ------
 
-***Cycles Render Time Calculator* and all components are copyright 2013 le717 and rioforce, and released under the [GNU General Public License Version 3](
+***Cycles Render Time Calculator* and all components were created 2013 le717 and rioforce, and released under the [GNU General Public License Version 3](
 http://www.gnu.org/licenses/gpl.html). Special thanks to JrMasterModelBuilder for the Mac OS X build.**
