@@ -18,13 +18,13 @@
     You should have received a copy of the GNU General Public License
     along with Cycles Render Time Calculator  If not, see <http://www.gnu.org/licenses/>.
 """
-# Cycles Render Time Calculator V1.2 Stable
+# Cycles Render Time Calculator V1.2.1 Stable
 # Created 2013 Triangle717 & rioforce
 
 import sys, os, time
 
 app = "Cycles Render Time Calculator"
-majver = "Version 1.2"
+majver = "Version 1.2.1"
 minver = "Stable"
 creator = "Triangle717 and rioforce"
 
