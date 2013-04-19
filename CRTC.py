@@ -1,9 +1,9 @@
-#!/usr/local/bin/python
+#! /usr/bin/python
 """
-    This file is part of Cycles Render Time Calculator.
-
-    Cycles Render Time Calculator -  calculate how long your Blender Cycles engine renders will take.
-    Created 2013 Triangle717 & rioforce <http://triangle717.wordpress.com>
+    Cycles Render Time Calculator -  calculate how long your Blender Cycles Engine renders will take.
+    Created 2013 Triangle717 & rioforce 
+    <http://triangle717.wordpress.com/>
+    <http://rioforce.wordpress.com/>
 
     Cycles Render Time Calculator is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,8 +20,6 @@
 """
 # Cycles Render Time Calculator V1.2 Stable
 # Created 2013 Triangle717 & rioforce
-# http://triangle717.wordpress.com
-# http://rioforce.wordpress.com
 
 import sys, os, time
 
