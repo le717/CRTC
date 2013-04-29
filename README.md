@@ -5,8 +5,6 @@ This is the readme to **Cycles Render Time Calculator**, a [Python](http://www.p
 (http://triangle717.wordpress.com) and [rioforce](rioforce.wordpress.com) to calculate render times in [Blender] (http://www.blender.org) 
 when using the Cycles Engine.
 
-[![Build Status](https://travis-ci.org/le717/Cycles-Render-Time-Calculator.png)](https://travis-ci.org/le717/Cycles-Render-Time-Calculator)
-
 Why Was This Created
 --------------------
 
