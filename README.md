@@ -51,7 +51,7 @@ Releases
 Builds
 ------
 * While **Cycles Render Time Calculator** was originally written in Python 3.3, as of version 1.2, it runs on both Python 2 and 3. It has successfully be 
-tested on Python 3.3.0 and 2.7.4 with no errors. No other versions have been tested. Further more, only *CyclesRenderTimeCalculator.py* has been upgraded to 
+tested on Python 3.3.0 and 2.7.4 with no errors. No other versions have been tested. Further more, only `CRTC.py` has been upgraded to 
 1.2. The OS-specific builds are version 1.1, written with Python 3.3.0.
 
 * Releases are compiled into Windows x86, x64 EXEs and Mac OS X application using [cx_freeze](http://cx-freeze.sourceforge.net). 
