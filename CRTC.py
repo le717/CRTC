@@ -1,7 +1,8 @@
 #! /usr/bin/python
+# -*- coding: utf-8 -*-
 """
     Cycles Render Time Calculator -  calculate how long your Blender Cycles Engine renders will take.
-    Created 2013 Triangle717 & rioforce 
+    Created 2013 Triangle717 & rioforce
     <http://triangle717.wordpress.com/>
     <http://rioforce.wordpress.com/>
 
@@ -16,15 +17,17 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Cycles Render Time Calculator  If not, see <http://www.gnu.org/licenses/>.
+    along with Cycles Render Time Calculator. If not, see <http://www.gnu.org/licenses/>.
 """
-# Cycles Render Time Calculator V1.2.1 Stable
+# Cycles Render Time Calculator V1.2.2 Stable
 # Created 2013 Triangle717 & rioforce
 
-import sys, os, time
+import sys
+import os
+import time
 
 app = "Cycles Render Time Calculator"
-majver = "Version 1.2.1"
+majver = "Version 1.2.2"
 minver = "Stable"
 creator = "Triangle717 and rioforce"
 
@@ -46,8 +49,6 @@ def main():
         elif menuopt.lower() == "p":
             layerrender()
         elif menuopt.lower() == "q":
-            sys.stdout.write("\nGoodbye!\n")
-            time.sleep(2)
             raise SystemExit
         # Undefined input
         else:
@@ -64,28 +65,25 @@ def videorender():
         videohours = (videoseconds / 3600)
         # It will take over an hour to render
         if videoseconds >= 3600.0:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} hours to render your animation.\n".format(round(videohours, 2)))
-            time.sleep(1)
+            time.sleep(0.5)
             main()
         # It will take over a minute but less than an hour to render
         elif videoseconds >= 60.0 and videoseconds < 3599.9:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} minutes to render your animation.\n".format(round(videominutes, 2)))
-            time.sleep(1)
+            time.sleep(0.5)
             main()
         #It will take only seconds to render
         else:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} seconds to render your animation.\n".format(round(videoseconds, 2)))
-            time.sleep(1)
+            time.sleep(0.5)
             main()
     except ValueError:
         sys.stdout.write("That is an invalid input. Please try again.\n")
         videorender()
 
 def tilerender():
-    '''Calculates Image Render Time (Using Tiles)'''
+    '''Calculates Render Time (Using Tiles)'''
     try:
         numtiles = int(get_input("\nHow many tiles are in your render? "))
         tilerendertime = float(get_input("How long does a single tile take to render (in seconds)? "))
@@ -95,15 +93,12 @@ def tilerender():
         tilehours = (tileseconds / 3600)
         # It will take over an hour
         if tileseconds >= 3600.0:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} hours to render your image.\n".format(round(tilehours, 2)))
         # It will take over a minute but less than an hour
         elif tileseconds >= 60.0 and tileseconds < 3599.9:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} minutes to render your image.\n".format(round(tileminutes, 2)))
         #It will take only seconds
         else:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} seconds to render your image.\n".format(round(tileseconds, 2)))
     # Catch any non-numerical input
     except ValueError:
@@ -111,17 +106,17 @@ def tilerender():
         tilerender()
     sys.stdout.write("Are you rendering an animation? " + r"(y\N)") # AKA video or "multi-frame" animation
     tilevideo = get_input("\n\n> ")
-    if tilevideo.lower() != "y": # No, I am not
-        time.sleep(1)
+    # No, I am not rendering an animation
+    if tilevideo.lower() != "y":
         main()
     else:
-        tilevideorender(tileseconds) # Yes, I am
+        # Yes, I am
+        tilevideorender(tileseconds)
 
 
 def tilevideorender(tileseconds):
     '''Calculates Animation Render Time (Using Tiles)'''
     try:
-        time.sleep(0.2) # Sleep for a tiny bit so the text doesn't "jump" at you (and same everywhere else)
         tileframenumber = int(get_input("\nHow many frames are in your animation? "))
         # More mathamatical functions
         tilevideoseconds = (tileseconds * tileframenumber)
@@ -129,16 +124,13 @@ def tilevideorender(tileseconds):
         tilevideohours = (tilevideoseconds / 3600)
         # It will take over an hour
         if tilevideoseconds >= 3600.0:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} hours to render your animation.\n".format(round(tilevideohours, 2)))
         # It will take over a minute but less than an hour
         elif tilevideoseconds >= 60.0 and tilevideoseconds < 3599.9:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} minutes to render your animation.\n".format(round(tilevideominutes, 2)))
         else:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} seconds to render your animation.\n".format(round(tilevideoseconds, 2)))
-        time.sleep(1)
+        time.sleep(0.5)
         main()
     # Catch any non-numerical input
     except ValueError:
@@ -157,13 +149,10 @@ support the Progressive Refine method. Therefore, I've omitted the comments.'''
         layerminutes = (layerseconds / 60)
         layerhours = (layerseconds / 3600)
         if layerseconds >= 3600.0:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} hours to render your image.\n".format(round(layerhours, 2)))
         elif layerseconds >= 60.0 and layerseconds < 3599.9:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} minutes to render your image.\n".format(round(layerminutes, 2)))
         else:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} seconds to render your image.\n".format(round(layerseconds, 2)))
     except ValueError:
         sys.stdout.write("That is an invalid input. Please try again.\n")
@@ -171,7 +160,6 @@ support the Progressive Refine method. Therefore, I've omitted the comments.'''
     sys.stdout.write("Are you rendering an animation? " + r"(y\N)")
     layervideo = get_input("\n\n> ")
     if layervideo.lower() != "y":
-        time.sleep(1)
         main()
     else:
         layervideorender(layerseconds)
@@ -179,22 +167,18 @@ support the Progressive Refine method. Therefore, I've omitted the comments.'''
 def layervideorender(layerseconds):
     '''Calculates Animation Render Time (Using Progessive Refine)'''
     try:
-        time.sleep(0.2)
         layerframenumber = int(get_input("\nHow many frames are in your animation? "))
         # Math is FUN!
         layervideoseconds = (layerseconds * layerframenumber)
         layervideominutes = (layervideoseconds / 60)
         layervideohours = (layervideoseconds / 3600)
         if layervideoseconds >= 3600.0:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} hours to render your animation.\n".format(round(layervideohours, 2)))
         elif layervideoseconds >= 60.0 and layervideoseconds < 3599.9:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} minutes to render your animation.\n".format(round(layervideominutes, 2)))
         else:
-            time.sleep(0.2)
             sys.stdout.write("\nIt will take approximately {0} seconds to render your animation.\n".format(round(layervideoseconds, 2)))
-        time.sleep(1)
+        time.sleep(0.5)
         main()
     except ValueError:
         sys.stdout.write("That is an invalid input. Please try again.\n")
@@ -202,7 +186,7 @@ def layervideorender(layerseconds):
 
 
 if __name__ == "__main__":
-    os.system("title {0} {1} {2}".format(app, majver, minver))
+    os.system("title {0} {1}".format(app, majver))
     if sys.version_info >= (3,0):
         # Use Python 3 input
         get_input = input
@@ -211,4 +195,3 @@ if __name__ == "__main__":
         # Use Python 2 input
         get_input = raw_input
         main()
-
