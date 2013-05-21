@@ -26,10 +26,21 @@ import sys
 import os
 import time
 
+try:
+    # Python 3 import
+    import tkinter as tk
+    from tkinter.messagebox import showerror
+except ImportError:
+    # Python 2 import
+    import Tkinter as tk
+    from tkMessageBox import showerror
+
 app = "Cycles Render Time Calculator"
 majver = "Version 1.2.3"
 minver = "Unstable"
 creator = "Triangle717 and rioforce"
+
+app_icon = "Icon.ico"
 
 def main():
     '''Menu Layout'''
@@ -78,7 +89,7 @@ def videorender():
             time.sleep(0.5)
             main()
     except ValueError:
-        print("That is an invalid input. Please try again.\n")
+        tk.messagebox.showwarning("Invalid input!", "That is an invalid input. Please try again.")
         videorender()
 
 def tilerender():
@@ -101,8 +112,9 @@ def tilerender():
             print("\nIt will take approximately {0} seconds to render your image.\n".format(round(tileseconds, 2)))
     # Catch any non-numerical input
     except ValueError:
-        print("That is an invalid input. Please try again.\n")
+        tk.messagebox.showwarning("Invalid input!", "That is an invalid input. Please try again.")
         tilerender()
+
     print("Are you rendering an animation? " + r"(y\N)") # AKA video or "multi-frame" animation
     tilevideo = input("\n\n> ")
     # No, I am not rendering an animation
@@ -133,7 +145,7 @@ def tilevideorender(tileseconds):
         main()
     # Catch any non-numerical input
     except ValueError:
-        print("That is an invalid input. Please try again.\n")
+        tk.messagebox.showwarning("Invalid input!", "That is an invalid input. Please try again.")
         tilevideorender(tileseconds)
 
 def layerrender():
@@ -154,8 +166,9 @@ support the Progressive Refine method. Therefore, I've omitted the comments.'''
         else:
             print("\nIt will take approximately {0} seconds to render your image.\n".format(round(layerseconds, 2)))
     except ValueError:
-        print("That is an invalid input. Please try again.\n")
+        tk.messagebox.showwarning("Invalid input!", "That is an invalid input. Please try again.")
         layerrender()
+
     print("Are you rendering an animation? " + r"(y\N)")
     layervideo = get_input("\n\n> ")
     if layervideo.lower() != "y":
@@ -180,13 +193,12 @@ def layervideorender(layerseconds):
         time.sleep(0.5)
         main()
     except ValueError:
-        print("That is an invalid input. Please try again.\n")
+        tk.messagebox.showwarning("Invalid input!", "That is an invalid input. Please try again.")
         layervideorender(layerseconds)
 
 if sys.version_info < (3,3,0):
     os.system("title {0} {1}".format(app, majver))
-    sys.stdout.write("\nYou need at least Python 3.3.0 to run\n{0} {1}\n".format(app, majver))
-    time.sleep(2)
+    showerror("Unsupported Python Version!", "You are running Python {0}.\nYou need to download Python 3.3.0 or newer to run\n{1} {2}.\n".format(sys.version[0:5], app, majver))
     raise SystemExit
 
 if __name__ == "__main__":
