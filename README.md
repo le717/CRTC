@@ -36,6 +36,12 @@ the final render times will be different than the stated time. For example, it c
 Releases
 --------
 
+* Version 1.2.2 - May 21, 2013
+
+> [Source Code](https://github.com/le717/Cycles-Render-Time-Calculator/tree/1.2.2)
+
+> [Direct Download](https://github.com/le717/Cycles-Render-Time-Calculator/archive/1.2.2.zip)
+
 * Version 1.1/1.2 Stable - February 26, 2013
 
 > [Source Code](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.1Stable) [**](#builds)
@@ -50,9 +56,9 @@ Releases
 
 Builds
 ------
-* While **Cycles Render Time Calculator** was originally written in Python 3.3, as of version 1.2, it runs on both Python 2 and 3. It has successfully be 
-tested on Python 3.3.0 and 2.7.4 with no errors. No other versions have been tested. Further more, only `CRTC.py` has been upgraded to 
-1.2. The OS-specific builds are version 1.1, written with Python 3.3.0.
+* **Cycles Render Time Calculator** was originally written in Python 3.3, but in version 1.2, it was updated to run on both Python 2 and 3.
+It was successfully tested on Python 3.3.0 and 2.7.4 with no errors. Further more, only the raw Python script of that was upgraded to 1.2. 
+The OS-specific builds are version 1.1, written with Python 3.3.0 only.
 
 * Releases are compiled into Windows x86, x64 EXEs and Mac OS X application using [cx_freeze](http://cx-freeze.sourceforge.net). 
 
@@ -60,12 +66,11 @@ tested on Python 3.3.0 and 2.7.4 with no errors. No other versions have been tes
 
 * Mac OS X build is provided courtesy of [JrMasterModelBuilder](http://jrmastermodelbuilder.netai.net/). Minimum supported version is Mac OS X 10.7 Lion.
 
-* **Cycles Render Time Calculator** has been sucessfully tested on Ubuntu 12.04.1 x86 running Python 3.2. It may run on other Unix distos, but has not been 
+* **Cycles Render Time Calculator** has been successfully tested on Ubuntu 12.04.1 x86 running Python 3.2. It may run on other Unix distos, but has not been 
 tested.
-
 
 Credit
 ------
 
 ***Cycles Render Time Calculator* and all components were created 2013 Triangle717 and rioforce, and released under the [GNU General Public License Version 3](
-http://www.gnu.org/licenses/gpl.html). Special thanks to JrMasterModelBuilder for the Mac OS X build.**
+http://www.gnu.org/licenses/gpl.html). Special thanks to [JrMasterModelBuilder](https://github.com/JrMasterModelBuilder) for the Mac OS X build.**
