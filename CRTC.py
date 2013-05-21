@@ -81,11 +81,12 @@ label.grid(column=1, row=0, sticky=(tk.N, tk.W, tk.E, tk.S))
 def close_app(*args):
     '''Closes the About Window'''
     root.destroy()
-    main()
+    raise SystemExit
+##    main()
 
 
 # Close About Window button
-close = ttk.Button(frame, default="active", text="Close", command=close_app).grid(column=1, row=5)
+close = ttk.Button(frame, default="active", text="Close", command=close_app).grid(column=5, row=9)
 # GitHub Project Button
 github = ttk.Button(frame, text="GitHub Project", command=lambda:webbrowser.open_new_tab("https://github.com/le717/Cycles-Render-Time-Calculators")).grid(column=0, row=1)
 # Creator's website button
