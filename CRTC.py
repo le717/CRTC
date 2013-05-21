@@ -29,6 +29,7 @@ import time
 try:
     # Python 3 import
     import tkinter as tk
+    from tkinter import ttk
     from tkinter.messagebox import showerror
 except ImportError:
     # Python 2 import
@@ -40,7 +41,60 @@ majver = "Version 1.2.3"
 minver = "Unstable"
 creator = "Triangle717 and rioforce"
 
+# CRTC icon
 app_icon = "Icon.ico"
+
+def TkGUI():
+    '''Dummy function for easy access to Tk GUI code'''
+    pass
+
+root = tk.Tk()
+# Window title
+root.title("{0} {1}".format(app, majver))
+# Window icon
+root.iconbitmap(app_icon)
+# The box cannot be any smaller than this
+root.minsize("450", "250")
+
+# Give it focus
+root.deiconify()
+root.lift()
+root.focus_force()
+
+# Frame settings
+frame = ttk.Frame(root, padding="7 7 7 7")
+frame.grid(column=0, row=0, sticky=(tk.N, tk.W, tk.E, tk.S))
+frame.columnconfigure(0, weight=1)
+frame.rowconfigure(0, weight=1)
+
+# Displayed text
+##label = ttk.Label(frame, text='''{0} {1} {2}
+##               Released ?? ??, 2013
+##
+##            Created 2013 Triangle717 and rioforce
+##'''.format(app, majver, minver))
+##label.grid(column=1, row=0, sticky=(tk.N, tk.W, tk.E, tk.S))
+
+label = ttk.Label(frame)
+label.grid(column=1, row=0, sticky=(tk.N, tk.W, tk.E, tk.S))
+
+def close_app(*args):
+    '''Closes the About Window'''
+    root.destroy()
+    main()
+
+
+# Close About Window button
+close = ttk.Button(frame, default="active", text="Close", command=close_app).grid(column=1, row=5)
+# GitHub Project Button
+github = ttk.Button(frame, text="GitHub Project", command=lambda:webbrowser.open_new_tab("https://github.com/le717/Cycles-Render-Time-Calculators")).grid(column=0, row=1)
+# Creator's website button
+creator_site =  ttk.Button(frame, text="Triangle717", command=lambda:webbrowser.open_new_tab("http://wp.me/P1V5ge-I3")).grid(column=2, row=1)
+for child in frame.winfo_children(): child.grid_configure(padx=2, pady=2)
+# Binds the Return ("Enter") key, closes the About Window
+root.bind('<Return>', close_app)
+# Make it load
+root.mainloop()
 
 def main():
     '''Menu Layout'''
@@ -49,7 +103,7 @@ def main():
 [a] Animation Render
 [t] Render Using Tiles
 [p] Render Using Progressive Refine
-[q] Quit\n''')
+[q] Quit''')
     menuopt = input("\n> ")
     while True:
         if menuopt.lower() == "t":
