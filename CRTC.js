@@ -42,20 +42,53 @@ var videoRender = function() {
     videoframetime = parseInt(videoframetime, 10);
 
     // Calculate the seconds, minutes, and hours
-    var videoseconds = videoframes * videoframetime;
-    var videominutes = videoseconds / 60;
-    var videohours = videoseconds / 3600;
+    var seconds = videoframes * videoframetime;
+    var minutes = seconds / 60;
+    var hours = seconds / 3600;
 
     // It will take over an hour to render
-    if (videoseconds >= 3600.0) {
-            console.log("\nIt will take approximately " + videohours + " hours to render your animation.\n");
+    if (seconds >= 3600.0) {
+            console.log("\nIt will take approximately " + hours + " hours to render your animation.\n");
         }
+
     // It will take over a minute but less than an hour to render
-    else if (videoseconds >= 60.0 && videoseconds < 3599.9) {
-            console.log("\nIt will take approximately " + videominutes  + " minutes to render your animation.\n");
+    else if (seconds >= 60.0 && seconds < 3599.9) {
+            console.log("\nIt will take approximately " + minutes  + " minutes to render your animation.\n");
         }
-        // It will take only seconds to render
+
+    // It will take only seconds to render
     else {
-        console.log("\nIt will take approximately " + videoseconds + " seconds to render your animation.\n");
+        console.log("\nIt will take approximately " + seconds + " seconds to render your animation.\n");
         }
+};
+
+var tileRender = function() {
+    /* Calculates Render Time (Using Tiles) */
+
+        var numtiles = prompt("\nHow many tiles are in your render? ");
+        var tilerendertime = prompt("How long does a single tile take to render (in seconds)? ");
+
+        // Convert input to integers using Base10
+        numtiles = parseInt(videoframes, 10);
+        tilerendertime = parseInt(videoframetime, 10);
+
+        // Calculate the seconds, minutes, and hours
+        var seconds = numtiles * tilerendertime;
+        var minutes = seconds / 60;
+        var hours = seconds / 3600;
+
+        // It will take over an hour
+        if (seconds >= 3600.0) {
+                console.log("\nIt will take approximately " + hours + " hours to render your animation.\n");
+            }
+
+        // It will take over a minute but less than an hour
+        else if (seconds >= 60.0 && seconds < 3599.9) {
+            console.log("\nIt will take approximately " + minutes  + " minutes to render your animation.\n");
+        }
+
+        // It will take only seconds
+        else: {
+            console.log("\nIt will take approximately " + seconds + " seconds to render your animation.\n");
+            }
 };
