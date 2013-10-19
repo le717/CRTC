@@ -69,8 +69,8 @@ var tileRender = function() {
         var tilerendertime = prompt("How long does a single tile take to render (in seconds)? ");
 
         // Convert input to integers using Base10
-        numtiles = parseInt(videoframes, 10);
-        tilerendertime = parseInt(videoframetime, 10);
+        numtiles = parseInt(numtiles, 10);
+        tilerendertime = parseInt(tilerendertime, 10);
 
         // Calculate the seconds, minutes, and hours
         var seconds = numtiles * tilerendertime;
@@ -88,7 +88,7 @@ var tileRender = function() {
         }
 
         // It will take only seconds
-        else: {
+        else {
             console.log("\nIt will take approximately " + seconds + " seconds to render your animation.\n");
             }
 };
