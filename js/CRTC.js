@@ -65,30 +65,38 @@ var videoRender = function() {
 var tileRender = function() {
     /* Calculates Render Time (Using Tiles) */
 
-        var numtiles = prompt("\nHow many tiles are in your render? ");
-        var tilerendertime = prompt("How long does a single tile take to render (in seconds)? ");
+    var numtiles = prompt("\nHow many tiles are in your render? ");
+    var tilerendertime = prompt("How long does a single tile take to render (in seconds)? ");
 
-        // Convert input to integers using Base10
-        numtiles = parseInt(numtiles, 10);
-        tilerendertime = parseInt(tilerendertime, 10);
+    // Convert input to integers using Base10
+    numtiles = parseInt(numtiles, 10);
+    tilerendertime = parseInt(tilerendertime, 10);
 
-        // Calculate the seconds, minutes, and hours
-        var seconds = numtiles * tilerendertime;
-        var minutes = seconds / 60;
-        var hours = seconds / 3600;
+    // Calculate the seconds, minutes, and hours
+    var seconds = numtiles * tilerendertime;
+    var minutes = seconds / 60;
+    var hours = seconds / 3600;
 
-        // It will take over an hour
-        if (seconds >= 3600.0) {
-                console.log("\nIt will take approximately " + hours + " hours to render your animation.\n");
-            }
-
-        // It will take over a minute but less than an hour
-        else if (seconds >= 60.0 && seconds < 3599.9) {
-            console.log("\nIt will take approximately " + minutes  + " minutes to render your animation.\n");
+    // It will take over an hour
+    if (seconds >= 3600.0) {
+            console.log("\nIt will take approximately " + hours + " hours to render your animation.\n");
         }
 
-        // It will take only seconds
-        else {
-            console.log("\nIt will take approximately " + seconds + " seconds to render your animation.\n");
-            }
+    // It will take over a minute but less than an hour
+    else if (seconds >= 60.0 && seconds < 3599.9) {
+        console.log("\nIt will take approximately " + minutes  + " minutes to render your animation.\n");
+    }
+
+    // It will take only seconds
+    else {
+        console.log("\nIt will take approximately " + seconds + " seconds to render your animation.\n");
+        }
+
+    // AKA video or "multi-frame" animation
+    var tilevideo = confirm("Are you rendering an animation?");
+
+    // Yes, I am rendering an animation
+    if (tilevideo === true) {
+        tileVideoRender(seconds);
+        }
 };
