@@ -19,6 +19,9 @@
     You should have received a copy of the GNU General Public License
     along with CRTC If not, see <http://www.gnu.org/licenses/>.
 
--------------------------------------
 Cycles Render Time Calculator - Web Version
 */
+@charset "UTF-8";
+a { text-decoration: none; }
+body { text-align: center; }
+

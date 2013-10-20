@@ -1,4 +1,17 @@
-<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Force IE to recognize HTML5 code -->
+    <!--[if IE]>
+        <script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark menu meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script>
+    <![endif]-->
+    <title>Cycles Render Time Calculator</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/CRTC.css">
+</head>
+
+    <!--
     Cycles Render Time Calculator (CRTC)
     Calculate how long your Blender Cycles Engine renders will take.
 
@@ -22,24 +35,14 @@
 Cycles Render Time Calculator - Web Version
 -->
 
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <!-- Force IE to recognize HTML5 code -->
-    <!--[if IE]>
-        <script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark menu meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script>
-    <![endif]-->
-    <meta charset="UTF-8">
-    <title>Cycles Render Time Calculator</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        a { text-decoration: none; }
-        body { text-align: center; }
-    </style>
-</head>
-
 <body>
+<script>
+    // TODO: This will change the field labels depending on render type chosen
+    var rendertype = "Tiles"
+    if (rendertype === "Tiles") {
+        console.log("Rendering using Tiles");
+        }
+</script>
 <h1>Nothing to see here (yet)!
 <br>
 You can follow the development on <a href="https://github.com/le717/CRTC/commits/gh-pages" target="_blank">
@@ -47,12 +50,10 @@ GitHub</a>.
 <br>
 <a href="https://github.com/le717" target="_blank">-Triangle717</a></h1>
 
-<!--
 <form>
-  <input type="text" name="uname" placeholder="Your Name" autocomplete="off"><br>
+  <span id="numberof">Number of Tiles: <input type="text" name="uname" placeholder="48" autocomplete="off"></span><br>
   <input type="submit" value="Submit">
 </form>
--->
 
 <br>
 <p><strong>Note:</strong>
