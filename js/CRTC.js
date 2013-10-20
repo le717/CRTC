@@ -48,12 +48,12 @@ var videoRender = function() {
 
     // It will take over an hour to render
     if (seconds >= 3600.0) {
-            console.log("\nIt will take approximately " + Math.round(hours) + " hours to render your animation.\n");
+        console.log("\nIt will take approximately " + Math.round(hours) + " hours to render your animation.\n");
         }
 
     // It will take over a minute but less than an hour to render
     else if (seconds >= 60.0 && seconds < 3599.9) {
-            console.log("\nIt will take approximately " + Math.round(minutes)  + " minutes to render your animation.\n");
+        console.log("\nIt will take approximately " + Math.round(minutes)  + " minutes to render your animation.\n");
         }
 
     // It will take only seconds to render
@@ -79,7 +79,7 @@ var tileRender = function() {
 
     // It will take over an hour
     if (seconds >= 3600.0) {
-            console.log("\nIt will take approximately " + Math.round(hours) + " hours to render your animation.\n");
+        console.log("\nIt will take approximately " + Math.round(hours) + " hours to render your animation.\n");
         }
 
     // It will take over a minute but less than an hour
@@ -98,5 +98,34 @@ var tileRender = function() {
     // Yes, I am rendering an animation
     if (tilevideo) {
         tileVideoRender(seconds);
+        }
+};
+
+var tileVideoRender = function(paramseconds) {
+    /* Calculates Animation Render Time (Using Tiles) */
+
+    tileframenumber = prompt("\nHow many frames are in your animation? ");
+
+    // Convert input to integers using Base10
+    tileframenumber = parseInt(tileframenumber, 10);
+
+    // More mathamatical functions
+    seconds = paramseconds * tileframenumber;
+    minutes = seconds / 60;
+    hours = seconds / 3600;
+
+    // It will take over an hour
+    if (seconds >= 3600.0) {
+        console.log("It will take approximately " + Math.round(hours) +  "hours to render your animation.");
+        }
+
+    // It will take over a minute but less than an hour
+    else if (seconds >= 60.0 && seconds < 3599.9) {
+        console.log("It will take approximately " + Math.round(minutes) + " minutes to render your animation.");
+        }
+
+    // It will take only seconds
+    else {
+        console.log("It will take approximately " + Math.round(seconds) + " seconds to render your animation.");
         }
 };
