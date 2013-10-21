@@ -129,3 +129,24 @@ var tileVideoRender = function(paramseconds) {
         console.log("It will take approximately " + Math.round(seconds) + " seconds to render your animation.");
         }
 };
+
+// TODO: This will change the field labels depending on render type chosen
+//var rendertype = "Tiles"
+
+function useResult() {
+
+if (rendertype === "Tiles") {
+    document.getElementById("numberof").innerHTML="Number of Tiles: ";
+    }
+else {
+    document.getElementById("numberof").innerHTML="Number of Samples: ";
+    }
+
+};
+
+function displayResult(browser)
+{
+    rendertype = document.getElementById("result").value=browser;
+};
+
+useResult();

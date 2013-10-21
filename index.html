@@ -9,40 +9,18 @@
     <title>Cycles Render Time Calculator</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/CRTC.css">
+    <script href="js/CRTC.js">
+function displayResult(browser)
+{
+    rendertype = document.getElementById("result").value=browser;
+};
+//function useResult() {
+//    return displayResult(browser);
+//};
+</script>
 </head>
 
-    <!--
-    Cycles Render Time Calculator (CRTC)
-    Calculate how long your Blender Cycles Engine renders will take.
-
-    Created 2013 Triangle717 & rioforce
-    <http://Triangle717.WordPress.com/>
-    <http://rioforce.wordpress.com/>
-
-    CRTC is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    CRTC is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CRTC If not, see <http://www.gnu.org/licenses/>.
-
-Cycles Render Time Calculator - Web Version
--->
-
 <body>
-<script>
-    // TODO: This will change the field labels depending on render type chosen
-    var rendertype = "Tiles"
-    if (rendertype === "Tiles") {
-        console.log("Rendering using Tiles");
-        }
-</script>
 <h1>Nothing to see here (yet)!
 <br>
 You can follow the development on <a href="https://github.com/le717/CRTC/commits/gh-pages" target="_blank">
@@ -51,9 +29,30 @@ GitHub</a>.
 <a href="https://github.com/le717" target="_blank">-Triangle717</a></h1>
 
 <form>
-  <span id="numberof">Number of Tiles: <input type="text" name="uname" placeholder="48" autocomplete="off"></span><br>
-  <input type="submit" value="Submit">
+  <input type="radio" name="browser" onclick="displayResult(this.value)" value="PR">Progressive Refine
+  <input type="radio" name="browser" onclick="displayResult(this.value)" value="Tiles">Tiles
+  <br>
+  <br>
+  <span id="numberof">Number of Samples: </span><input type="text" name="uname" placeholder="48" autocomplete="off"><br>
+<!--
+  <input type="submit" value="Submit"><br>
+-->
 </form>
+
+<input type="text" id="result">
+<!--
+<script>
+    // TODO: This will change the field labels depending on render type chosen
+    var rendertype = "Tiles"
+
+    if (rendertype === "Tiles") {
+        document.getElementById("numberof").innerHTML="Number of Tiles: ";
+        }
+    else {
+        document.getElementById("numberof").innerHTML="Number of Samples: ";
+        }
+</script>
+-->
 
 <br>
 <p><strong>Note:</strong>
