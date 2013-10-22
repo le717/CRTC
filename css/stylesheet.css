@@ -32,3 +32,5 @@ body{
     background-image: radial-gradient(transparent, rgba(0,0,0,.2)), url("../img/bg.png");
     min-height: 100%;
     }
+
+.webkit { background-image: url("../img/bg.png"); }
