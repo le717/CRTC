@@ -23,5 +23,12 @@ Cycles Render Time Calculator - Web Version
 */
 @charset "UTF-8";
 a { text-decoration: none; }
-body { text-align: center; }
 
+/* Background Vignette taken from
+http://playground.niftinessafoot.com/vignette */
+html{ min-height: 100%; }
+body{
+    text-align: center;
+    background-image: radial-gradient(transparent, rgba(0,0,0,.2)), url("../img/bg.png");
+    min-height: 100%;
+    }

@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <!-- Force IE to recognize HTML5 code -->
     <!--[if IE]>
         <script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark menu meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script>
     <![endif]-->
+
     <title>Cycles Render Time Calculator</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="css/CRTC.css">
-    <script href="js/CRTC.js">
-function displayResult(browser)
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+<!--
+    <script href="js/CRTC.js" />
+    function displayResult(browser)
 {
     rendertype = document.getElementById("result").value=browser;
 };
@@ -18,16 +22,22 @@ function displayResult(browser)
 //    return displayResult(browser);
 //};
 </script>
+-->
 </head>
 
 <body>
+<!-- "Fork me on GitHub!" banner from
+https://github.com/blog/273-github-ribbons
+-->
 <a href="https://github.com/le717/CRTC"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
-<h1>Nothing to see here (yet)!
+
+<h1>Cycles Render Time Calculator</h1>
+<h2>Nothing to see here (yet)!
 <br>
-You can follow the development on <a href="https://github.com/le717/CRTC/commits/gh-pages" target="_blank">
+You can follow the development on <a target="_blank" href="https://github.com/le717/CRTC/commits/gh-pages">
 GitHub</a>.
 <br>
-<a href="https://github.com/le717" target="_blank">-Triangle717</a></h1>
+<a href="https://github.com/le717" target="_blank">-Triangle717</a></h2>
 
 <form>
   <input type="radio" name="browser" onclick="displayResult(this.value)" value="PR">Progressive Refine
@@ -35,15 +45,15 @@ GitHub</a>.
   <br>
   <br>
   <span id="numberof">Number of Samples: </span><input type="text" name="uname" placeholder="48" autocomplete="off"><br>
-<!--
-  <input type="submit" value="Submit"><br>
--->
+  <input type="text" id="result">
+  <br><br><br>
+  <input type="submit" value="Submit">
 </form>
 
-<input type="text" id="result">
+
 <!--
 <script>
-    // TODO: This will change the field labels depending on render type chosen
+    // TODO: This might change the field labels depending on render type chosen
     var rendertype = "Tiles"
 
     if (rendertype === "Tiles") {
@@ -55,11 +65,14 @@ GitHub</a>.
 </script>
 -->
 
+<!--
+Obligatory assurance that no data entered is kept.
+-->
 <br>
-<p><strong>Note:</strong>
-No information is collected from the fields, and is lost upon page refresh.
-<br>
-<strong>Cycles Render Time Calculator</strong> is best viewed in Internet Explorer 10 and above, Google Chrome, and Firefox. Some elements may be broken
-in Safari or Opera.</p>
+<h3>Note</h3>
+<p>No data is collected from the fields, and is lost upon page refresh.
+<br><br>
+<strong>Cycles Render Time Calculator</strong> is best viewed in <a target="_blank" href="http://mozilla.org/firefox">Mozilla Firefox</a>, <a target="_blank" href="https://www.google.com/chrome">Google Chrome</a>, and Internet Explorer 10 and above.
+Some elements may be broken in Apple Safari or <a target="_blank" href="http://www.opera.com">Opera</a>.</p>
 </body>
 </html>
