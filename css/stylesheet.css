@@ -33,4 +33,6 @@ body{
     min-height: 100%;
     }
 
-.webkit { background-image: url("../img/bg.png"); }
+/* Display background image only for Safari browser
+(tested on iOS6 iPod touch 5th gen) */
+.webkit, .android { background-image: url("../img/bg.png"); }
