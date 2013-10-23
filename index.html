@@ -45,14 +45,19 @@ https://github.com/blog/273-github-ribbons
   <span id="numof1">Number of Samples: </span><input type="text" name="uname" placeholder="150" autocomplete="off"><br>
   <span id="numof2">Render time of one Tile (in seconds): </span><input type="text" name="uname" placeholder="120" autocomplete="off"><br>
   <span id="numofframes">Number of frames in animation: </span><input type="text" name="uname" placeholder="250" autocomplete="off"><br>
-
   <br><br>
   <input type="submit" value="Calculate!" onclick="displayResult(this.value)">
 </form>
 
+<h3>Results</h3>
+<div>It will take approximately <span id="results"></span> to render your animation.</div>
 
-<!--
+
+
 <script>
+document.getElementById("results").innerHTML="<strong>10 hours</strong>";
+</script>
+<!--
     // TODO: This might change the field labels depending on render type chosen
     var rendertype = "Tiles"
 
@@ -77,6 +82,8 @@ Obligatory assurance that no data entered is kept.
 <a target="_blank" href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Internet Explorer 10</a> and above.
 Some elements may be broken in <a target="_blank" href="http://www.apple.com/safari/">Apple Safari</a> or <a target="_blank" href="http://www.opera.com">Opera</a>.
 <br>
-An <a target="_blank" href="https://github.com/le717/CRTC/tree/gh-pages">open-source</a> experiment by <a target="_blank" href="https://github.com/le717">Triangle717</a>.</p>
+An <a target="_blank" href="https://github.com/le717/CRTC/tree/gh-pages">open-source</a> experiment by
+<a target="_blank" href="http://Triangle717.WordPress.com">Triangle717</a> and
+<a target="_blank" href="http://rioforce.WordPress.com">rioforce</a>.</p>
 </body>
 </html>
