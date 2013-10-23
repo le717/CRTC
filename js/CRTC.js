@@ -14,6 +14,14 @@ Cycles Render Time Calculator - Web Version
 var appValues = ["Cycles Render Time Calculator - Web Version",
 "0.3", "", "Triangle717 and rioforce"];
 
+function unCheck() {
+
+    document.getElementById("videocheck").checked=false;
+};
+
+unCheck();
+
+
 function changeFields(rendertype) {
     /* Change field lables depending on values chosen */
 
@@ -21,9 +29,25 @@ function changeFields(rendertype) {
     if (rendertype === "tiles") {
         document.getElementById("numof1").innerHTML="Number of Tiles: ";
         }
+
     // User is rendering using Progressive Refine
     else {
         document.getElementById("numof1").innerHTML="Number of Samples: ";
+        }
+};
+
+
+function isVideo(value) {
+    /* Change field lables depending on if video is being rendered */
+
+    // Display the field for number of frames
+    if (value === "isvideo") {
+        document.getElementById("numofframes").innerHTML='Number of frames in animation: <input type="text" name="uname" placeholder="250" autocomplete="off"> ';
+        }
+
+    // Display nothing - FIXME!!!
+    else {
+        document.getElementById("numofframes").innerHTML="";
         }
 };
 
@@ -58,6 +82,7 @@ function videoRender() {
         console.log("\nIt will take approximately " + Math.round(seconds) + " seconds to render your animation.\n");
         }
 };
+
 
 function tileRender() {
     /* Calculates Render Time (Using Tiles) */
@@ -98,6 +123,7 @@ function tileRender() {
         }
 };
 
+
 function tileVideoRender(paramseconds) {
     /* Calculates Animation Render Time (Using Tiles) */
 
@@ -127,19 +153,6 @@ function tileVideoRender(paramseconds) {
         }
 };
 
-// TODO: This will change the field labels depending on render type chosen
-//var rendertype = "Tiles"
-
-function useResult() {
-
-if (rendertype === "Tiles") {
-    document.getElementById("numberof").innerHTML="Number of Tiles: ";
-    }
-else {
-    document.getElementById("numberof").innerHTML="Number of Samples: ";
-    }
-
-};
 
 function displayResult(browser)
 {

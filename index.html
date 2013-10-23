@@ -40,14 +40,16 @@ https://github.com/blog/273-github-ribbons
 <form>
   <input type="radio" name="rendertype" onclick="changeFields(this.value)"value="pr">Progressive Refine
   <input type="radio" name="rendertype" onclick="changeFields(this.value)" value="tiles">Tiles
-  <input type="checkbox" name="isvideo" value="video">Multi-frame animation (Video)<br>
+  <input type="checkbox" name="videocheck" onclick="isVideo(this.value)" value="isvideo">Multi-frame animation (Video)<br>
   <br><br>
   <span id="numof1">Number of Samples: </span><input type="text" name="uname" placeholder="150" autocomplete="off"><br>
   <span id="numof2">Render time of one Tile (in seconds): </span><input type="text" name="uname" placeholder="120" autocomplete="off"><br>
-  <span id="numofframes">Number of frames in animation: </span><input type="text" name="uname" placeholder="250" autocomplete="off"><br>
+  <span id="numofframes"></span><br>
   <br><br>
+  <span id="numofframes"></span>
   <input type="submit" value="Calculate!" onclick="displayResult(this.value)">
 </form>
+
 
 <h3>Results</h3>
 <div>It will take approximately <span id="results"></span> to render your animation.</div>
