@@ -27,6 +27,19 @@ Cycles Render Time Calculator - Web Version
 var appValues = ["Cycles Render Time Calculator - Web Version",
 "0.3", "", "Triangle717 and rioforce"];
 
+function changeFields(rendertype) {
+    /* Change field lables depending on values chosen */
+
+    // User is rendering using tiles
+    if (rendertype === "tiles") {
+        document.getElementById("numof1").innerHTML="Number of Tiles: ";
+        }
+    // User is rendering using Progressive Refine
+    else {
+        document.getElementById("numof1").innerHTML="Number of Samples: ";
+        }
+};
+
 
 function videoRender() {
     /* Generic Animation Render Time */
