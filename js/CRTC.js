@@ -23,13 +23,10 @@
 Cycles Render Time Calculator - Web Version
 */
 
-var app = "Cycles Render Time Calculator"
-var majver = "Version 1.2.3"
-var minver = "Unstable"
-var creator = "Triangle717 and rioforce"
+// Store site (app) info in an array
+var appValues = ["Cycles Render Time Calculator - Web Version",
+"0.3", "", "Triangle717 and rioforce"];
 
-// CRTC icon
-var app_icon = "Icon.ico"
 
 function videoRender() {
     /* Generic Animation Render Time */
