@@ -31,7 +31,7 @@ var creator = "Triangle717 and rioforce"
 // CRTC icon
 var app_icon = "Icon.ico"
 
-var videoRender = function() {
+function videoRender() {
     /* Generic Animation Render Time */
 
     var videoframes = prompt("\nHow many frames are in your animation? ");
@@ -62,7 +62,7 @@ var videoRender = function() {
         }
 };
 
-var tileRender = function() {
+function tileRender() {
     /* Calculates Render Time (Using Tiles) */
 
     var numtiles = prompt("\nHow many tiles are in your render? ");
@@ -101,7 +101,7 @@ var tileRender = function() {
         }
 };
 
-var tileVideoRender = function(paramseconds) {
+function tileVideoRender(paramseconds) {
     /* Calculates Animation Render Time (Using Tiles) */
 
     tileframenumber = prompt("\nHow many frames are in your animation? ");
@@ -149,4 +149,24 @@ function displayResult(browser)
     rendertype = document.getElementById("result").value=browser;
 };
 
-useResult();
+function doMath(number1, number2) {
+
+    // Holds our math results
+    values = [];
+
+    // Convert input to integers using Base10
+    number1 = parseInt(number1, 10);
+    number2 = parseInt(number2, 10);
+
+    // Calculate the seconds, minutes, and hours
+    var seconds = number1 * number2;
+    var minutes = seconds / 60;
+    var hours = seconds / 3600;
+
+    // Add the results to the the array and return it
+    values.push(seconds);
+    values.push(minutes);
+    values.push(hours);
+    return values;
+};
+
