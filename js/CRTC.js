@@ -14,13 +14,6 @@ Cycles Render Time Calculator - Web Version
 var appValues = ["Cycles Render Time Calculator - Web Version",
 "0.3", "", "Triangle717 and rioforce"];
 
-function unCheck() {
-
-    document.getElementById("videocheck").checked=false;
-};
-
-unCheck();
-
 
 function changeFields(rendertype) {
     /* Change field lables depending on values chosen */
@@ -37,15 +30,18 @@ function changeFields(rendertype) {
 };
 
 
-function isVideo(value) {
+function isVideo() {
     /* Change field lables depending on if video is being rendered */
 
+    // Get state of check box
+    var value = document.getElementById("videocheck").checked
+
     // Display the field for number of frames
-    if (value === "isvideo") {
-        document.getElementById("numofframes").innerHTML='Number of frames in animation: <input type="text" name="uname" placeholder="250" autocomplete="off"> ';
+    if (value) {
+        document.getElementById("numofframes").innerHTML='<li>Number of frames in animation: <input type="text" name="uname" placeholder="250" autocomplete="off"> </li>';
         }
 
-    // Display nothing - FIXME!!!
+    // It is unchecked, display nothing
     else {
         document.getElementById("numofframes").innerHTML="";
         }
@@ -179,4 +175,3 @@ function doMath(number1, number2) {
     values.push(hours);
     return values;
 };
-

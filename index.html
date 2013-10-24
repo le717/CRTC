@@ -16,16 +16,6 @@
     under the CC BY 2.5 license <http://creativecommons.org/licenses/by/2.5/> -->
     <script src="https://raw.github.com/verbatim/css_browser_selector/master/css_browser_selector_dev.js" type="text/javascript"></script>
     <script src="js/CRTC.js" type="text/javascript"></script>
-<!--
-    function displayResult(browser)
-{
-    rendertype = document.getElementById("result").value=browser;
-};
-//function useResult() {
-//    return displayResult(browser);
-//};
-</script>
--->
 </head>
 
 <body>
@@ -37,20 +27,21 @@ https://github.com/blog/273-github-ribbons
 <h1>Cycles Render Time Calculator</h1>
 <p><em>Calculate approximate GPU render times when using the Blender Cycles Engine</em></p>
 
+<!-- Input fields -->
 <form>
   <input type="radio" name="rendertype" onclick="changeFields(this.value)"value="pr">Progressive Refine
   <input type="radio" name="rendertype" onclick="changeFields(this.value)" value="tiles">Tiles
-  <input type="checkbox" name="videocheck" onclick="isVideo(this.value)" value="isvideo">Multi-frame animation (Video)<br>
+  <input type="checkbox" id="videocheck" value="isvideo" onclick="isVideo()">Multi-frame animation (Video)
   <br><br>
-  <span id="numof1">Number of Samples: </span><input type="text" name="uname" placeholder="150" autocomplete="off"><br>
-  <span id="numof2">Render time of one Tile (in seconds): </span><input type="text" name="uname" placeholder="120" autocomplete="off"><br>
-  <span id="numofframes"></span><br>
-  <br><br>
+  <ul>
+  <li><span id="numof1">Number of Samples: </span><input type="text" name="uname" placeholder="150" autocomplete="off"></li>
+  <li><span id="numof2">Render time of one Tile (in seconds): </span><input type="text" name="uname" placeholder="120" autocomplete="off"></li>
   <span id="numofframes"></span>
+  </ul>
   <input type="submit" value="Calculate!" onclick="displayResult(this.value)">
 </form>
 
-
+<br>
 <h3>Results</h3>
 <div>It will take approximately <span id="results"></span> to render your animation.</div>
 
@@ -59,23 +50,10 @@ https://github.com/blog/273-github-ribbons
 <script>
 document.getElementById("results").innerHTML="<strong>10 hours</strong>";
 </script>
-<!--
-    // TODO: This might change the field labels depending on render type chosen
-    var rendertype = "Tiles"
-
-    if (rendertype === "Tiles") {
-        document.getElementById("numof").innerHTML="Number of Tiles: ";
-        }
-    else {
-        document.getElementById("numof").innerHTML="Number of Samples: ";
-        }
-</script>
--->
 
 <!--
 Obligatory assurance that no data entered is kept.
 -->
-<br>
 <h3>Note</h3>
 <p>No data is collected from the fields, and is lost upon page refresh.
 <br>
