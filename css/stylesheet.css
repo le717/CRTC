@@ -16,10 +16,7 @@ iOS6 iPod touch 5th gen & Android 4.2 Sony Xperia LT30at
 /* Remove link underlines */
 a { text-decoration: none; }
 
-ul {
-    list-style: none;
-    text-align: center;
-}
+ul { list-style: none; }
 li { width: 100%; }
 
 /* Background Vignette taken from
@@ -38,13 +35,13 @@ body{
 /* Makes render time display stand out more */
 #results {
     background-color: #FFFFFF;
-    box-shadow: 1px 1px 1px 0.5px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px;
     padding-left: 2px;
     padding-right: 2px;
 }
 
-/* Replicate above effect on stock Android browser */
-.android #results {
+/* Replicate above effect on Safari and stock Android browser */
+.webkit, .android #results {
     background-color: #FFFFFF;
     border-style: solid;
     border-width: 1px;

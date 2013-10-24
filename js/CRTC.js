@@ -152,12 +152,8 @@ function tileVideoRender(paramseconds) {
 };
 
 
-function displayResult(browser)
-{
-    rendertype = document.getElementById("result").value=browser;
-};
-
 function doMath(number1, number2) {
+    /* Perform the math problems */
 
     // Holds our math results
     values = [];
@@ -176,4 +172,10 @@ function doMath(number1, number2) {
     values.push(minutes);
     values.push(hours);
     return values;
+};
+
+function calculate(){
+    /*  Calculate the render times! */
+    document.getElementById("results").innerHTML="<strong>10 hours</strong>";
+    // Do something else here!
 };
