@@ -21,11 +21,13 @@ function changeFields(rendertype) {
     // User is rendering using tiles
     if (rendertype === "tiles") {
         document.getElementById("numof1").innerHTML="Number of Tiles: ";
+        document.getElementById("numof2").innerHTML="Render time of one Tile (in seconds) ";
         }
 
     // User is rendering using Progressive Refine
     else {
         document.getElementById("numof1").innerHTML="Number of Samples: ";
+        document.getElementById("numof2").innerHTML="Render time of one Sample (in seconds) ";
         }
 };
 

@@ -35,16 +35,16 @@ body{
 /* Display background image only for Safari and stock Android browser */
 .webkit, .android { background-image: url("../img/bg.png"); }
 
-/* Makes render time display stand out more */
+/* Makes render time display stand out more
 #results {
     background-color: #FFFFFF;
     box-shadow: 1px 1px 1px 0.5px;
     padding-left: 2px;
     padding-right: 2px;
-}
+} */
 
 /* Replicate above effect on stock Android browser */
-.android #results {
+#results {
     border-style: solid;
     border-width: 1px;
     border-color: #000000;
