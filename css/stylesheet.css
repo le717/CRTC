@@ -33,7 +33,7 @@ body {
 
 
 /* Display background image only for Safari and stock Android browser */
-.webkit, body.android body { 
+.webkit body, .android body { 
     background-image: url("../img/bg.png"); 
     font-size: 0.5em;
 }
