@@ -21,8 +21,8 @@ li { width: 100%; }
 
 /* Background Vignette taken from
 http://playground.niftinessafoot.com/vignette */
-html{ min-height: 100%; }
-body{
+html { min-height: 100%; }
+body {
     text-align: center;
     /* background-image: radial-gradient(transparent, rgba(0,0,0,.2)), url("../img/bg.png"); */
     background-image: url("../img/bg.png");
@@ -30,13 +30,18 @@ body{
     font-size: 1em;
     }
 
+
+
 /* Display background image only for Safari and stock Android browser */
-.webkit, .android { background-image: url("../img/bg.png"); }
+.webkit, body.android body { 
+    background-image: url("../img/bg.png"); 
+    font-size: 0.5em;
+}
 
 /* Makes render time display stand out more */
 #results {
     background-color: #FFFFFF;
-    box-shadow: 0.5px 0.5px 0.5px 0.5px;
+    box-shadow: 1px 1px 1px 1px;
     padding-left: 2px;
     padding-right: 2px;
 }
@@ -45,6 +50,6 @@ body{
 .webkit, .android #results {
     background-color: #FFFFFF;
     border-style: solid;
-    border-width: 0.5px;
+    border-width: 1px;
     border-color: #000000;
 }
