@@ -45,6 +45,7 @@ body{
 
 /* Replicate above effect on stock Android browser */
 #results {
+    background-color: #FFFFFF;
     border-style: solid;
     border-width: 1px;
     border-color: #000000;
