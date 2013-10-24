@@ -30,7 +30,7 @@ body{
     }
 
 /* Display background image only for Safari and stock Android browser */
-.safari, .android, .firefox { background-image: url("../img/bg.png"); }
+.safari, .android { background-image: url("../img/bg.png"); }
 
 /* Makes render time display stand out more */
 #results {
