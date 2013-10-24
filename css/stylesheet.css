@@ -33,7 +33,7 @@ body {
 
 
 /* Display background image only for Safari and stock Android browser */
-.webkit body, .android body { 
+.webkik, .android body { 
     background-image: url("../img/bg.png"); 
     font-size: 0.5em;
 }
@@ -47,7 +47,7 @@ body {
 }
 
 /* Replicate above effect on Safari and stock Android browser */
-.webkit, .android #results {
+.webkit, .android, .ie7, .ie8 #results {
     background-color: #FFFFFF;
     border-style: solid;
     border-width: 1px;
