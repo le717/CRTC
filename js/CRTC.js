@@ -104,14 +104,6 @@ function doMath(number1, number2) {
     values.push(minutes);
     values.push(hours);
 
-    // Check if a video is being rendered
-    var isvideo = document.getElementById("videocheck").checked;
-
-    if (isvideo) {
-        var number_of_frames = document.getElementById("field3").value;
-        console.log(number_of_frames);
-        }
-
     return values;
 };
 
@@ -125,6 +117,14 @@ function calculate() {
 
     // Do the math
     var results = doMath(first_number, second_number);
+
+    // Check if a video is being rendered
+    var isvideo = document.getElementById("videocheck").checked;
+
+    if (isvideo) {
+        var number_of_frames = document.getElementById("field3").value;
+        console.log(number_of_frames);
+        }
 
     // Standard messages that may be edited later
     var hr_text = " hours"

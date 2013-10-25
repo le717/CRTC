@@ -17,7 +17,6 @@ on 5th gen iPod touch (iOS6) & Sony Xperia LT30at (Android 4.2)
 a { text-decoration: none; }
 
 ul { list-style: none; }
-li { width: 100%; }
 
 /* Center align page, set background image, default font size */
 body {
@@ -46,4 +45,18 @@ body {
     border-width: 1px;
     border-color: #000000;
     padding: 2px;
+}
+
+form {
+    width: 50%;
+    float: left;
+}
+
+label {
+    text-align: right;
+    clear: both;
+}
+
+input {
+    text-align: left;
 }
