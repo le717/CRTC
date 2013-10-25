@@ -155,6 +155,9 @@ function tileVideoRender(paramseconds) {
 function doMath(number1, number2) {
     /* Perform the math problems */
 
+    //console.log(number1);
+    //console.log(number2);
+
     // Holds our math results
     values = [];
 
@@ -167,6 +170,11 @@ function doMath(number1, number2) {
     var minutes = seconds / 60;
     var hours = seconds / 3600;
 
+    // Round the calculations off
+    seconds = Math.round(seconds);
+    minutes = Math.round(minutes);
+    hours = Math.round(hours);
+
     // Add the results to the the array and return it
     values.push(seconds);
     values.push(minutes);
@@ -174,8 +182,39 @@ function doMath(number1, number2) {
     return values;
 };
 
-function calculate(){
+function calculate() {
     /*  Calculate the render times! */
-    document.getElementById("results").innerHTML="<strong>10 hours</strong>";
+
+    // Get the numbers from the fields
+    // TODO: Add check to make sure they are numbers
+    var first_number = document.getElementById("numof1");
+    var second_number = document.getElementById("numof2");
+    //var isvideo = document.getElementById("videocheck").checked;
+    console.log(first_number);
+    console.log(second_number);
+
+    // Do the math
+    var results = doMath(first_number, second_number);
+
+    // It will take over an hour
+    if (results[0] >= 3600.0) {
+        document.getElementById("results").innerHTML="<strong>" + results[2] + " hours</strong>";
+        console.log("It will take approximately " + results[2] +  "hours to render your animation.");
+        }
+
+    // It will take over a minute but less than an hour
+    else if (results[0] >= 60.0 && results[0] < 3599.9) {
+        document.getElementById("results").innerHTML="<strong>" + results[1] + " minutes</strong>";
+        console.log("It will take approximately " + results[1] + " minutes to render your animation.");
+        }
+
+    // It will take only seconds
+    else {
+        document.getElementById("results").innerHTML="<strong>" + results[0] + " seconds</strong>";
+        console.log("It will take approximately " + results[0] + " seconds to render your animation.");
+        }
+
     // Do something else here!
+    //document.getElementById("results").innerHTML="<strong>10 hours</strong>";
+
 };

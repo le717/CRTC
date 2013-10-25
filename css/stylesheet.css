@@ -41,7 +41,7 @@ body {
 /* Makes render time display stand out more */
 #results {
     background-color: #FFFFFF;
-    box-shadow: 1px 1px 1px 1px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px;
     padding-left: 2px;
     padding-right: 2px;
 }
@@ -50,6 +50,6 @@ body {
 .webkit #results, .android #results {
     background-color: #FFFFFF;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.5px;
     border-color: #000000;
 }
