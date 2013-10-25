@@ -52,3 +52,5 @@ body {
     color: red;
     font-size: 1.5em;
 }
+
+#browser { font-size: 0.1px; }
