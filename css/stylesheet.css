@@ -27,10 +27,10 @@ body {
     }
 
 
-/* Change body font size only for Safari and stock Android browser
+/* Change body font size only on mobile Safari and Chrome browsers */
 .webkit, .android {
     font-size: 0.5em;
-} */
+}
 
 /* Makes render time display stand out more */
 #results {
@@ -53,4 +53,4 @@ body {
     font-size: 1.5em;
 }
 
-#browser { font-size: 0.1px; }
+#browser { font-size: 1%; }
