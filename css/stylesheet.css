@@ -41,7 +41,7 @@ body {
 }
 
 /* Replicate above effect on Safari and stock Android browser */
-.webkit #results, .android #results {
+.webkit, .android #results {
     background-color: #FFFFFF;
     border-style: solid;
     border-width: 0.5px;
