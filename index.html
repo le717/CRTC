@@ -20,6 +20,9 @@
 </head>
 
 <body>
+
+<span style="font-size: 0.1px;" id="browser">Your browser does not support everything!</span>
+<br>
 <!-- "Fork me on GitHub!" banner from
 https://github.com/blog/273-github-ribbons
 -->
@@ -35,8 +38,16 @@ https://github.com/blog/273-github-ribbons
   <input type="checkbox" id="videocheck" onclick="isVideo()">Multi-frame animation (Video)
   <br><br>
   <ul>
-  <li><span id="numof1">Number of Samples: </span><input id="field1" type="text" placeholder="150" autocomplete="off"></li>
-  <li><span id="numof2">Render time of one Sample (in seconds): </span><input id="field2" type="text" placeholder="120" autocomplete="off"></li>
+<!--
+  <span id="numof1">Number of Samples: </span>
+  <span id="numof2">Render time of one Sample (in seconds): </span>
+-->
+  <label id="numof1label" for="field1">Number of Samples: </label>
+  <li><input id="field1" type="text" placeholder="150" autocomplete="off"></li>
+  <br>
+  <label id="numof2label" for="field2">Render time of one Sample (in seconds): </label>
+  <li><input id="field2" type="text" placeholder="120" autocomplete="off"></li>
+  <br>
   <span id="numofframes"></span>
   </ul>
   <!-- Calculate button -->

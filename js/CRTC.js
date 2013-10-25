@@ -19,14 +19,14 @@ function changeFields() {
 
     // User is rendering using Tiles
     if (!rendertype) {
-        document.getElementById("numof1").innerHTML="Number of Tiles: ";
-        document.getElementById("numof2").innerHTML="Render time of one Tile (in seconds) ";
+        document.getElementById("numof1label").innerHTML="Number of Tiles: ";
+        document.getElementById("numof2label").innerHTML="Render time of one Tile (in seconds) ";
         }
 
     // User is rendering using Progressive Refine
     else {
-        document.getElementById("numof1").innerHTML="Number of Samples: ";
-        document.getElementById("numof2").innerHTML="Render time of one Sample (in seconds) ";
+        document.getElementById("numof1label").innerHTML="Number of Samples: ";
+        document.getElementById("numof2label").innerHTML="Render time of one Sample (in seconds) ";
         }
 };
 
