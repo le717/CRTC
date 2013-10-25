@@ -39,7 +39,7 @@ function isVideo() {
 
     // Display the field for number of frames
     if (value) {
-        document.getElementById("numofframes").innerHTML='<label id="numofframeslabel" for="numofframes">Number of frames in animation: </label><li>\n<input type="text" placeholder="250" autocomplete="off"> </li>';
+        document.getElementById("numofframes").innerHTML='<label id="numofframeslabel" for="numofframes">Number of frames in animation: </label><li>\n<input id="field3" type="text" placeholder="250" autocomplete="off"></li>';
         }
 
     // It is unchecked, display nothing
@@ -103,6 +103,15 @@ function doMath(number1, number2) {
     values.push(seconds);
     values.push(minutes);
     values.push(hours);
+
+    // Check if a video is being rendered
+    var isvideo = document.getElementById("videocheck").checked;
+
+    if (isvideo) {
+        var number_of_frames = document.getElementById("field3").value;
+        console.log(number_of_frames);
+        }
+
     return values;
 };
 
@@ -113,7 +122,6 @@ function calculate() {
     // TODO: Add check to make sure they are numbers
     var first_number = document.getElementById("field1").value;
     var second_number = document.getElementById("field2").value;
-    //var isvideo = document.getElementById("videocheck").checked;
 
     // Do the math
     var results = doMath(first_number, second_number);
