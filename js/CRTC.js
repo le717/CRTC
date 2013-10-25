@@ -39,7 +39,7 @@ function isVideo() {
 
     // Display the field for number of frames
     if (value) {
-        document.getElementById("numofframes").innerHTML='<li>Number of frames in animation: <input type="text" name="uname" placeholder="250" autocomplete="off"> </li>';
+        document.getElementById("numofframes").innerHTML='<label id="numofframeslabel" for="numofframes">Number of frames in animation: </label><li>\n<input type="text" placeholder="250" autocomplete="off"> </li>';
         }
 
     // It is unchecked, display nothing

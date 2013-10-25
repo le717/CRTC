@@ -11,12 +11,12 @@
     <!-- Site title, favicon, JavaScript, CSS stylesheet -->
     <title>Cycles Render Time Calculator</title>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
 
     <!-- Browser detection library, taken from <https://github.com/verbatim/css_browser_selector/>
     under the CC BY 2.5 license <http://creativecommons.org/licenses/by/2.5/> -->
     <script src="js/css_browser_selector_dev.js" type="applicaton/javascript"></script>
     <script src="js/CRTC.js" type="text/javascript"></script>
-    <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -44,11 +44,9 @@ https://github.com/blog/273-github-ribbons
 -->
   <label id="numof1label" for="field1">Number of Samples: </label>
   <li><input id="field1" type="text" placeholder="150" autocomplete="off"></li>
-  <br>
   <label id="numof2label" for="field2">Render time of one Sample (in seconds): </label>
   <li><input id="field2" type="text" placeholder="120" autocomplete="off"></li>
-  <br>
-  <span id="numofframes"></span>
+  <div id="numofframes"></div>
   </ul>
   <!-- Calculate button -->
   <input type="submit" value="Calculate!" onclick="calculate(); return false">
