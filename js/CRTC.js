@@ -155,9 +155,6 @@ function tileVideoRender(paramseconds) {
 function doMath(number1, number2) {
     /* Perform the math problems */
 
-    //console.log(number1);
-    //console.log(number2);
-
     // Holds our math results
     values = [];
 
@@ -187,19 +184,27 @@ function calculate() {
 
     // Get the numbers from the fields
     // TODO: Add check to make sure they are numbers
-    var first_number = document.getElementById("numof1");
-    var second_number = document.getElementById("numof2");
+    var first_number = document.getElementById("field1").value;
+    var second_number = document.getElementById("field2").value;
     //var isvideo = document.getElementById("videocheck").checked;
-    console.log(first_number);
-    console.log(second_number);
 
     // Do the math
     var results = doMath(first_number, second_number);
 
+    // Standard messages that may be edited later
+    var hr_text = " hours"
+    var min_text = " minutes"
+    var sec_text = " seconds"
+
     // It will take over an hour
     if (results[0] >= 3600.0) {
-        document.getElementById("results").innerHTML="<strong>" + results[2] + " hours</strong>";
-        console.log("It will take approximately " + results[2] +  "hours to render your animation.");
+
+        // If it is exactly one hour, change the message to remove the 's'
+        if (results[0] === 3600) {
+            hr_text = " hour";
+        }
+        document.getElementById("results").innerHTML="<strong>" + results[2] + hr_text + "</strong>";
+        console.log("It will take approximately " + results[2] +  hr_text + " to render your animation.");
         }
 
     // It will take over a minute but less than an hour
@@ -210,8 +215,12 @@ function calculate() {
 
     // It will take only seconds
     else {
-        document.getElementById("results").innerHTML="<strong>" + results[0] + " seconds</strong>";
-        console.log("It will take approximately " + results[0] + " seconds to render your animation.");
+        // If it is exactly one second, change the message to remove the 's'
+        if (results[0] === 1) {
+            sec_text = " second";
+        }
+        document.getElementById("results").innerHTML="<strong>" + results[0] + sec_text + "</strong>";
+        console.log("It will take approximately " + results[0] + sec_text + " to render your animation.");
         }
 
     // Do something else here!
