@@ -48,7 +48,7 @@ body {
     border-color: #000000;
 }
 
-.webkit #browser {
+.android #browser {
     color: red;
     font-size: 1.5em;
 }
