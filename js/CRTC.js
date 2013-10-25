@@ -131,11 +131,9 @@ function calculate() {
             hr_text = " hour";
         }
         document.getElementById("results").innerHTML="<strong>" + results[2] + hr_text + "</strong>";
-        console.log("It will take approximately " + results[2] +  hr_text + " to render your animation.");
         }
 
     // It will take over a minute but less than an hour
-
     else if (results[0] >= 60 && results[0] < 3599.9) {
 
         // If it is exactly one minute, change the message to remove the 's'
@@ -143,7 +141,6 @@ function calculate() {
             min_text = " minute";
         }
         document.getElementById("results").innerHTML="<strong>" + results[1] + min_text + "</strong>";
-        console.log("It will take approximately " + results[1] + min_text + " to render your animation.");
         }
 
     // It will take only seconds
@@ -154,7 +151,6 @@ function calculate() {
             sec_text = " second";
         }
         document.getElementById("results").innerHTML="<strong>" + results[0] + sec_text + "</strong>";
-        console.log("It will take approximately " + results[0] + sec_text + " to render your animation.");
         }
 
     // Do something else here!
