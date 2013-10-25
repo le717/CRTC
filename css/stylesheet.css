@@ -28,7 +28,7 @@ body {
 
 
 /* Change body font size only for Safari and stock Android browser */
-.webkit body, .android body {
+.webkit, .android {
     font-size: 0.5em;
 }
 
