@@ -10,16 +10,15 @@
 Cycles Render Time Calculator - Web Version
 */
 
-// Store site (app) info in an array
-var appValues = ["Cycles Render Time Calculator - Web Version",
-"0.3", "", "Triangle717 and rioforce"];
 
-
-function changeFields(rendertype) {
+function changeFields() {
     /* Change field lables depending on values chosen */
 
-    // User is rendering using tiles
-    if (rendertype === "tiles") {
+    // Get state of Progressive Refine radio button
+    var rendertype = document.getElementById("render").checked
+
+    // User is rendering using Tiles
+    if (!rendertype) {
         document.getElementById("numof1").innerHTML="Number of Tiles: ";
         document.getElementById("numof2").innerHTML="Render time of one Tile (in seconds) ";
         }
@@ -46,78 +45,6 @@ function isVideo() {
     // It is unchecked, display nothing
     else {
         document.getElementById("numofframes").innerHTML="";
-        }
-};
-
-
-function videoRender() {
-    /* Generic Animation Render Time */
-
-    var videoframes = prompt("\nHow many frames are in your animation? ");
-    var videoframetime = prompt("How long does a single frame take to render (in seconds)? ");
-
-    // Convert input to integers using Base10 (duh)
-    videoframes = parseInt(videoframes, 10);
-    videoframetime = parseInt(videoframetime, 10);
-
-    // Calculate the seconds, minutes, and hours
-    var seconds = videoframes * videoframetime;
-    var minutes = seconds / 60;
-    var hours = seconds / 3600;
-
-    // It will take over an hour to render
-    if (seconds >= 3600.0) {
-        console.log("\nIt will take approximately " + Math.round(hours) + " hours to render your animation.\n");
-        }
-
-    // It will take over a minute but less than an hour to render
-    else if (seconds >= 60.0 && seconds < 3599.9) {
-        console.log("\nIt will take approximately " + Math.round(minutes)  + " minutes to render your animation.\n");
-        }
-
-    // It will take only seconds to render
-    else {
-        console.log("\nIt will take approximately " + Math.round(seconds) + " seconds to render your animation.\n");
-        }
-};
-
-
-function tileRender() {
-    /* Calculates Render Time (Using Tiles) */
-
-    var numtiles = prompt("\nHow many tiles are in your render? ");
-    var tilerendertime = prompt("How long does a single tile take to render (in seconds)? ");
-
-    // Convert input to integers using Base10
-    numtiles = parseInt(numtiles, 10);
-    tilerendertime = parseInt(tilerendertime, 10);
-
-    // Calculate the seconds, minutes, and hours
-    var seconds = numtiles * tilerendertime;
-    var minutes = seconds / 60;
-    var hours = seconds / 3600;
-
-    // It will take over an hour
-    if (seconds >= 3600.0) {
-        console.log("\nIt will take approximately " + Math.round(hours) + " hours to render your animation.\n");
-        }
-
-    // It will take over a minute but less than an hour
-    else if (seconds >= 60.0 && seconds < 3599.9) {
-        console.log("\nIt will take approximately " + Math.round(minutes)  + " minutes to render your animation.\n");
-    }
-
-    // It will take only seconds
-    else {
-        console.log("\nIt will take approximately " + Math.round(seconds) + " seconds to render your animation.\n");
-        }
-
-    // AKA video or "multi-frame" animation
-    var tilevideo = confirm("Are you rendering an animation?");
-
-    // Yes, I am rendering an animation
-    if (tilevideo) {
-        tileVideoRender(seconds);
         }
 };
 
@@ -208,13 +135,20 @@ function calculate() {
         }
 
     // It will take over a minute but less than an hour
-    else if (results[0] >= 60.0 && results[0] < 3599.9) {
-        document.getElementById("results").innerHTML="<strong>" + results[1] + " minutes</strong>";
-        console.log("It will take approximately " + results[1] + " minutes to render your animation.");
+
+    else if (results[0] >= 60 && results[0] < 3599.9) {
+
+        // If it is exactly one minute, change the message to remove the 's'
+        if (results[0] === 60) {
+            min_text = " minute";
+        }
+        document.getElementById("results").innerHTML="<strong>" + results[1] + min_text + "</strong>";
+        console.log("It will take approximately " + results[1] + min_text + " to render your animation.");
         }
 
     // It will take only seconds
     else {
+
         // If it is exactly one second, change the message to remove the 's'
         if (results[0] === 1) {
             sec_text = " second";

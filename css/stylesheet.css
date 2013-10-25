@@ -19,22 +19,16 @@ a { text-decoration: none; }
 ul { list-style: none; }
 li { width: 100%; }
 
-/* Background Vignette taken from
-http://playground.niftinessafoot.com/vignette */
-html { min-height: 100%; }
+/*  */
 body {
     text-align: center;
-    /* background-image: radial-gradient(transparent, rgba(0,0,0,.2)), url("../img/bg.png"); */
     background-image: url("../img/bg.png");
-    min-height: 100%;
     font-size: 1em;
     }
 
 
-
-/* Display background image only for Safari and stock Android browser */
+/* Change body font size only for Safari and stock Android browser */
 .webkit body, .android body {
-    background-image: url("../img/bg.png");
     font-size: 0.5em;
 }
 
