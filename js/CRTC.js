@@ -15,7 +15,7 @@ function changeFields() {
     /* Change field lables depending on values chosen */
 
     // Get state of Progressive Refine radio button
-    var rendertype = document.getElementById("render").checked
+    var rendertype = document.getElementById("prradio").checked
 
     // User is rendering using Tiles
     if (!rendertype) {
@@ -124,6 +124,10 @@ function calculate() {
     if (isvideo) {
         var number_of_frames = document.getElementById("field3").value;
         console.log(number_of_frames);
+
+        // Do the video math
+        var video_results = doMath(results[0], number_of_frames);
+        console.log(video_results);
         }
 
     // Standard messages that may be edited later
