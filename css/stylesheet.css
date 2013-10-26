@@ -16,6 +16,7 @@ on 5th gen iPod touch (iOS6) & Sony Xperia LT30at (Android 4.2)
 /* Remove link underlines */
 a { text-decoration: none; }
 
+html { min-height: 100%; }
 ul { list-style: none; }
 li { width: 100%; }
 
@@ -41,7 +42,7 @@ body {
 
 /* Replicate above effect on stock Android browser,
 IE 7/8. */
-.ie7 #results, .ie8 #results, .webkit, .android #results  {
+.ie7 #results, .ie8 #results, .webkit .android #results  {
     background-color: #FFFFFF;
     border-style: solid;
     border-width: 1px;
