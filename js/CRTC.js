@@ -89,6 +89,32 @@ function doMath(number1, number2) {
     number1 = parseInt(number1, 10);
     number2 = parseInt(number2, 10);
 
+    // A valid number was not entered in the first field
+    if (isNaN(number1)) {
+        // Get current label of the field
+        var label = document.getElementsByTagName('label')[3].firstChild.data;
+
+        // Remove trailng space and colon, display alert
+        label = label.slice(0, -2);
+        alert('You did not enter a valid number for the "' + label + '" field!');
+
+        // Set number to 0 to stop display of NaN seconds
+        number1 = 0;
+    }
+
+    // A valid number was not entered in the second field
+    if (isNaN(number2)) {
+        // Get current label of the field
+        var label = document.getElementsByTagName('label')[4].firstChild.data;
+
+        // Remove trailng space and colon, display alert
+        label = label.slice(0, -2);
+        alert('You did not enter a valid number for the "' + label + '" field!');
+
+        // Set number to 0 to stop display of NaN seconds
+        number2 = 0;
+    }
+
     // Calculate the seconds, minutes, and hours
     var seconds = number1 * number2;
     var minutes = seconds / 60;
@@ -143,7 +169,7 @@ function calculate() {
             hr_text = " hour";
         }
         document.getElementById("results").innerHTML="<strong>" + results[2] + hr_text + "</strong>";
-        }
+    }
 
     // It will take over a minute but less than an hour
     else if (results[0] >= 60 && results[0] < 3599.9) {
@@ -153,7 +179,7 @@ function calculate() {
             min_text = " minute";
         }
         document.getElementById("results").innerHTML="<strong>" + results[1] + min_text + "</strong>";
-        }
+    }
 
     // It will take only seconds
     else {
@@ -163,9 +189,6 @@ function calculate() {
             sec_text = " second";
         }
         document.getElementById("results").innerHTML="<strong>" + results[0] + sec_text + "</strong>";
-        }
-
-    // Do something else here!
-    //document.getElementById("results").innerHTML="<strong>10 hours</strong>";
+    }
 
 };
