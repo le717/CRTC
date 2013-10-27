@@ -6,6 +6,9 @@
     <http://Triangle717.WordPress.com/>
     <http://rioforce.wordpress.com/>
 
+    Licensed under The MIT License
+    <http://opensource.org/licenses/MIT>
+
 -------------------------------------
 Cycles Render Time Calculator - Web Version
 */
@@ -91,6 +94,7 @@ function doMath(number1, number2) {
 
     // A valid number was not entered in the first field
     if (isNaN(number1)) {
+
         // Get current label of the field
         var label = document.getElementsByTagName('label')[3].firstChild.data;
 
@@ -104,7 +108,6 @@ function doMath(number1, number2) {
 
     // A valid number was not entered in the second field
     if (isNaN(number2)) {
-
 
         /* Get current label of the field,
         depending on if this is video or not */
@@ -132,6 +135,8 @@ function doMath(number1, number2) {
     var hours = seconds / 3600;
 
     // Round the calculations off
+    // FIXME:It needs to round to two decimal places,
+    //not the nearest whole number
     seconds = Math.round(seconds);
     minutes = Math.round(minutes);
     hours = Math.round(hours);

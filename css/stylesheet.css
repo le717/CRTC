@@ -6,6 +6,10 @@
     <http://Triangle717.WordPress.com/>
     <http://rioforce.wordpress.com/>
 
+    Licensed under The MIT License
+    <http://opensource.org/licenses/MIT>
+
+-------------------------------------
 Cycles Render Time Calculator - Web Version
 
 All mobile browser rules personally tested by Triangle717
@@ -42,7 +46,7 @@ body {
 
 /* Replicate above effect on stock Android browser,
 IE 7/8. */
-.ie7 #results, .ie8 #results, .webkit .android #results  {
+.ie7 #results, .ie8 #results, .webkit, .android #results  {
     background-color: #FFFFFF;
     border-style: solid;
     border-width: 1px;
