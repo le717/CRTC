@@ -84,12 +84,10 @@ function doMath(number1, number2) {
     var minutes = seconds / 60;
     var hours = seconds / 3600;
 
-    // Round the calculations off
-    // FIXME:It needs to round to two decimal places,
-    //not the nearest whole number
-    seconds = Math.round(seconds);
-    minutes = Math.round(minutes);
-    hours = Math.round(hours);
+    // Round the calculations off to round to two decimal places
+    seconds = seconds.toFixed(2);
+    minutes = minutes.toFixed(2);
+    hours = hours.toFixed(2);
 
     // Add the results to the the array and return it
     values.push(seconds);
