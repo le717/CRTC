@@ -31,26 +31,31 @@ https://github.com/blog/273-github-ribbons
 <p><em>Calculate approximate GPU render times when using the Blender Cycles Engine</em></p>
 
 <form>
-  <!-- Radio buttons and checkbox -->
-  <input type="radio" id="prradio" name="rendertype" onclick="changeFields()" checked="checked">
-  <label for="prradio">Progressive Refine</label>
-  <input type="radio" id="tileradio" name="rendertype" onclick="changeFields()">
-  <label for="tileradio">Tiles</label>
-  <input type="checkbox" id="videocheck" onclick="isVideo()">
-  <label for="videocheck">Multi-frame animation (Video)</label>
-  <br><br>
+    <!-- Radio buttons and checkbox -->
+    <input type="radio" id="prradio" name="rendertype" onclick="changeFields()" checked="checked">
+    <label for="prradio">Progressive Refine</label>
+    <input type="radio" id="tileradio" name="rendertype" onclick="changeFields()">
+    <label for="tileradio">Tiles</label>
+    <input type="checkbox" id="videocheck" onclick="isVideo()">
+    <label for="videocheck">Multi-frame animation (Video)</label>
 
-  <!-- Input fields -->
-  <ul>
-  <label id="numof1label" for="field1">Number of Samples: </label>
-  <li><input id="field1" type="text" placeholder="150" autocomplete="off"></li>
-  <label id="numof2label" for="field2">Render time of one Sample (in seconds): </label>
-  <li><input id="field2" type="text" placeholder="120" autocomplete="off"></li>
-  <div id="numofframes"></div>
-  </ul>
+    <!-- Uncheck the video checkbox upon page load -->
+    <script>
+        document.getElementById("videocheck").checked=false;
+    </script>
 
-  <!-- Calculate button -->
-  <input type="submit" value="Calculate!" onclick="calculate(); return false">
+    <br><br>
+    <!-- Input fields -->
+    <ul>
+    <label id="numof1label" for="field1">Number of Samples: </label>
+    <li><input id="field1" type="text" placeholder="150" autocomplete="off"></li>
+    <label id="numof2label" for="field2">Render time of one Sample (in seconds): </label>
+    <li><input id="field2" type="text" placeholder="120" autocomplete="off"></li>
+    <div id="numofframes"></div>
+    </ul>
+
+    <!-- Calculate button -->
+    <input type="submit" value="Calculate!" onclick="calculate(); return false">
 </form>
 
 <!-- Where the calculation results appear -->

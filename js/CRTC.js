@@ -20,13 +20,13 @@ function changeFields() {
     // User is rendering using Tiles
     if (!rendertype) {
         document.getElementById("numof1label").innerHTML="Number of Tiles: ";
-        document.getElementById("numof2label").innerHTML="Render time of one Tile (in seconds) ";
+        document.getElementById("numof2label").innerHTML="Render time of one Tile (in seconds): ";
         }
 
     // User is rendering using Progressive Refine
     else {
         document.getElementById("numof1label").innerHTML="Number of Samples: ";
-        document.getElementById("numof2label").innerHTML="Render time of one Sample (in seconds) ";
+        document.getElementById("numof2label").innerHTML="Render time of one Sample (in seconds): ";
         }
 };
 
@@ -104,8 +104,19 @@ function doMath(number1, number2) {
 
     // A valid number was not entered in the second field
     if (isNaN(number2)) {
-        // Get current label of the field
-        var label = document.getElementsByTagName('label')[4].firstChild.data;
+
+
+        /* Get current label of the field,
+        depending on if this is video or not */
+
+        // Still image render
+        if (!thisIsVideo) {
+            var label = document.getElementsByTagName('label')[4].firstChild.data;
+        }
+        // Video render
+        else {
+            var label = document.getElementsByTagName('label')[5].firstChild.data;
+        }
 
         // Remove trailng space and colon, display alert
         label = label.slice(0, -2);
@@ -129,32 +140,45 @@ function doMath(number1, number2) {
     values.push(seconds);
     values.push(minutes);
     values.push(hours);
-
     return values;
 };
+
+// Declare global variable
+var thisIsVideo;
+
 
 function calculate() {
     /*  Calculate the render times! */
 
     // Get the numbers from the fields
-    // TODO: Add check to make sure they are numbers
     var first_number = document.getElementById("field1").value;
     var second_number = document.getElementById("field2").value;
 
-    // Do the math
-    var results = doMath(first_number, second_number);
+    // Do the still image math
+    var picture_results = doMath(first_number, second_number);
 
     // Check if a video is being rendered
-    var isvideo = document.getElementById("videocheck").checked;
+    thisIsVideo = document.getElementById("videocheck").checked;
 
-    if (isvideo) {
+    // If so, get the value entered
+    if (thisIsVideo) {
         var number_of_frames = document.getElementById("field3").value;
-        console.log(number_of_frames);
 
         // Do the video math
-        var video_results = doMath(results[0], number_of_frames);
-        console.log(video_results);
+        var video_results = doMath(picture_results[0], number_of_frames);
+
+        // Display the video results
+        displayResults(video_results);
         }
+
+    // Display the still image results
+    else {
+        displayResults(picture_results);
+        }
+};
+
+
+function displayResults(results) {
 
     // Standard messages that may be edited later
     var hr_text = " hours"
