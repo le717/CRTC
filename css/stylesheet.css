@@ -37,12 +37,15 @@ body {
     font-size: 0.5em;
 } */
 
+
 /* Makes render time display stand out more */
 #results {
     background-color: #FFFFFF;
     box-shadow: 1.5px 1.5px 1.2px 0.2px;
     padding: 2px;
+    font-weight: bold;
 }
+
 
 /* Replicate above effect on stock Android browser,
 IE 7/8. */
@@ -52,4 +55,11 @@ IE 7/8. */
     border-width: 1px;
     border-color: #000000;
     padding: 2px;
+    font-weight: bold;
+}
+
+/* Error message display */
+#errmessage {
+    font-weight: bold;
+    color: red;
 }
