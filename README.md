@@ -2,9 +2,9 @@ Cycles Render Time Calculator
 =============================
 
 This is the readme to **Cycles Render Time Calculator** (**CRTC**), a [Python  application](http://www.python.org)
-and [HTML/JavaScript website experiment](http://le717.github.io/CRT) written by
+and [HTML/JavaScript website experiment](http://le717.github.io/CRTC) written by
 [Triangle717](http://Triangle717.WordPress.com) and [rioforce](http://rioforce.WordPress.com)
-to calculate approximate GPU render times when using the [Blender (http://www.blender.org) Cycles Engine].
+to calculate approximate GPU render times when using the [Blender Cycles Engine](http://www.blender.org).
 
 Why Was This Created
 --------------------
@@ -53,7 +53,7 @@ Releases
 --------
 
 All downloads of **CRTC** are hosted on this project,
-and are available on the [Releases page.](https://github.com/le717/CRTC/releases))
+and are available on the [Releases page.](https://github.com/le717/CRTC/releases)
 
 * Version 1.2.2 - May 21, 2013
 
@@ -83,13 +83,13 @@ The OS-specific builds are version 1.1, written with Python 3.3.0 only.
 
 * Windows build has been sucessfully tested on x64 Windows 7 and 8. However, Vista (and possibly XP) should be supported.
 
-* Mac OS X build is provided courtesy of [JrMasterModelBuilder](http://jrmastermodelbuilder.netai.net/). Minimum supported version is Mac OS X 10.7 Lion.
+* Mac OS X build is provided courtesy of [@JrMasterModelBuilder](https://github.com/JrMasterModelBuilder). Minimum supported version is Mac OS X 10.7 Lion.
 
 * **Cycles Render Time Calculator** has been successfully tested on Ubuntu 12.04.1 x86 running Python 3.2. It may run on other Unix distos, but has not been
 tested.
 
-Credit
-------
+License
+-------
 
 **Cycles Render Time Calculator** and all components were created 2013 Triangle717 and rioforce.
 The Python version is licensed under the
@@ -100,5 +100,3 @@ while the HTML/JavaScript website experiment licensed under
 **CRTC** makes use of the [**CSS Browser Selector**](https://github.com/verbatim/css_browser_selector) library,
 originally created by [Rafael Lima] (http://rafael.adm.br) and licensed under the
 [CC BY 2.5](http://creativecommons.org/licenses/by/2.5/).
-
-Special thanks to [@JrMasterModelBuilder](https://github.com/JrMasterModelBuilder) for the Mac OS X build.
