@@ -2,7 +2,7 @@ Cycles Render Time Calculator
 =============================
 
 This is the readme to **Cycles Render Time Calculator** (**CRTC**), a [Python  application](http://www.python.org)
-and [HTML/JavaScript website experiment](http://le717.github.io/CRTC) written by
+and [HTML5/JavaScript website experiment](http://le717.github.io/CRTC) written by
 [Triangle717](http://Triangle717.WordPress.com) and [rioforce](http://rioforce.WordPress.com)
 to calculate approximate GPU render times when using the [Blender Cycles Engine](http://www.blender.org).
 
@@ -14,10 +14,9 @@ Rioforce and I were always spending lots of time trying to figure out when his r
 and we were tired of it. We finally determined I should write a program to do this for us.
 Thus **CRTC** was born.
 
-In the third week of October 2013, I began rewriting **CRTC** in HTML/JavaScript form
-as an experiment and learning project on how to create websites.
-
-_Coming Soon._
+On October 18, 2013, I began rewriting **CRTC** in HTML5/JavaScript form
+as an experiment and learning project on how to create websites. It is hosted using [GitHub Pages](https://pages.github.com)
+and can be accessed at [http://le717.github.io/CRTC](http://le717.github.io/CRTC).
 
 How It Works
 ------------
@@ -57,40 +56,8 @@ but some elements may be incorrectly rendered in some browsers, notability mobil
 Releases
 --------
 
-All downloads are available on the [Releases page](https://github.com/le717/CRTC/releases).
-
-* Version 1.2.2 - May 21, 2013
-
-> [Source Code](https://github.com/le717/Cycles-Render-Time-Calculator/tree/1.2.2)
-
-> [Direct Download](https://github.com/le717/Cycles-Render-Time-Calculator/archive/1.2.2.zip)
-
-* Version 1.1/1.2 Stable - February 26, 2013
-
-> [Source Code](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.1Stable) [**](#builds)
-
-> [Direct Download](https://github.com/le717/Cycles-Render-Time-Calculator/archive/V1.1Stable.zip)
-
-* Version 1.0 Beta 2 - February 16, 2013
-
-> [Source Code](https://github.com/le717/Cycles-Render-Time-Calculator/tree/V1.0b2)
-
-> [Direct Download](https://github.com/le717/Cycles-Render-Time-Calculator/archive/V1.0b2.zip)
-
-Builds
-------
-* **Cycles Render Time Calculator** was originally written in Python 3.3, but in version 1.2, it was updated to run on both Python 2 and 3.
-It was successfully tested on Python 3.3.0 and 2.7.4 with no errors. Further more, only the raw Python script of that was upgraded to 1.2.
-The OS-specific builds are version 1.1, written with Python 3.3.0 only.
-
-* Releases are compiled into Windows x86, x64 EXEs and Mac OS X application using [cx_freeze](http://cx-freeze.sourceforge.net).
-
-* Windows build has been successfully tested on x64 Windows 7 and 8. However, Vista (and possibly XP) should be supported.
-
-* Mac OS X build is provided courtesy of [@JrMasterModelBuilder](https://github.com/JrMasterModelBuilder). Minimum supported version is Mac OS X 10.7 Lion.
-
-* **Cycles Render Time Calculator** has been successfully tested on Ubuntu 12.04.1 x86 running Python 3.2. It may run on other Unix distos, but has not been
-tested.
+All downloads of both the original Python version and HTML5/JavaScript website are available on the [Releases page](https://github.com/le717/CRTC/releases).
+Mac OS X build is provided courtesy of [@JrMasterModelBuilder](https://github.com/JrMasterModelBuilder). Minimum supported version is Mac OS X 10.7 Lion.
 
 License
 -------
@@ -98,7 +65,7 @@ License
 **Cycles Render Time Calculator** created 2013 Triangle717 and rioforce.
 Original Python version licensed under the
 [GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html).
-HTML/JavaScript website experiment licensed under
+HTML5/JavaScript website experiment licensed under
 [The MIT License](http://opensource.org/licenses/MIT).
 
 **CRTC** makes use of the [**CSS Browser Selector**](https://github.com/verbatim/css_browser_selector) library,
