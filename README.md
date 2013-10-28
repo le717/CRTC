@@ -56,7 +56,7 @@ but some elements may be incorrectly rendered in some browsers, notability mobil
 Releases
 --------
 
-All downloads of both the original Python version and HTML5/JavaScript website are available on the [Releases page](https://github.com/le717/CRTC/releases).
+All downloads of both the original Python version and HTML5/JavaScript website are available on the [Releases page](http://github.com/le717/CRTC/releases).
 Mac OS X build is provided courtesy of [@JrMasterModelBuilder](https://github.com/JrMasterModelBuilder). Minimum supported version is Mac OS X 10.7 Lion.
 
 License
