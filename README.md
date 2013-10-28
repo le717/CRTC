@@ -28,7 +28,7 @@ Blender Internal is not supported, and if it were, this project would not be nam
 
 **NOTE:** _Approximate_ is the keyword here. While the render times are accurate if all system variables remain constant,
 that is an impossible feat to achieve. Thus, the final render times will be different than the stated time.
-For example, once it calculated a 6.5 minute render timr and it  only took 5 minutes.
+For example, once it calculated a 6.5 minute render time and it  only took 5 minutes.
 
 ### Python ###
 
@@ -49,13 +49,10 @@ depending on the input and result of the calculations.
 ### Website ###
 
 The website experiment works the exact same way as the original Python version, except it lacks the General Animation mode
-and does not have a CLI interface. Special care has been taken to ensure cross-browser combatibility,
+and does not have a CLI interface. Special care has been taken to ensure cross-browser compatibility,
 but some elements may be incorrectly rendered in some browsers, notability mobile ones.
 
-**Internet Explorer users: you will need to allow use of an "ActiveX" object (actually JavaScript for __CRTC__ to work.**
-
-_Coming Soon._
-
+**Internet Explorer users: you will need to allow use of an erroneously labeled "ActiveX" object (actually JavaScript) for _CRTC_ to work.**
 
 Releases
 --------
@@ -88,7 +85,7 @@ The OS-specific builds are version 1.1, written with Python 3.3.0 only.
 
 * Releases are compiled into Windows x86, x64 EXEs and Mac OS X application using [cx_freeze](http://cx-freeze.sourceforge.net).
 
-* Windows build has been sucessfully tested on x64 Windows 7 and 8. However, Vista (and possibly XP) should be supported.
+* Windows build has been successfully tested on x64 Windows 7 and 8. However, Vista (and possibly XP) should be supported.
 
 * Mac OS X build is provided courtesy of [@JrMasterModelBuilder](https://github.com/JrMasterModelBuilder). Minimum supported version is Mac OS X 10.7 Lion.
 

@@ -14,6 +14,9 @@ Cycles Render Time Calculator - Web Version
 */
 
 
+/* ------------ Begin Variable Label Texts ------------ */
+
+
 function changeFields() {
     /* Change field lables depending on values chosen */
 
@@ -50,6 +53,52 @@ function isVideo() {
         document.getElementById("numofframes").innerHTML="";
         }
 };
+
+
+function displayResults(results) {
+    /* Display the calculation results */
+
+    // Standard messages that may be edited later
+    var hr_text = " hours"
+    var min_text = " minutes"
+    var sec_text = " seconds"
+
+    // It will take over an hour
+    if (results[0] >= 3600.0) {
+
+        // If it is exactly one hour, change the message to remove the 's'
+        if (results[0] === 3600) {
+            hr_text = hr_text.slice(0, -1);
+            }
+        document.getElementById("results").innerHTML = results[2] + hr_text;
+    }
+
+    // It will take over a minute but less than an hour
+    else if (results[0] >= 60 && results[0] < 3599.9) {
+
+        // If it is exactly one minute, change the message to remove the 's'
+        if (results[0] === 60) {
+            min_text = min_text.slice(0, -1);
+            }
+        document.getElementById("results").innerHTML = results[1] + min_text;
+    }
+
+    // It will take only seconds
+    else {
+
+        // If it is exactly one second, change the message to remove the 's'
+        if (results[0] === 1) {
+            sec_text = sec_text.slice(0, -1);
+            }
+        document.getElementById("results").innerHTML = results[0] + sec_text;
+    }
+};
+
+
+/* ------------ End Variable Label Texts ------------ */
+
+
+/* ------------ Begin Mathematical Calculations ------------ */
 
 
 function doMath(number1, number2) {
@@ -101,7 +150,7 @@ var thisIsVideo;
 
 
 function calculate() {
-    /*  Calculate the render times! */
+    /* Calculate the render times! */
 
     // Get the numbers from the fields
     var first_number = document.getElementById("field1").value;
@@ -131,40 +180,4 @@ function calculate() {
 };
 
 
-function displayResults(results) {
-
-    // Standard messages that may be edited later
-    var hr_text = " hours"
-    var min_text = " minutes"
-    var sec_text = " seconds"
-
-    // It will take over an hour
-    if (results[0] >= 3600.0) {
-
-        // If it is exactly one hour, change the message to remove the 's'
-        if (results[0] === 3600) {
-            hr_text = hr_text.slice(0, -1);
-            }
-        document.getElementById("results").innerHTML = results[2] + hr_text;
-    }
-
-    // It will take over a minute but less than an hour
-    else if (results[0] >= 60 && results[0] < 3599.9) {
-
-        // If it is exactly one minute, change the message to remove the 's'
-        if (results[0] === 60) {
-            min_text = min_text.slice(0, -1);
-            }
-        document.getElementById("results").innerHTML = results[1] + min_text;
-    }
-
-    // It will take only seconds
-    else {
-
-        // If it is exactly one second, change the message to remove the 's'
-        if (results[0] === 1) {
-            sec_text = sec_text.slice(0, -1);
-            }
-        document.getElementById("results").innerHTML = results[0] + sec_text;
-    }
-};
+/* ------------ End Mathematical Calculations ------------ */

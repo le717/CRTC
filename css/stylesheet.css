@@ -20,9 +20,14 @@ on 5th gen iPod touch (iOS6) & Sony Xperia LT30at (Android 4.2)
 /* Remove link underlines */
 a { text-decoration: none; }
 
+
+/* Make page contents fill the entire screen */
 html { min-height: 100%; }
+
+
 ul { list-style: none; }
 li { width: 100%; }
+
 
 /* Center align page, set background image, default font size */
 body {
@@ -30,12 +35,6 @@ body {
     background-image: url("../img/bg.png");
     font-size: 1em;
 }
-
-
-/* Change body font size only on mobile Safari and Chrome browsers
-.webkit .android {
-    font-size: 0.5em;
-} */
 
 
 /* Makes render time display stand out more */
@@ -57,6 +56,7 @@ IE 7/8. */
     padding: 2px;
     font-weight: bold;
 }
+
 
 /* Error message display */
 #errmessage {
