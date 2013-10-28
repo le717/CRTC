@@ -22,29 +22,37 @@ _Coming Soon._
 How It Works
 ------------
 
-**Cycles Render Time Calculator** supports both the Tile and Progressive Refine render methods
-for both still images and animations, as well as a general animation render (render engine neutral).
+**Cycles Render Time Calculator** supports Tiles and Progressive Refine render methods
+for both still images and animations, as well as a General Animation render (render engine neutral).
 Blender Internal is not supported, and if it were, this project would not be named the way it is. :stuck_out_tongue:
 
 **NOTE:** _Approximate_ is the keyword here. While the render times are accurate if all system variables remain constant,
 that is an impossible feat to achieve. Thus, the final render times will be different than the stated time.
-For example, it calculated a 6.5 minute render time for me, and it really only took 5 minutes.
+For example, once it calculated a 6.5 minute render timr and it  only took 5 minutes.
 
 ### Python ###
 
-For tile render, simply enter the number of tiles it takes to render your image, and how long it takes (in seconds) to render a single tile (milliseconds
-are supported). This info can easily be found in the Render Window. **CRTC** will then calculate an approximate render time. If you
-are rendering an animation (AKA video or "multi-frame" animation), press 'y' when prompted, enter the number of frames your video has, and an approximate
-animation render time will be calculated.
+For Tiles render, simply enter the number of tiles it takes to render your image,
+and how many seconds or milliseconds it takes to render a single tile.
+This information can easily be found in the Render Window. **CRTC** will then calculate an approximate render time.
+If you are rendering an animation (AKA video or "multi-frame" animation), press `y` when prompted,
+enter the number of frames your video has, and an approximate animation render time will be calculated.
 
-For progressive refine, enter the number of samples in your render, and how long it takes (in seconds) a single sample to render. Again, milliseconds are
-supported. This info can also be found in the Render Window.
+Progressive Refine render works the same way, differing only by asking for the number of Samples in your render,
+and how many seconds/milliseconds it takes to to render one Sample.
 
-The animation render asks only two questions: number of frames, and the time it takes for a single frame to render.
+General Animation render asks only two questions: the number of frames and the time it takes for a single frame to render.
 
-In all modes, render time will be displayed in either seconds, minutes, or hours, depending on the input and the result of the calculations.
+In all modes, render time will be displayed in either seconds, minutes, or hours,
+depending on the input and result of the calculations.
 
 ### Website ###
+
+The website experiment works the exact same way as the original Python version, except it lacks the General Animation mode
+and does not have a CLI interface. Special care has been taken to ensure cross-browser combatibility,
+but some elements may be incorrectly rendered in some browsers, notability mobile ones.
+
+**Internet Explorer users: you will need to allow use of an "ActiveX" object (actually JavaScript for __CRTC__ to work.**
 
 _Coming Soon._
 
@@ -52,8 +60,7 @@ _Coming Soon._
 Releases
 --------
 
-All downloads of **CRTC** are hosted on this project,
-and are available on the [Releases page.](https://github.com/le717/CRTC/releases)
+All downloads are available on the [Releases page](https://github.com/le717/CRTC/releases).
 
 * Version 1.2.2 - May 21, 2013
 
@@ -91,10 +98,10 @@ tested.
 License
 -------
 
-**Cycles Render Time Calculator** and all components were created 2013 Triangle717 and rioforce.
-The Python version is licensed under the
-[GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html),
-while the HTML/JavaScript website experiment licensed under
+**Cycles Render Time Calculator** created 2013 Triangle717 and rioforce.
+Original Python version licensed under the
+[GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html).
+HTML/JavaScript website experiment licensed under
 [The MIT License](http://opensource.org/licenses/MIT).
 
 **CRTC** makes use of the [**CSS Browser Selector**](https://github.com/verbatim/css_browser_selector) library,
