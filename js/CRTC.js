@@ -63,34 +63,57 @@ function displayResults(results) {
     var min_text = " minutes"
     var sec_text = " seconds"
 
+    // Convert numbers back to floats (toFixed changed them to strings)
+    var flo_seconds = parseFloat(results[0], 2);
+    var flo_minutes = parseFloat(results[1], 2);
+    var flo_hours = parseFloat(results[2], 2);
+
     // It will take over an hour
-    if (results[0] >= 3600.0) {
+    if (flo_seconds >= 3600) {
 
         // If it is exactly one hour, change the message to remove the 's'
-        if (results[0] === 3600) {
-            hr_text = hr_text.slice(0, -1);
-            }
-        document.getElementById("results").innerHTML = results[2] + hr_text;
+        if (flo_seconds === 3600) {
+            hr_text = hr_text.slice(0, -1); }
+
+        // Kill trailing .00 if present
+        if (results[0].slice(-2) == "00") {
+            final_result = flo_hours; }
+        else {
+            final_result = results[2]; }
+
+        document.getElementById("results").innerHTML = final_result + hr_text;
     }
 
     // It will take over a minute but less than an hour
-    else if (results[0] >= 60 && results[0] < 3599.9) {
+    else if (flo_seconds >= 60 && flo_seconds < 3599) {
 
         // If it is exactly one minute, change the message to remove the 's'
-        if (results[0] === 60) {
-            min_text = min_text.slice(0, -1);
-            }
-        document.getElementById("results").innerHTML = results[1] + min_text;
+        if (flo_seconds === 60) {
+            min_text = min_text.slice(0, -1); }
+
+        // Kill trailing .00 if present
+        if (results[0].slice(-2) == "00") {
+            final_result = flo_minutes; }
+        else {
+        final_result = results[1]; }
+
+        document.getElementById("results").innerHTML = final_result + min_text;
     }
 
     // It will take only seconds
-    else {
+    else if (flo_seconds <= 59.9) {
 
         // If it is exactly one second, change the message to remove the 's'
-        if (results[0] === 1) {
-            sec_text = sec_text.slice(0, -1);
-            }
-        document.getElementById("results").innerHTML = results[0] + sec_text;
+        if (flo_seconds === 1) {
+            sec_text = sec_text.slice(0, -1); }
+
+        // Kill trailing .00 if present
+        if (results[0].slice(-2) == "00") {
+            final_result = flo_seconds; }
+        else {
+            final_result = results[0]; }
+
+        document.getElementById("results").innerHTML = final_result + sec_text;
     }
 };
 
@@ -110,15 +133,23 @@ function doMath(number1, number2) {
     // Reset error message display
     document.getElementById("errmessage").innerHTML="";
 
-    // Convert input to integers using Base10
-    number1 = parseInt(number1, 10);
-    number2 = parseInt(number2, 10);
+    // Convert input to floats
+    number1 = parseFloat(number1, 2);
+    number2 = parseFloat(number2, 2);
+
+    // Make sure an error if second field for video is invalid
+    if (thisIsVideo && number1 === 0) {
+        number1 =  NaN;
+    }
 
     // A valid number was not entered
-    if (isNaN(number1) || isNaN(number2) || number1 === 0 || number2 === 0)  {
+    if (isNaN(number1) || isNaN(number2) || number1 === "" || number2 === "") {
 
         // Display error message stating only munbers are allowed
         document.getElementById("errmessage").innerHTML="Only numeric values are allowed!";
+
+        // Stop the calculations from running
+        return false;
     }
 
     // Set number(s) to 0 to stop display of NaN seconds
