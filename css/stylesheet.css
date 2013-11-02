@@ -18,48 +18,49 @@ on 5th gen iPod touch (iOS6) & Sony Xperia LT30at (Android 4.2)
 
 @charset "UTF-8";
 /* Remove link underlines */
-a { text-decoration: none; }
+a { text-decoration:none; }
 
 
 /* Make page contents fill the entire screen */
-html { min-height: 100%; }
+html { min-height:100%; }
 
 
-ul { list-style: none; }
-li { width: 100%; }
+ul { list-style:none; }
+li { width:100%; }
 
 
 /* Center align page, set background image, default font size */
 body {
-    text-align: center;
-    background-image: url("../img/bg.png");
-    font-size: 1em;
+    text-align:center;
+    background-color:#E0E0E0;
+    background-image:url("../img/bg.png");
+    font-size:1em;
 }
 
 
 /* Makes render time display stand out more */
 #results {
-    background-color: #FFFFFF;
-    box-shadow: 1.5px 1.5px 1.2px 0.2px;
-    padding: 2px;
-    font-weight: bold;
+    background-color:#FFFFFF;
+    box-shadow:1.5px 1.5px 1.2px 0.2px;
+    padding:2px;
+    font-weight:bold;
 }
 
 
 /* Replicate above effect on stock Android browser,
 IE 7/8. */
 .ie7 #results, .ie8 #results, .webkit, .android #results  {
-    background-color: #FFFFFF;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #000000;
-    padding: 2px;
-    font-weight: bold;
+    background-color:#FFFFFF;
+    border-style:solid;
+    border-width:1px;
+    border-color:#000000;
+    padding:2px;
+    font-weight:bold;
 }
 
 
 /* Error message display */
 #errmessage {
-    font-weight: bold;
-    color: red;
+    font-weight:bold;
+    color:red;
 }

@@ -59,9 +59,9 @@ function displayResults(results) {
     /* Display the calculation results */
 
     // Standard messages that may be edited later
-    var hr_text = " hours"
-    var min_text = " minutes"
-    var sec_text = " seconds"
+    var hr_text = " hours";
+    var min_text = " minutes";
+    var sec_text = " seconds";
 
     // Convert numbers back to floats (toFixed changed them to strings)
     var flo_seconds = parseFloat(results[0], 2);
@@ -76,7 +76,7 @@ function displayResults(results) {
             hr_text = hr_text.slice(0, -1); }
 
         // Kill trailing .00 if present
-        if (results[0].slice(-2) == "00") {
+        if (results[0].slice(-2) === "00") {
             final_result = flo_hours; }
         else {
             final_result = results[2]; }
@@ -92,7 +92,7 @@ function displayResults(results) {
             min_text = min_text.slice(0, -1); }
 
         // Kill trailing .00 if present
-        if (results[0].slice(-2) == "00") {
+        if (results[0].slice(-2) === "00") {
             final_result = flo_minutes; }
         else {
         final_result = results[1]; }
@@ -108,7 +108,7 @@ function displayResults(results) {
             sec_text = sec_text.slice(0, -1); }
 
         // Kill trailing .00 if present
-        if (results[0].slice(-2) == "00") {
+        if (results[0].slice(-2) === "00") {
             final_result = flo_seconds; }
         else {
             final_result = results[0]; }
