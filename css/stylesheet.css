@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
     Cycles Render Time Calculator (CRTC)
     Calculate how long your Blender Cycles Engine renders will take.
@@ -16,7 +17,6 @@ All mobile browser rules personally tested by Triangle717
 on 5th gen iPod touch (iOS6) & Sony Xperia LT30at (Android 4.2)
 */
 
-@charset "UTF-8";
 /* Remove link underlines */
 a { text-decoration:none; }
 

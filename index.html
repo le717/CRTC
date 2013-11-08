@@ -1,4 +1,9 @@
-<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!--
     Cycles Render Time Calculator (CRTC)
     Calculate how long your Blender Cycles Engine renders will take.
 
@@ -9,13 +14,8 @@
     Licensed under The MIT License
     <http://opensource.org/licenses/MIT>
 
-Cycles Render Time Calculator - Web Version
--->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+    Cycles Render Time Calculator - Web Version
+    -->
 
     <!-- Force IE to recognize HTML5 code -->
     <!--[if IE]>
@@ -63,11 +63,11 @@ https://github.com/blog/273-github-ribbons
     <ul>
     <!-- Error message box -->
     <li id="errmessage"></li>
-    <label id="numof1label" for="field1">Number of Samples: </label>
+    <li><label id="numof1label" for="field1">Number of Samples: </label></li>
     <li><input id="field1" type="text" placeholder="150" autocomplete="off"></li>
-    <label id="numof2label" for="field2">Render time of one Sample (in seconds): </label>
+    <li><label id="numof2label" for="field2">Render time of one Sample (in seconds): </label></li>
     <li><input id="field2" type="text" placeholder="120" autocomplete="off"></li>
-    <div id="numofframes"></div>
+    <li><div id="numofframes"></div></li>
     </ul>
 
     <!-- Calculate button -->
