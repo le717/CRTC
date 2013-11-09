@@ -32,7 +32,7 @@ function changeFields() {
         document.getElementById("numof1label").innerHTML = "Number of Samples: ";
         document.getElementById("numof2label").innerHTML = "Render time of one Sample (in seconds): ";
     }
-} ;
+};
 
 
 function isVideo() {
@@ -48,7 +48,7 @@ function isVideo() {
         // It is unchecked, display nothing
         document.getElementById("numofframes").innerHTML = "";
     }
-} ;
+};
 
 
 function displayResults(results) {
@@ -116,7 +116,7 @@ function displayResults(results) {
 
         document.getElementById("results").innerHTML = final_result + sec_text;
     }
-} ;
+};
 
 
 /* ------------ End Variable Label Texts ------------ */
@@ -177,7 +177,7 @@ function doMath(number1, number2) {
     values.push(minutes);
     values.push(hours);
     return values;
-} ;
+};
 
 // Declare global variable
 var thisIsVideo;
@@ -211,7 +211,7 @@ function calculate() {
         // Display the still image results
         displayResults(picture_results);
     }
-} ;
+};
 
 
 /* ------------ End Mathematical Calculations ------------ */
