@@ -52,7 +52,7 @@ function isVideo() {
 
 
 function displayResults(results) {
-    /* Display the calculation results */
+    /* Display calculation results */
 
     // Standard messages that may be edited later
     var hr_text, min_text, sec_text;
@@ -81,7 +81,9 @@ function displayResults(results) {
             final_result = results[2];
         }
 
+        // Construct final time + word display
         document.getElementById("results").innerHTML = final_result + hr_text;
+
     // It will take over a minute but less than an hour
     } else if (flo_seconds >= 60 && flo_seconds < 3599) {
 
@@ -97,6 +99,7 @@ function displayResults(results) {
             final_result = results[1];
         }
 
+        // Construct final time + word display
         document.getElementById("results").innerHTML = final_result + min_text;
 
     // It will take only seconds
@@ -114,6 +117,7 @@ function displayResults(results) {
             final_result = results[0];
         }
 
+        // Construct final time + word display
         document.getElementById("results").innerHTML = final_result + sec_text;
     }
 };
@@ -126,7 +130,7 @@ function displayResults(results) {
 
 
 function doMath(number1, number2) {
-    /* Perform the math problems */
+    /* Do the math */
 
     // Holds our math results
     var values = [];
@@ -184,7 +188,7 @@ var thisIsVideo;
 
 
 function calculate() {
-    /* Calculate the render times! */
+    /* Run process to calculate render time(s) */
 
     // Get the numbers from the fields
     var first_number, second_number, picture_results;

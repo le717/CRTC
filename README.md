@@ -51,7 +51,7 @@ The website experiment works the exact same way as the original Python version, 
 and does not have a CLI interface. Special care has been taken to ensure cross-browser compatibility,
 but some elements may be incorrectly rendered in some browsers, notability mobile ones.
 
-**Internet Explorer users: you will need to allow use of an erroneously labeled "ActiveX" object (actually JavaScript) for _CRTC_ to work.**
+**Internet Explorer users: you will need to allow JavaScript execution for _CRTC_ to work.**
 
 Releases
 --------
@@ -64,7 +64,7 @@ License
 
 **Cycles Render Time Calculator** created 2013 Triangle717 and rioforce.
 Original Python version licensed under the
-[GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html).
+[General Public License Version 3](http://www.gnu.org/licenses/gpl.html).
 HTML5/JavaScript website experiment licensed under
 [The MIT License](http://opensource.org/licenses/MIT).
 
