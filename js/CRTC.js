@@ -70,12 +70,12 @@ function displayResults(results) {
     if (flo_seconds >= 3600) {
 
         // If it is exactly one hour, change the message to remove the 's'
-        if (flo_seconds === 3600) {
+        if (flo_hours === 1) {
             hr_text = hr_text.slice(0, -1);
         }
 
         // Kill trailing .00 if present
-        if (results[0].slice(-2) === "00") {
+        if (results[2].slice(-2) === "00") {
             final_result = flo_hours;
         } else {
             final_result = results[2];
@@ -88,12 +88,12 @@ function displayResults(results) {
     } else if (flo_seconds >= 60 && flo_seconds < 3599) {
 
         // If it is exactly one minute, change the message to remove the 's'
-        if (flo_seconds === 60) {
+        if (flo_minutes === 1) {
             min_text = min_text.slice(0, -1);
         }
 
         // Kill trailing .00 if present
-        if (results[0].slice(-2) === "00") {
+        if (results[1].slice(-2) === "00") {
             final_result = flo_minutes;
         } else {
             final_result = results[1];
