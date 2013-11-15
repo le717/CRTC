@@ -39,16 +39,16 @@ if len(sys.argv) == 1:
 # Freeze into the proper folder depending on the architecture
 # Based on code from the Python help file (platform module) and my own tests
 if sys.maxsize < 2 ** 32:
-    destfolder = "Compile/Windows32"
+    destfolder = "bin/Windows32"
 else:
-    destfolder = "Compile/Windows64"
+    destfolder = "bin/Windows64"
 
 build_exe_options = {"build_exe": destfolder,
                      "icon": "Icon.ico"}
 
 setup(
     name="Cycles Render Time Calculator",
-    verson="1.3.0",
+    version="1.3.0",
     author="Triangle717",
     description="Cycles Render Time Calculator 1.3.0",
     license="GPLv3",

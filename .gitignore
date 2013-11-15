@@ -44,4 +44,5 @@ Archives/
 Compile/
 Release/
 Testing/
+bin/
 *.py
