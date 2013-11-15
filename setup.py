@@ -1,8 +1,9 @@
-#! python3
+#! /usr/bin/python3
 # -*- coding: utf-8 -*-
 """
     Cycles Render Time Calculator (CRTC)
-    Calculate how long your Blender Cycles Engine renders will take.
+    Calculate approximate GPU render times
+    when using the Blender Cycles Engine
 
     Created 2013 Triangle717 & rioforce
     <http://triangle717.wordpress.com/>
@@ -28,8 +29,8 @@ and https://github.com/JrMasterModelBuilder/JAM-Extractor
 With changes by Triangle717
 """
 
-from cx_Freeze import setup, Executable
 import sys
+from cx_Freeze import (setup, Executable)
 
 # Append 'build' to the arguments.
 if len(sys.argv) == 1:
@@ -37,7 +38,7 @@ if len(sys.argv) == 1:
 
 # Freeze into the proper folder depending on the architecture
 # Based on code from the Python help file (platform module) and my own tests
-if sys.maxsize == 2147483647:
+if sys.maxsize < 2 ** 32:
     destfolder = "Compile/Windows32"
 else:
     destfolder = "Compile/Windows64"
@@ -47,9 +48,9 @@ build_exe_options = {"build_exe": destfolder,
 
 setup(
     name="Cycles Render Time Calculator",
-    verson="1.2.2",
+    verson="1.3.0",
     author="Triangle717",
-    description="Cycles Render Time Calculator 1.2.2",
+    description="Cycles Render Time Calculator 1.3.0",
     license="GPLv3",
     options={"build_exe": build_exe_options},
     executables=[Executable("CRTC.py", targetName="CRTC.exe")]
