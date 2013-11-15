@@ -51,8 +51,6 @@ The website experiment works the exact same way as the original Python version, 
 and does not have a CLI interface. Special care has been taken to ensure cross-browser compatibility,
 but some elements may be incorrectly rendered in some browsers, notability mobile ones.
 
-**Internet Explorer users: you will need to allow JavaScript execution for _CRTC_ to work.**
-
 Releases
 --------
 
