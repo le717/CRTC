@@ -28,69 +28,71 @@
     <!-- Site title, favicon, JavaScript, CSS stylesheet -->
     <title>Cycles Render Time Calculator</title>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="css/stylesheet-min.css">
+    <link rel="stylesheet" href="css/stylesheet.min.css">
 
     <!--
     CSS Browser Selector library, taken from <https://github.com/verbatim/css_browser_selector/>
     under the CC BY 2.5 license <http://creativecommons.org/licenses/by/2.5/>
     -->
     <script async src="js/css_browser_selector_dev_min.js"></script>
-    <script async src="js/CRTC-min.js"></script>
+    <script async src="js/CRTC.min.js"></script>
 </head>
 
 <body>
-<!-- "Fork me on GitHub!" banner from
-https://github.com/blog/273-github-ribbons
--->
-<a href="https://github.com/le717/CRTC#readme"><img style="position:absolute; top:0; right:0; border:0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
-
-<h1>Cycles Render Time Calculator</h1>
-<p><em>Calculate approximate GPU render times when using the Blender Cycles Engine</em></p>
-
-<form>
-    <!-- Radio buttons and checkbox -->
-    <input type="radio" id="prradio" name="rendertype" onclick="changeFields()" checked="checked">
-    <label for="prradio">Progressive Refine</label>
-    <input type="radio" id="tileradio" name="rendertype" onclick="changeFields()">
-    <label for="tileradio">Tiles</label>
-    <input type="checkbox" id="videocheck" onclick="isVideo()">
-    <label for="videocheck">Multi-frame animation (Video)</label>
-
-    <!-- Uncheck the video checkbox upon page load -->
-    <script>
-        document.getElementById("videocheck").checked=false;
-    </script>
-
-    <br><br>
-    <!-- Input fields -->
-    <ul>
-    <!-- Error message box -->
-    <li id="errmessage"></li>
-    <li><label id="numof1label" for="field1">Number of Samples: </label></li>
-    <li><input id="field1" type="text" placeholder="150" autocomplete="off"></li>
-    <li><label id="numof2label" for="field2">Render time of one Sample (in seconds): </label></li>
-    <li><input id="field2" type="text" placeholder="120" autocomplete="off"></li>
-    <li><div id="numofframes"></div></li>
-    </ul>
-
-    <!-- Calculate button -->
-    <input type="submit" value="Calculate!" onclick="calculate(); return false">
-</form>
-
-<!-- Where the calculation results appear -->
-<h3>Results</h3>
-<div>It will take approximately <span id="results"><strong>0 seconds</strong></span> to render your animation.</div>
-
-<!--  Warning about browser compatibility issues -->
-<br><strong>Cycles Render Time Calculator</strong> is best viewed in <a target="_blank" href="http://mozilla.org/firefox">Mozilla Firefox</a>,
-<a target="_blank" href="https://www.google.com/chrome">Google Chrome</a>, or
-<a target="_blank" href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Internet Explorer 10</a> and above.
-<br>
-Some elements may be broken in other browsers.
-<br>
-<!-- Creators -->
-<footer><span style="font-size:11px;">An <a target="_blank" href="https://github.com/le717/CRTC/tree/gh-pages">open-source</a> experiment by
-<a target="_blank" href="http://Triangle717.WordPress.com">Triangle717</a> and
-<a target="_blank" href="http://rioforce.WordPress.com">rioforce</a>.</span></footer>
+    <!-- "Fork me on GitHub!" banner from
+    https://github.com/blog/273-github-ribbons
+    -->
+    <a href="https://github.com/le717/CRTC#readme"><img style="position:absolute; top:0; right:0; border:0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    
+    <h1>Cycles Render Time Calculator</h1>
+    <p><em>Calculate approximate GPU render times when using the Blender Cycles Engine</em></p>
+    
+    <form>
+        <!-- Radio buttons and checkbox -->
+        <input type="radio" id="prradio" name="rendertype" onclick="changeFields()" checked="checked">
+        <label for="prradio">Progressive Refine</label>
+        <input type="radio" id="tileradio" name="rendertype" onclick="changeFields()">
+        <label for="tileradio">Tiles</label>
+        <input type="checkbox" id="videocheck" onclick="isVideo()">
+        <label for="videocheck">Multi-frame animation (Video)</label>
+    
+        <!-- Uncheck the video checkbox upon page load -->
+        <script>
+            document.getElementById("videocheck").checked=false;
+        </script>
+    
+        <br><br>
+        <!-- Input fields -->
+        <ul>
+            <!-- Error message box -->
+            <li id="errmessage"></li>
+            <li><label id="numof1label" for="field1">Number of Samples: </label></li>
+            <li><input id="field1" type="text" placeholder="150" autocomplete="off"></li>
+            <li><label id="numof2label" for="field2">Render time of one Sample (in seconds): </label></li>
+            <li><input id="field2" type="text" placeholder="120" autocomplete="off"></li>
+            <li><div id="numofframes"></div></li>
+        </ul>
+    
+        <!-- Calculate button -->
+        <input type="submit" value="Calculate!" onclick="calculate(); return false">
+    </form>
+    
+    <!-- Where the calculation results appear -->
+    <h3>Results</h3>
+    <div>It will take approximately <span id="results"><strong>0 seconds</strong></span> to render your animation.</div>
+    
+    <!--  Warning about browser compatibility issues -->
+    <br><strong>Cycles Render Time Calculator</strong> is best viewed in <a target="_blank" href="http://mozilla.org/firefox">Mozilla Firefox</a>,
+    <a target="_blank" href="https://www.google.com/chrome">Google Chrome</a>, or
+    <a target="_blank" href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Internet Explorer 10</a> and above.
+    <br>
+    Some elements may be broken in other browsers.
+    <br>
+    <!-- Creators -->
+    <footer>
+        <span style="font-size:11px;">An <a target="_blank" href="https://github.com/le717/CRTC/tree/gh-pages">open-source</a> experiment by
+        <a target="_blank" href="http://Triangle717.WordPress.com">Triangle717</a> and
+        <a target="_blank" href="http://rioforce.WordPress.com">rioforce</a>.</span>
+    </footer>
 </body>
 </html>
