@@ -41,14 +41,16 @@ function isVideo() {
     /* Change field lables depending on if video is being rendered */
 
     // Get state of check box
-    var value = document.querySelector("#video-check").checked;
+    var isVideoChecked = document.querySelector("#video-check").checked;
 
     // Display the field for number of frames
-    if (value) {
-        document.querySelector("#frame-num-div").innerHTML = '<label for="frame-num">Number of frames in animation: </label><li>\n<input id="frame-num" type="text" placeholder="250" autocomplete="off"></li>';
+    if (isVideoChecked) {
+        document.querySelector("#frame-num").style.display = "inline";
+        document.querySelector("#frame-num-label").style.display = "inline";
     } else {
         // It is unchecked, display nothing
-        document.querySelector("#frame-num-div").innerHTML = "";
+        document.querySelector("#frame-num").style.display = "none";
+        document.querySelector("#frame-num-label").style.display = "none";
     }
 }
 

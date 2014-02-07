@@ -39,14 +39,19 @@ li { width: 100%; }
 /* Set font size and family */
 body {
     text-align: center;
-    font-size: 12pt;
+    font-size: 17px;
     font-family: "Arial", sans-serif;
+}
+
+/* Hide video frame input field unless checked */
+#frame-num, #frame-num-label {
+    display: none;
 }
 
 /* Makes render time display stand out more */
 #results {
     background-color: #FFFFFF;
-    box-shadow: 1.3px 1.3px 1.5px 0.2px;
+    box-shadow: 1px 1px 4px 0.2px black;
     padding: 2px;
     font-weight: bold;
 }

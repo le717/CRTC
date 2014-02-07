@@ -43,51 +43,60 @@
     https://github.com/blog/273-github-ribbons
     -->
     <a href="https://github.com/le717/CRTC#readme"><img style="position:absolute; top:0; right:0; border:0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
-    
+
     <h1>Cycles Render Time Calculator</h1>
     <p><em>Calculate approximate GPU render times when using the Blender Cycles Engine</em></p>
-    
+
     <form>
-        <!-- Radio buttons and checkbox -->
+        <!-- Progressive Refine radio button -->
         <input type="radio" id="pro-radio" name="render-type" checked="checked" onclick="changeFields();">
         <label for="pro-radio">Progressive Refine</label>
+
+        <!-- Tiles radio button -->
         <input type="radio" id="tile-radio" name="render-type" onclick="changeFields();">
         <label for="tile-radio">Tiles</label>
+
+        <!-- Multi-frame animation check box -->
         <input type="checkbox" id="video-check" onclick="isVideo();">
         <label for="video-check">Multi-frame animation (Video)</label>
-    
-        <!-- Uncheck the video checkbox upon page load -->
+
+        <!-- Uncheck multi-frame animation upon page load -->
         <script>
             document.querySelector("#video-check").checked = false;
         </script>
-    
+
         <br><br>
-        <!-- Input fields -->
         <ul>
             <!-- Error message box -->
             <li id="error"></li>
-            <li><label id="numof-label" for="numof">Number of Samples: </label></li>
+
             <!-- //TODO: Rework JS for type="number" -->
+            <!-- Number of Samples/Tiles input -->
+            <li><label id="numof-label" for="numof">Number of Samples:</label></li>
             <li><input id="numof" type="text" placeholder="150" autocomplete="off"></li>
-            <li><label id="time-label" for="time">Render time of one Sample (in seconds): </label></li>
+
+            <!-- Time to render input -->
+            <li><label id="time-label" for="time">Render time of one Sample (in seconds):</label></li>
             <li><input id="time" type="text" placeholder="120" autocomplete="off"></li>
-            <!-- //TODO: Move HTML from JS to here, display: none; -->
-            <li><div id="frame-num-div"></div></li>
+
+            <!-- Number of frames input -->
+            <li><label id="frame-num-label" for="frame-num">Number of frames in animation:</label></li>
+            <li><input id="frame-num" type="text" placeholder="250" autocomplete="off"></li>
         </ul>
-    
+
         <!-- Calculate button -->
         <input type="submit" value="Calculate!" onclick="calculate(); return false">
     </form>
-    
+
     <!-- Where the calculation results appear -->
     <h3>Results</h3>
     <div>It will take approximately <span id="results"><strong>0 seconds</strong></span> to render your animation.</div>
     <br>
-    <!-- Creators -->
-    <footer>
-        <span style="font-size: 11px;">An <a target="_blank" href="https://github.com/le717/CRTC#/readme">open-source</a> experiment by
-        <a target="_blank" href="http://Triangle717.WordPress.com">Triangle717</a> and
-        <a target="_blank" href="http://rioforce.WordPress.com">rioforce</a>.</span>
+
+    <!-- Footer -->
+    <footer style="font-size: 11px;">An <a target="_blank" href="https://github.com/le717/CRTC#/readme">open-source</a>
+        experiment by <a target="_blank" href="http://Triangle717.WordPress.com">Triangle717</a> and
+        <a target="_blank" href="http://rioforce.WordPress.com">rioforce</a>.
     </footer>
 </body>
 </html>
