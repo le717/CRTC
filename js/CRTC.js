@@ -25,12 +25,12 @@ function changeFields() {
 
     // User is rendering using Tiles
     if (!rendertype) {
-        numOfLabel.innerHTML = "Number of Tiles:";
-        timeLabel.innerHTML = "Render time of one Tile (in seconds):";
+        numOfLabel.innerHTML = "Number of Tiles<br>";
+        timeLabel.innerHTML = "Render time of one Tile (in seconds)<br>";
     } else {
         // User is rendering using Progressive Refine
-        numOfLabel.innerHTML = "Number of Samples:";
-        timeLabel.innerHTML = "Render time of one Sample (in seconds):";
+        numOfLabel.innerHTML = "Number of Samples<br>";
+        timeLabel.innerHTML = "Render time of one Sample (in seconds)<br>";
     }
 }
 

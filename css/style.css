@@ -10,36 +10,9 @@
     <http://opensource.org/licenses/MIT>
 
 
-All mobile browser rules personally tested by Triangle717
+All mobile browser rules tested by Triangle717
 on 5th gen iPod touch (iOS6) & Sony Xperia LT30at (Android 4.2)
 */
-
-/* Link decoration */
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* Make page contents and bg image fill the entire screen */
-html {
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    border: none;
-    background-color: #E0E0E0;
-    background-image: url("../img/bg.png");
-}
-
-/* Set font size and family */
-body {
-    text-align: center;
-    font-size: 17px;
-    font-family: "Source Sans Pro", "Arial", sans-serif;
-    font-weight: 500;
-}
-
-h1 {
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 700;
-}
 
 /* -------
 Begin CSS GitHub Banner from
@@ -103,13 +76,75 @@ End CSS GitHub Banner from
 http://codepo8.github.io/css-fork-on-github-ribbon/
 ------- */
 
-/* Unordered list stuff */
-ul {
-    list-style: none;
-    -webkit-transform: translate3d(0, -10px, 0);
-    transform: translate3d(0, -10px, 0);
+/* Make page contents and bg image fill the entire screen */
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    background-color: #E0E0E0;
+    background-image: url("../img/bg.png");
 }
-li { width: 100%; }
+
+/* Set font size and family */
+body {
+    font-size: 18px;
+    font-family: "Source Sans Pro", "Arial", sans-serif;
+    font-weight: 300;
+}
+
+/* Style the headers too */
+h1, h3 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Same for tagline */
+#tagline {
+    text-align: center;
+    font-style: italic;
+}
+
+/* ...And results/footer text */
+footer, #results-display {
+    text-align: center;
+}
+
+/* General form positioning */
+form {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+}
+
+/* Link decoration */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Center the radio and check boxes a bit more */
+.rad-check {
+    position: relative;
+    left: 15px;
+}
+
+/* Center the number input fields a bit more */
+.my-input {
+    position: relative;
+    left: 0.353em;
+}
+
+/* Enlarge the number fields a tad */
+input[type="number"] {
+    width: 150px;
+}
+
+/* Spacing around the inputs */
+#numof, #time, #frame-num {
+    margin-bottom: 15px;
+    margin-top: 2px;
+}
 
 /* Hide video frame input field unless checked */
 #frame-num, #frame-num-label {
@@ -120,8 +155,10 @@ li { width: 100%; }
 #results {
     background-color: #FFFFFF;
     box-shadow: 1px 1px 4px 0.2px black;
-    padding: 2px;
-    font-weight: 500;
+    padding: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-weight: 700;
 }
 
 /* Replicate above effect on stock Android browser, and IE 7/8. */
@@ -130,8 +167,10 @@ li { width: 100%; }
     border-style: solid;
     border-width: 1px;
     border-color: #000000;
-    padding: 2px;
-    font-weight: 500;
+    padding: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-weight: 700;
 }
 
 /* Error message display */
