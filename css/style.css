@@ -33,7 +33,13 @@ html {
 }
 
 h1 { font-family: sans-serif; }
-ul { list-style: none; }
+
+/* Unordered list stuff */
+ul {
+    list-style: none;
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+}
 li { width: 100%; }
 
 /* Set font size and family */
@@ -68,6 +74,15 @@ body {
 
 /* Error message display */
 #error {
+    width: 270px;
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0);
+
     font-weight: bold;
     color: red;
+    display: inline;
+
+    /* Fade the error message's coming and going */
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
 }

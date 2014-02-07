@@ -68,20 +68,19 @@
         <br><br>
         <ul>
             <!-- Error message box -->
-            <li id="error"></li>
+            <li id="error">Only numeric values are allowed!</li>
 
-            <!-- //TODO: Rework JS for type="number" -->
             <!-- Number of Samples/Tiles input -->
             <li><label id="numof-label" for="numof">Number of Samples:</label></li>
-            <li><input id="numof" type="text" placeholder="150" autocomplete="off"></li>
+            <li><input id="numof" type="number" placeholder="150" autocomplete="off"></li>
 
             <!-- Time to render input -->
             <li><label id="time-label" for="time">Render time of one Sample (in seconds):</label></li>
-            <li><input id="time" type="text" placeholder="120" autocomplete="off"></li>
+            <li><input id="time" type="number" placeholder="120" autocomplete="off"></li>
 
             <!-- Number of frames input -->
             <li><label id="frame-num-label" for="frame-num">Number of frames in animation:</label></li>
-            <li><input id="frame-num" type="text" placeholder="250" autocomplete="off"></li>
+            <li><input id="frame-num" type="number" placeholder="250" autocomplete="off"></li>
         </ul>
 
         <!-- Calculate button -->

@@ -1,4 +1,4 @@
-/*global document */
+/* global document, console */
 /*
     Cycles Render Time Calculator (CRTC)
     Calculate approximate GPU render times
@@ -20,109 +20,116 @@ Cycles Render Time Calculator - Web Version
 
 
 function changeFields() {
+    "use strict";
     /* Change field lables depending on values chosen */
 
-    // Get state of Progressive Refine radio button
-    var rendertype = document.querySelector("#pro-radio").checked;
+    var numOfLabel = document.querySelector("#numof-label"),
+        timeLabel = document.querySelector("#time-label"),
+        // Get state of Progressive Refine radio button
+        rendertype = document.querySelector("#pro-radio").checked;
 
     // User is rendering using Tiles
     if (!rendertype) {
-        document.querySelector("#numof-label").innerHTML = "Number of Tiles:";
-        document.querySelector("#time-label").innerHTML = "Render time of one Tile (in seconds):";
+        numOfLabel.innerHTML = "Number of Tiles:";
+        timeLabel.innerHTML = "Render time of one Tile (in seconds):";
     } else {
         // User is rendering using Progressive Refine
-        document.querySelector("#numof-label").innerHTML = "Number of Samples:";
-        document.querySelector("#time-label").innerHTML = "Render time of one Sample (in seconds):";
+        numOfLabel.innerHTML = "Number of Samples:";
+        timeLabel.innerHTML = "Render time of one Sample (in seconds):";
     }
 }
 
 
 function isVideo() {
+    "use strict";
     /* Change field lables depending on if video is being rendered */
 
-    // Get state of check box
-    var isVideoChecked = document.querySelector("#video-check").checked;
+    var frameNum = document.querySelector("#frame-num"),
+        frameNumLabel = document.querySelector("#frame-num-label"),
+        // Get state of check box
+        isVideoChecked = document.querySelector("#video-check").checked;
 
     // Display the field for number of frames
     if (isVideoChecked) {
-        document.querySelector("#frame-num").style.display = "inline";
-        document.querySelector("#frame-num-label").style.display = "inline";
+        frameNum.style.display = "inline";
+        frameNumLabel.style.display = "inline";
     } else {
         // It is unchecked, display nothing
-        document.querySelector("#frame-num").style.display = "none";
-        document.querySelector("#frame-num-label").style.display = "none";
+        frameNum.style.display = "none";
+        frameNumLabel.style.display = "none";
     }
 }
 
 
 function displayResults(results) {
+    "use strict";
     /* Display calculation results */
 
-    // Standard messages that may be edited later
-    var hr_text, min_text, sec_text;
-    hr_text = " hours";
-    min_text = " minutes";
-    sec_text = " seconds";
+    var finalResult,
+        // Standard messages that may be edited later
+        hrText = " hours",
+        minText = " minutes",
+        secondsText = " seconds",
 
-    // Convert numbers back to floats (toFixed changed them to strings)
-    var flo_seconds, flo_minutes, flo_hours, final_result;
-    flo_seconds = parseFloat(results[0], 2);
-    flo_minutes = parseFloat(results[1], 2);
-    flo_hours = parseFloat(results[2], 2);
+        // Convert numbers back to floats (toFixed changed them to strings)
+        floatSeconds = parseFloat(results[0], 2),
+        floatMinutes = parseFloat(results[1], 2),
+        floatHours = parseFloat(results[2], 2),
+        resultsDisplay = document.querySelector("#results");
 
     // It will take over an hour
-    if (flo_seconds >= 3600) {
+    if (floatSeconds >= 3600) {
 
         // If it is exactly one hour, change the message to remove the 's'
-        if (flo_hours === 1) {
-            hr_text = hr_text.slice(0, -1);
+        if (floatHours === 1) {
+            hrText = hrText.slice(0, -1);
         }
 
         // Kill trailing .00 if present
         if (results[2].slice(-2) === "00") {
-            final_result = flo_hours;
+            finalResult = floatHours;
         } else {
-            final_result = results[2];
+            finalResult = results[2];
         }
 
         // Construct final time + word display
-        document.querySelector("#results").innerHTML = final_result + hr_text;
+        resultsDisplay.innerHTML = finalResult + hrText;
 
-    // It will take over a minute but less than an hour
-    } else if (flo_seconds >= 60 && flo_seconds < 3599) {
+        // It will take over a minute but less than an hour
+    } else if (floatSeconds >= 60 && floatSeconds < 3599) {
 
         // If it is exactly one minute, change the message to remove the 's'
-        if (flo_minutes === 1) {
-            min_text = min_text.slice(0, -1);
+        if (floatMinutes === 1) {
+            minText = minText.slice(0, -1);
         }
 
         // Kill trailing .00 if present
         if (results[1].slice(-2) === "00") {
-            final_result = flo_minutes;
+            finalResult = floatMinutes;
         } else {
-            final_result = results[1];
+            finalResult = results[1];
         }
 
         // Construct final time + word display
-        document.querySelector("#results").innerHTML = final_result + min_text;
+        resultsDisplay.innerHTML = finalResult + minText;
 
-    // It will take only seconds
-    } else if (flo_seconds <= 59.9) {
+        // It will take only seconds
+    } else if (floatSeconds <= 59.9) {
 
         // If it is exactly one second, change the message to remove the 's'
-        if (flo_seconds === 1) {
-            sec_text = sec_text.slice(0, -1);
+        if (floatSeconds === 1) {
+            secondsText = secondsText.slice(0, -1);
         }
 
         // Kill trailing .00 if present
         if (results[0].slice(-2) === "00") {
-            final_result = flo_seconds;
+            finalResult = floatSeconds;
         } else {
-            final_result = results[0];
+            finalResult = results[0];
         }
 
         // Construct final time + word display
-        document.querySelector("#results").innerHTML = final_result + sec_text;
+        resultsDisplay.innerHTML = finalResult + secondsText;
     }
 }
 
@@ -133,47 +140,49 @@ function displayResults(results) {
 /* ------------ Begin Mathematical Calculations ------------ */
 
 
-function doMath(number1, number2) {
+function doMath(numberOne, numberTwo) {
+    "use strict";
     /* Do the math */
 
     // Holds our math results
-    var values = [];
+    var values = [],
+        errorDisplay = document.querySelector("#error");
 
     // Reset error message display
-    document.querySelector("#error").innerHTML = "";
+    errorDisplay.style.opacity = "0";
+
 
     // Convert input to floats
-    number1 = parseFloat(number1, 2);
-    number2 = parseFloat(number2, 2);
+    numberOne = parseFloat(numberOne, 2);
+    numberTwo = parseFloat(numberTwo, 2);
 
     // Make sure an error if second field for video is invalid
-    if (thisIsVideo && number1 === 0) {
-        number1 =  NaN;
+    if (thisIsVideo && numberOne === 0) {
+        numberOne =  NaN;
     }
 
     // A valid number was not entered
-    if (isNaN(number1) || isNaN(number2) || number1 === "" || number2 === "") {
+    if (isNaN(numberOne) || isNaN(numberTwo)) {
 
-        // Display error message stating only munbers are allowed
-        document.querySelector("#error").innerHTML = "Only numeric values are allowed!";
+        // Display error message stating only numbers are allowed
+        errorDisplay.style.opacity = "1";
 
         // Stop the calculations from running
         return false;
     }
 
     // Set number(s) to 0 to stop display of NaN seconds
-    if (isNaN(number1)) {
-        number1 = 0;
+    if (isNaN(numberOne)) {
+        numberOne = 0;
     }
-    if (isNaN(number2)) {
-        number2 = 0;
+    if (isNaN(numberTwo)) {
+        numberTwo = 0;
     }
 
     // Calculate the seconds, minutes, and hours
-    var seconds, minutes, hours;
-    seconds = number1 * number2;
-    minutes = seconds / 60;
-    hours = seconds / 3600;
+    var seconds = numberOne * numberTwo,
+        minutes = seconds / 60,
+        hours = seconds / 3600;
 
     // Round the calculations off to round to two decimal places
     seconds = seconds.toFixed(2);
@@ -192,32 +201,34 @@ var thisIsVideo;
 
 
 function calculate() {
+    "use strict";
     /* Run process to calculate render time(s) */
 
     // Get the numbers from the fields
-    var first_number, second_number, picture_results;
-    first_number = document.querySelector("#numof").value;
-    second_number = document.querySelector("#time").value;
+    var pictureResults,
+        firstNumber = document.querySelector("#numof").value,
+        secondNumber = document.querySelector("#time").value;
 
     // Do the still image math
-    picture_results = doMath(first_number, second_number);
+    pictureResults = doMath(firstNumber, secondNumber);
 
     // Check if a video is being rendered
     thisIsVideo = document.querySelector("#video-check").checked;
 
-    // If so, get the value entered
-    var number_of_frames, video_results;
     if (thisIsVideo) {
-        number_of_frames = document.querySelector("#frame-num").value;
+        // If so, get the value entered
+        var numberOfFrames, videoResults;
+        numberOfFrames = document.querySelector("#frame-num").value;
 
         // Do the video math
-        video_results = doMath(picture_results[0], number_of_frames);
+        videoResults = doMath(pictureResults[0], numberOfFrames);
 
         // Display the video results
-        displayResults(video_results);
+        displayResults(videoResults);
+
     } else {
         // Display the still image results
-        displayResults(picture_results);
+        displayResults(pictureResults);
     }
 }
 
