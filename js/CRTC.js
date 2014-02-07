@@ -1,8 +1,6 @@
 /* global document, console */
 /*
     Cycles Render Time Calculator (CRTC)
-    Calculate approximate GPU render times
-    when using the Blender Cycles Engine
 
     Created 2013-2014 Triangle717 & rioforce
     <http://Triangle717.WordPress.com/>
@@ -10,9 +8,6 @@
 
     Licensed under The MIT License
     <http://opensource.org/licenses/MIT>
-
--------------------------------------
-Cycles Render Time Calculator - Web Version
 */
 
 

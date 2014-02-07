@@ -1,8 +1,6 @@
 @charset "UTF-8";
 /*
     Cycles Render Time Calculator (CRTC)
-    Calculate approximate GPU render times
-    when using the Blender Cycles Engine
 
     Created 2013-2014 Triangle717 & rioforce
     <http://Triangle717.WordPress.com/>
@@ -11,8 +9,6 @@
     Licensed under The MIT License
     <http://opensource.org/licenses/MIT>
 
--------------------------------------
-Cycles Render Time Calculator - Web Version
 
 All mobile browser rules personally tested by Triangle717
 on 5th gen iPod touch (iOS6) & Sony Xperia LT30at (Android 4.2)
@@ -32,7 +28,80 @@ html {
     background-image: url("../img/bg.png");
 }
 
-h1 { font-family: sans-serif; }
+/* Set font size and family */
+body {
+    text-align: center;
+    font-size: 17px;
+    font-family: "Source Sans Pro", "Arial", sans-serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+}
+
+/* -------
+Begin CSS GitHub Banner from
+http://codepo8.github.io/css-fork-on-github-ribbon/
+------- */
+
+#forkongithub a {
+    background: #F67600;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 40px;
+    font-size: 1rem;
+    line-height: 2rem;
+    position: relative;
+    transition: 0.5s;
+}
+
+#forkongithub a::before, #forkongithub a::after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 1px;
+    background: #fff;
+}
+
+#forkongithub a::after {
+    bottom: 1px;
+    top: auto;
+}
+
+@media screen and (min-width:800px) {
+    #forkongithub {
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        width: 200px;
+        overflow: hidden;
+        height: 200px;
+}
+
+#forkongithub a {
+        width: 200px;
+        position: absolute;
+        top: 60px;
+        right: -60px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        box-shadow: 4px 4px 10px rgba(0,0,0,0.8);
+    }
+}
+
+/* -------
+End CSS GitHub Banner from
+http://codepo8.github.io/css-fork-on-github-ribbon/
+------- */
 
 /* Unordered list stuff */
 ul {
@@ -41,13 +110,6 @@ ul {
     transform: translate3d(0, -10px, 0);
 }
 li { width: 100%; }
-
-/* Set font size and family */
-body {
-    text-align: center;
-    font-size: 17px;
-    font-family: "Arial", sans-serif;
-}
 
 /* Hide video frame input field unless checked */
 #frame-num, #frame-num-label {
@@ -59,7 +121,7 @@ body {
     background-color: #FFFFFF;
     box-shadow: 1px 1px 4px 0.2px black;
     padding: 2px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 /* Replicate above effect on stock Android browser, and IE 7/8. */
@@ -69,7 +131,7 @@ body {
     border-width: 1px;
     border-color: #000000;
     padding: 2px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 /* Error message display */
