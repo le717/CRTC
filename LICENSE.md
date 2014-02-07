@@ -1,8 +1,10 @@
 
 The MIT License (MIT)
 
-Created 2013 Triangle717 & rioforce
+Created 2013-2014 Triangle717 & rioforce
+
 <http://Triangle717.WordPress.com/>
+
 <http://rioforce.WordPress.com/>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

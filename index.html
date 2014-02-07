@@ -10,7 +10,7 @@
     Calculate approximate GPU render times
     when using the Blender Cycles Engine
 
-    Created 2013 Triangle717 & rioforce
+    Created 2013-2014 Triangle717 & rioforce
     <http://Triangle717.WordPress.com/>
     <http://rioforce.wordpress.com/>
 
@@ -27,8 +27,8 @@
 
     <!-- Site title, favicon, JavaScript, CSS stylesheet -->
     <title>Cycles Render Time Calculator</title>
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link rel="stylesheet" href="css/stylesheet.min.css">
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="css/CRTC.min.css" />
 
     <!--
     CSS Browser Selector library, taken from <https://github.com/verbatim/css_browser_selector/>
@@ -49,28 +49,30 @@
     
     <form>
         <!-- Radio buttons and checkbox -->
-        <input type="radio" id="prradio" name="rendertype" onclick="changeFields()" checked="checked">
-        <label for="prradio">Progressive Refine</label>
-        <input type="radio" id="tileradio" name="rendertype" onclick="changeFields()">
-        <label for="tileradio">Tiles</label>
-        <input type="checkbox" id="videocheck" onclick="isVideo()">
-        <label for="videocheck">Multi-frame animation (Video)</label>
+        <input type="radio" id="pro-radio" name="render-type" checked="checked" onclick="changeFields();">
+        <label for="pro-radio">Progressive Refine</label>
+        <input type="radio" id="tile-radio" name="render-type" onclick="changeFields();">
+        <label for="tile-radio">Tiles</label>
+        <input type="checkbox" id="video-check" onclick="isVideo();">
+        <label for="video-check">Multi-frame animation (Video)</label>
     
         <!-- Uncheck the video checkbox upon page load -->
         <script>
-            document.getElementById("videocheck").checked=false;
+            document.querySelector("#video-check").checked = false;
         </script>
     
         <br><br>
         <!-- Input fields -->
         <ul>
             <!-- Error message box -->
-            <li id="errmessage"></li>
-            <li><label id="numof1label" for="field1">Number of Samples: </label></li>
-            <li><input id="field1" type="text" placeholder="150" autocomplete="off"></li>
-            <li><label id="numof2label" for="field2">Render time of one Sample (in seconds): </label></li>
-            <li><input id="field2" type="text" placeholder="120" autocomplete="off"></li>
-            <li><div id="numofframes"></div></li>
+            <li id="error"></li>
+            <li><label id="numof-label" for="numof">Number of Samples: </label></li>
+            <!-- //TODO: Rework JS for type="number" -->
+            <li><input id="numof" type="text" placeholder="150" autocomplete="off"></li>
+            <li><label id="time-label" for="time">Render time of one Sample (in seconds): </label></li>
+            <li><input id="time" type="text" placeholder="120" autocomplete="off"></li>
+            <!-- //TODO: Move HTML from JS to here, display: none; -->
+            <li><div id="frame-num-div"></div></li>
         </ul>
     
         <!-- Calculate button -->
@@ -80,17 +82,10 @@
     <!-- Where the calculation results appear -->
     <h3>Results</h3>
     <div>It will take approximately <span id="results"><strong>0 seconds</strong></span> to render your animation.</div>
-    
-    <!--  Warning about browser compatibility issues -->
-    <br><strong>Cycles Render Time Calculator</strong> is best viewed in <a target="_blank" href="http://mozilla.org/firefox">Mozilla Firefox</a>,
-    <a target="_blank" href="https://www.google.com/chrome">Google Chrome</a>, or
-    <a target="_blank" href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Internet Explorer 10</a> and above.
-    <br>
-    Some elements may be broken in other browsers.
     <br>
     <!-- Creators -->
     <footer>
-        <span style="font-size:11px;">An <a target="_blank" href="https://github.com/le717/CRTC/tree/gh-pages">open-source</a> experiment by
+        <span style="font-size: 11px;">An <a target="_blank" href="https://github.com/le717/CRTC#/readme">open-source</a> experiment by
         <a target="_blank" href="http://Triangle717.WordPress.com">Triangle717</a> and
         <a target="_blank" href="http://rioforce.WordPress.com">rioforce</a>.</span>
     </footer>

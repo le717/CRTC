@@ -60,7 +60,7 @@ Mac OS X build is provided courtesy of [@JrMasterModelBuilder](https://github.co
 License
 -------
 
-**Cycles Render Time Calculator** created 2013 Triangle717 and rioforce.
+**Cycles Render Time Calculator** created 2013-2014 Triangle717 and rioforce.
 Original Python version licensed under the
 [General Public License Version 3](http://www.gnu.org/licenses/gpl.html).
 HTML5/JavaScript website experiment licensed under

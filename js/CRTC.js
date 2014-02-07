@@ -1,9 +1,10 @@
+/*global document */
 /*
     Cycles Render Time Calculator (CRTC)
     Calculate approximate GPU render times
     when using the Blender Cycles Engine
 
-    Created 2013 Triangle717 & rioforce
+    Created 2013-2014 Triangle717 & rioforce
     <http://Triangle717.WordPress.com/>
     <http://rioforce.wordpress.com/>
 
@@ -22,34 +23,34 @@ function changeFields() {
     /* Change field lables depending on values chosen */
 
     // Get state of Progressive Refine radio button
-    var rendertype = document.getElementById("prradio").checked;
+    var rendertype = document.querySelector("#pro-radio").checked;
 
     // User is rendering using Tiles
     if (!rendertype) {
-        document.getElementById("numof1label").innerHTML = "Number of Tiles: ";
-        document.getElementById("numof2label").innerHTML = "Render time of one Tile (in seconds): ";
+        document.querySelector("#numof-label").innerHTML = "Number of Tiles:";
+        document.querySelector("#time-label").innerHTML = "Render time of one Tile (in seconds):";
     } else {
         // User is rendering using Progressive Refine
-        document.getElementById("numof1label").innerHTML = "Number of Samples: ";
-        document.getElementById("numof2label").innerHTML = "Render time of one Sample (in seconds): ";
+        document.querySelector("#numof-label").innerHTML = "Number of Samples:";
+        document.querySelector("#time-label").innerHTML = "Render time of one Sample (in seconds):";
     }
-};
+}
 
 
 function isVideo() {
     /* Change field lables depending on if video is being rendered */
 
     // Get state of check box
-    var value = document.getElementById("videocheck").checked;
+    var value = document.querySelector("#video-check").checked;
 
     // Display the field for number of frames
     if (value) {
-        document.getElementById("numofframes").innerHTML = '<label id="numofframeslabel" for="numofframes">Number of frames in animation: </label><li>\n<input id="field3" type="text" placeholder="250" autocomplete="off"></li>';
+        document.querySelector("#frame-num-div").innerHTML = '<label for="frame-num">Number of frames in animation: </label><li>\n<input id="frame-num" type="text" placeholder="250" autocomplete="off"></li>';
     } else {
         // It is unchecked, display nothing
-        document.getElementById("numofframes").innerHTML = "";
+        document.querySelector("#frame-num-div").innerHTML = "";
     }
-};
+}
 
 
 function displayResults(results) {
@@ -83,7 +84,7 @@ function displayResults(results) {
         }
 
         // Construct final time + word display
-        document.getElementById("results").innerHTML = final_result + hr_text;
+        document.querySelector("#results").innerHTML = final_result + hr_text;
 
     // It will take over a minute but less than an hour
     } else if (flo_seconds >= 60 && flo_seconds < 3599) {
@@ -101,7 +102,7 @@ function displayResults(results) {
         }
 
         // Construct final time + word display
-        document.getElementById("results").innerHTML = final_result + min_text;
+        document.querySelector("#results").innerHTML = final_result + min_text;
 
     // It will take only seconds
     } else if (flo_seconds <= 59.9) {
@@ -119,9 +120,9 @@ function displayResults(results) {
         }
 
         // Construct final time + word display
-        document.getElementById("results").innerHTML = final_result + sec_text;
+        document.querySelector("#results").innerHTML = final_result + sec_text;
     }
-};
+}
 
 
 /* ------------ End Variable Label Texts ------------ */
@@ -137,7 +138,7 @@ function doMath(number1, number2) {
     var values = [];
 
     // Reset error message display
-    document.getElementById("errmessage").innerHTML = "";
+    document.querySelector("#error").innerHTML = "";
 
     // Convert input to floats
     number1 = parseFloat(number1, 2);
@@ -152,7 +153,7 @@ function doMath(number1, number2) {
     if (isNaN(number1) || isNaN(number2) || number1 === "" || number2 === "") {
 
         // Display error message stating only munbers are allowed
-        document.getElementById("errmessage").innerHTML = "Only numeric values are allowed!";
+        document.querySelector("#error").innerHTML = "Only numeric values are allowed!";
 
         // Stop the calculations from running
         return false;
@@ -182,7 +183,7 @@ function doMath(number1, number2) {
     values.push(minutes);
     values.push(hours);
     return values;
-};
+}
 
 // Declare global variable
 var thisIsVideo;
@@ -193,19 +194,19 @@ function calculate() {
 
     // Get the numbers from the fields
     var first_number, second_number, picture_results;
-    first_number = document.getElementById("field1").value;
-    second_number = document.getElementById("field2").value;
+    first_number = document.querySelector("#numof").value;
+    second_number = document.querySelector("#time").value;
 
     // Do the still image math
     picture_results = doMath(first_number, second_number);
 
     // Check if a video is being rendered
-    thisIsVideo = document.getElementById("videocheck").checked;
+    thisIsVideo = document.querySelector("#video-check").checked;
 
     // If so, get the value entered
     var number_of_frames, video_results;
     if (thisIsVideo) {
-        number_of_frames = document.getElementById("field3").value;
+        number_of_frames = document.querySelector("#frame-num").value;
 
         // Do the video math
         video_results = doMath(picture_results[0], number_of_frames);
@@ -216,7 +217,7 @@ function calculate() {
         // Display the still image results
         displayResults(picture_results);
     }
-};
+}
 
 
 /* ------------ End Mathematical Calculations ------------ */
