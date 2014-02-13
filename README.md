@@ -12,8 +12,7 @@ and we were tired of it. We finally determined I should write a Python program t
 Thus **CRTC** was born.
 
 On October 18, 2013, I began rewriting **CRTC** in HTML5/JavaScript form
-as an experiment and learning project on how to create websites. It is hosted using [GitHub Pages](http://pages.github.com)
-and can be accessed at [http://le717.github.io/CRTC](http://le717.github.io/CRTC).
+as an experiment and learning project on how to create websites. It is hosted using [GitHub Pages](http://pages.github.com).
 
 ## Releases ##
 
@@ -21,7 +20,7 @@ All versions of the website are available on the [Releases page](https://github.
 
 ## License ##
 
-*CRTC - Website**, created 2013-2014 Triangle717 and rioforce and licensed under [The MIT License](http://opensource.org/licenses/MIT).
+**CRTC - Website**, created 2013-2014 Triangle717 and rioforce and licensed under [The MIT License](http://opensource.org/licenses/MIT).
 
 **CRTC** makes use of the [**CSS Browser Selector**](https://github.com/verbatim/css_browser_selector) library,
 originally created by [Rafael Lima] (http://rafael.adm.br), which is licensed under the [CC BY 2.5](http://creativecommons.org/licenses/by/2.5/).
