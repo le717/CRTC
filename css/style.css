@@ -1,17 +1,16 @@
-@charset "UTF-8";
 /*
-    Cycles Render Time Calculator (CRTC)
-
-    Created 2013-2014 Triangle717 & rioforce
-    <http://Triangle717.WordPress.com/>
-    <http://rioforce.wordpress.com/>
-
-    Licensed under The MIT License
-    <http://opensource.org/licenses/MIT>
-
-
-All mobile browser rules tested by Triangle717
-on 5th gen iPod touch (iOS6) & Sony Xperia LT30at (Android 4.2)
+ * Cycles Render Time Calculator (CRTC)
+ *
+ * Created 2013-2014 Triangle717 & rioforce
+ * <http://Triangle717.WordPress.com/>
+ * <http://rioforce.wordpress.com/>
+ *
+ * Licensed under The MIT License
+ * <http://opensource.org/licenses/MIT>
+ *
+ *
+ * All mobile browser rules tested by Triangle717
+ * on 5th gen iPod touch (iOS6) & Sony Xperia LT30at (Android 4.2)
 */
 
 /* -------
@@ -20,55 +19,56 @@ http://codepo8.github.io/css-fork-on-github-ribbon/
 ------- */
 
 #forkongithub a {
-    background: #F67600;
-    color: #fff;
-    text-decoration: none;
-    font-family: arial, sans-serif;
-    text-align: center;
-    font-weight: bold;
-    padding: 5px 40px;
-    font-size: 1rem;
-    line-height: 2rem;
-    position: relative;
-    transition: 0.5s;
+  background: #F67600;
+  color: #fff;
+  text-decoration: none;
+  font-family: arial, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 40px;
+  font-size: 1rem;
+  line-height: 2rem;
+  position: relative;
+  transition: 0.5s;
 }
 
 #forkongithub a::before, #forkongithub a::after {
-    content: "";
-    width: 100%;
-    display: block;
-    position: absolute;
-    top: 1px;
-    left: 0;
-    height: 1px;
-    background: #fff;
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 1px;
+  background: #fff;
 }
 
 #forkongithub a::after {
-    bottom: 1px;
-    top: auto;
+  bottom: 1px;
+  top: auto;
 }
 
 @media screen and (min-width:800px) {
-    #forkongithub {
-        position: absolute;
-        display: block;
-        top: 0;
-        right: 0;
-        width: 200px;
-        overflow: hidden;
-        height: 200px;
+  #forkongithub {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 200px;
+    overflow: hidden;
+    height: 200px;
 }
 
-#forkongithub a {
-        width: 200px;
-        position: absolute;
-        top: 60px;
-        right: -60px;
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
-        box-shadow: 4px 4px 10px rgba(0,0,0,0.8);
-    }
+  #forkongithub a {
+    width: 200px;
+    position: absolute;
+    top: 60px;
+    right: -60px;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.8);
+  }
 }
 
 /* -------
@@ -78,45 +78,43 @@ http://codepo8.github.io/css-fork-on-github-ribbon/
 
 /* Make page contents and bg image fill the entire screen */
 html {
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    border: none;
-    background-color: #E0E0E0;
-    background-image: url("../img/bg.png");
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  border: none;
+  background-color: #E0E0E0;
+  background-image: url("../img/bg.png");
 }
 
 /* Set font size and family */
 body {
-    font-size: 18px;
-    font-family: "Source Sans Pro", "Arial", sans-serif;
-    font-weight: 300;
+  font-size: 18px;
+  font-family: "Source Sans Pro", "Arial", sans-serif;
+  font-weight: 300;
 }
 
 /* Style the headers too */
 h1, h3 {
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 700;
-    text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  text-align: center;
 }
 
 /* Same for tagline */
 #tagline {
-    text-align: center;
-    font-style: italic;
+  text-align: center;
+  font-style: italic;
 }
 
 /* ...And results/footer text */
-footer, #results-display {
-    text-align: center;
-}
+footer, #results-display { text-align: center; }
 
 /* General form positioning */
 form {
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-    width: 50%;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
 }
 
 /* Link decoration */
@@ -125,65 +123,51 @@ a:hover { text-decoration: underline; }
 
 /* Center the radio and check boxes a bit more */
 .rad-check {
-    position: relative;
-    left: 15px;
+  position: relative;
+  left: 15px;
 }
 
 /* Center the number input fields a bit more */
 .my-input {
-    position: relative;
-    left: 0.353em;
+  position: relative;
+  left: 0.353em;
 }
 
 /* Enlarge the number fields a tad */
-input[type="number"] {
-    width: 150px;
-}
+input[type="number"] { width: 150px; }
 
 /* Spacing around the inputs */
 #numof, #time, #frame-num {
-    margin-bottom: 15px;
-    margin-top: 2px;
+  margin-bottom: 15px;
+  margin-top: 2px;
 }
 
 /* Hide video frame input field unless checked */
-#frame-num, #frame-num-label {
-    display: none;
-}
+#frame-num, #frame-num-label { display: none; }
 
 /* Makes render time display stand out more */
 #results {
-    background-color: #FFFFFF;
-    box-shadow: 1px 1px 4px 0.2px black;
-    padding: 1px;
-    padding-left: 3px;
-    padding-right: 3px;
-    font-weight: 700;
-}
-
-/* Replicate above effect on stock Android browser, and IE 7/8. */
-.ie7 #results, .ie8 #results, .android .webkit, .android #results  {
-    background-color: #FFFFFF;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #000000;
-    padding: 1px;
-    padding-left: 3px;
-    padding-right: 3px;
-    font-weight: 700;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 4px 0.2px black;
+          box-shadow: 1px 1px 4px 0.2px black;
+  padding: 1px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-weight: 700;
 }
 
 /* Error message display */
 #error {
-    width: 270px;
-    -webkit-transform: translate3d(0, -15px, 0);
-    transform: translate3d(0, -15px, 0);
+  width: 270px;
+  -webkit-transform: translate3d(0, -15px, 0);
+      -ms-transform: translate3d(0, -15px, 0);
+          transform: translate3d(0, -15px, 0);
 
-    font-weight: bold;
-    color: red;
-    display: inline;
+  font-weight: bold;
+  color: red;
+  display: inline;
 
-    /* Fade the error message's coming and going */
-    opacity: 0;
-    transition: opacity 0.2s ease-out;
+  /* Fade the error message's coming and going */
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
 }

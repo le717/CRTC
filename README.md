@@ -16,11 +16,8 @@ as an experiment and learning project on how to create websites. It is hosted us
 
 ## Releases ##
 
-All versions of the website are available on the [Releases page](https://github.com/le717/CRTC/releases).
+All website revisions are available on the [Releases page](https://github.com/le717/CRTC/releases).
 
 ## License ##
 
-**CRTC - Website**, created 2013-2014 Triangle717 and rioforce and licensed under [The MIT License](http://opensource.org/licenses/MIT).
-
-**CRTC** makes use of the [**CSS Browser Selector**](https://github.com/verbatim/css_browser_selector) library,
-originally created by [Rafael Lima] (http://rafael.adm.br), which is licensed under the [CC BY 2.5](http://creativecommons.org/licenses/by/2.5/).
+**CRTC - Website**, created 2013-2014 Triangle717 and rioforce licensed under [The MIT License](http://opensource.org/licenses/MIT).

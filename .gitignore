@@ -44,5 +44,8 @@ Archives/
 Compile/
 Release/
 Testing/
+New folder/
 bin/
 *.py
+*.x*
+*.zip

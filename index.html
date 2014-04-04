@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!--
+  <!--
     Cycles Render Time Calculator (CRTC)
 
     Created 2013-2014 Triangle717 & rioforce
@@ -14,85 +14,80 @@
 
     Licensed under The MIT License
     <http://opensource.org/licenses/MIT>
-    -->
+  -->
 
-    <!-- Force IE to recognize HTML5 code -->
-    <!--[if IE]>
-        <script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark menu meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script>
-    <![endif]-->
+  <!-- Force IE to recognize HTML5 code -->
+  <!--[if IE]>
+    <script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark menu meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script>
+  <![endif]-->
 
-    <!-- Site title, favicon, JavaScript, CSS stylesheet -->
-    <title>Cycles Render Time Calculator</title>
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <!-- Site title, favicon, JavaScript, CSS stylesheet -->
+  <title>Cycles Render Time Calculator</title>
+  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-    <!-- Pull in a Google Font -->
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" />
-    <link rel="stylesheet" href="css/CRTC.min.css" />
-
-    <!--
-    CSS Browser Selector library, taken from <https://github.com/verbatim/css_browser_selector/>
-    under the CC BY 2.5 license <http://creativecommons.org/licenses/by/2.5/>
-    -->
-    <script async src="js/css_browser_selector_dev_min.js"></script>
-    <script async src="js/CRTC.min.js"></script>
+  <!-- Pull in a Google Font -->
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700" rel="stylesheet" />
+  <link rel="stylesheet" href="css/CRTC.min.css" />
 </head>
 
 <body>
-    <!-- "Fork me on GitHub!" CSS banner from
+  <!--
+    "Fork me on GitHub!" CSS banner from
     http://codepo8.github.io/css-fork-on-github-ribbon/
-    -->
-    <span id="forkongithub"><a href="https://github.com/le717/CRTC">Fork me on GitHub</a></span>
+  -->
+  <span id="forkongithub"><a href="https://github.com/le717/CRTC">Fork me on GitHub</a></span>
 
-    <h1>Cycles Render Time Calculator</h1>
-    <p id="tagline">Calculate approximate GPU render times when&nbsp;using the Blender Cycles Engine</p>
+  <h1>Cycles Render Time Calculator</h1>
+  <p id="tagline">Calculate approximate GPU render times when&nbsp;using the Blender Cycles Engine</p>
 
-    <form>
-        <!-- Progressive Refine radio button -->
-        <input class="rad-check" type="radio" id="pro-radio" name="render-type" checked="checked" onclick="changeFields();" />
-        <label class="rad-check" for="pro-radio">Progressive Refine</label>
+  <form>
+      <!-- Progressive Refine radio button -->
+      <input class="rad-check" type="radio" id="pro-radio" name="render-type" checked="checked" onclick="changeFields();" />
+      <label class="rad-check" for="pro-radio">Progressive&nbsp;Refine</label>
 
-        <!-- Tiles radio button -->
-        <input class="rad-check" type="radio" id="tile-radio" name="render-type" onclick="changeFields();" />
-        <label class="rad-check" for="tile-radio">Tiles</label>
+      <!-- Tiles radio button -->
+      <input class="rad-check" type="radio" id="tile-radio" name="render-type" onclick="changeFields();" />
+      <label class="rad-check" for="tile-radio">Tiles</label><br>
 
-        <!-- Multi-frame animation check box -->
-        <input class="rad-check" type="checkbox" id="video-check" onclick="isVideo();" />
-        <label class="rad-check" for="video-check">Multi-frame animation (Video)</label>
-        <br><br>
+      <!-- Multi-frame animation check box -->
+      <input class="rad-check" type="checkbox" id="video-check" onclick="isVideo();" />
+      <label class="rad-check" for="video-check">Multi-frame&nbsp;animation&nbsp;(Video)</label>
+      <br><br>
 
-        <!-- Error message box -->
-        <div class="my-input" id="error">Only numeric values are allowed!</div><br>
+      <!-- Error message box -->
+      <div class="my-input" id="error">Only numeric values are allowed!</div><br>
 
-        <!-- Number of Samples/Tiles input -->
-        <label class="my-input" id="numof-label" for="numof">Number of Samples<br></label>
-        <input class="my-input" id="numof" type="number" placeholder="150" autocomplete="off" /><br>
+      <!-- Number of Samples/Tiles input -->
+      <label class="my-input" id="numof-label" for="numof">Number of Samples<br></label>
+      <input class="my-input" id="numof" type="number" placeholder="150" autocomplete="off" /><br>
 
-        <!-- Time to render input -->
-        <label class="my-input" id="time-label" for="time">Render time of one Sample (in seconds)<br></label>
-        <input class="my-input" id="time" type="number" placeholder="120" autocomplete="off" /><br>
+      <!-- Time to render input -->
+      <label class="my-input" id="time-label" for="time">Render time of one Sample (in seconds)<br></label>
+      <input class="my-input" id="time" type="number" placeholder="120" autocomplete="off" /><br>
 
-        <!-- Number of frames input -->
-        <label class="my-input" id="frame-num-label" for="frame-num">Number of frames in animation<br></label>
-        <input class="my-input" id="frame-num" type="number" placeholder="250" autocomplete="off" /><br>
+      <!-- Number of frames input -->
+      <label class="my-input" id="frame-num-label" for="frame-num">Number of frames in animation<br></label>
+      <input class="my-input" id="frame-num" type="number" placeholder="250" autocomplete="off" /><br>
 
-        <!-- Calculate button -->
-        <input type="submit" value="Calculate!" onclick="calculate(); return false">
-    </form>
+      <!-- Calculate button -->
+      <input type="submit" value="Calculate!" onclick="calculate(); return false">
+  </form>
 
-    <!-- Where the calculation results appear -->
-    <h3>Results</h3>
-    <div id="results-display">It will take approximately&nbsp;&nbsp;<span id="results">0 seconds</span>&nbsp;&nbsp;to render your animation.</div>
-    <br>
+  <!-- Where the calculation results appear -->
+  <h3>Results</h3>
+  <div id="results-display">It will take approximately<br><span id="results">0&nbsp;seconds</span><br>to render your animation.</div>
+  <br>
 
-    <!-- Footer -->
-    <footer style="font-size: 13px;">An <a target="_blank" href="https://github.com/le717/CRTC/#readme">open-source</a>
-        experiment by <a target="_blank" href="http://Triangle717.WordPress.com">Triangle717</a> and
-        <a target="_blank" href="http://rioforce.WordPress.com">rioforce</a>.
-    </footer>
+  <!-- Footer -->
+  <footer style="font-size: 13px;">An <a target="_blank" href="https://github.com/le717/CRTC/#readme">open-source</a>
+    experiment by <a target="_blank" href="http://Triangle717.WordPress.com">Triangle717</a> and
+    <a target="_blank" href="http://rioforce.WordPress.com">rioforce</a>.
+  </footer>
 
-    <!-- Uncheck multi-frame animation upon page load -->
-    <script>
-        document.querySelector("#video-check").checked = false;
-    </script>
+  <script>
+    // Uncheck multi-frame animation upon page load
+    document.querySelector("#video-check").checked = false;
+  </script>
+  <script async src="js/CRTC.min.js"></script>
 </body>
 </html>
